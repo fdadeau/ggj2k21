@@ -1,0 +1,21 @@
+{
+    "name": "ggj-2k21",
+    "description": "Game for the Global Game Jam 2021 - Site Besançon - Team 42",
+    "version": "0.0.1",
+    "main": "index.html",
+    "scripts": {
+        "serve": "budo --dir ./ --live"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/fdadeau/ggj2k21.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "CC BY-NC-SA 4.0",
+    "homepage": "https://github.com/fdadeau/ggj2k21",
+    "devDependencies": {
+        "budo": "^11.6.4"
+    },
+    "dependencies": {}
+}
