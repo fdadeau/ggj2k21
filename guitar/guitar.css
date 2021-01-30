@@ -1,0 +1,108 @@
+.minigame {
+    width: 100vw;
+    height: 100vh;
+    position: absolute; 
+    top: 0;
+    left: 0;
+}
+
+#bcGuitar {
+    box-sizing: border-box;
+    display: none;
+    margin: 20vh 20vw;
+    width: 60vw;
+    height: 60vh;
+    border: solid 2px #000;
+    box-shadow: 10px 10px 10px #000;
+}
+
+#bcGuitar.show {
+    display: block;
+}
+
+#fog {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .8);
+    z-index: 0;
+}
+
+#bcGuitar.blackout #fog {
+    display: block;
+    z-index: 1;
+}
+
+div#guitar-neck {
+    position: relative;
+    width: 100%;
+    height: 26vh;
+    background: url('assets/guitar-neck.webp') no-repeat;
+    background-size: cover;
+    background-position: -7vh;
+}
+
+div#guitar-neck a {
+    position: absolute;
+    width: 3vh;
+    height: 3vh;
+    background: rgba(128, 128, 128, 0.5);
+    border-radius: 10px;
+}
+
+div#guitar-neck a:hover {
+    background: rgba(128, 128, 128, 0.8);
+}
+
+a#note-A {
+    left: 51vh;
+    top: 17.9vh;
+}
+
+a#note-C {
+    left: 76vh;
+    top: 17.9vh;
+}
+
+a#note-D {
+    left: 51vh;
+    top: 15vh;
+}
+
+a#note-E {
+    left: 68vh;
+    top: 15vh;
+}
+
+a#note-G {
+    left: 51vh;
+    top: 12vh;
+}
+
+a#note-a {
+    left: 68vh;
+    top: 12vh;
+}
+
+a#note-c {
+    left: 51vh;
+    top: 9.2vh;
+}
+
+a#note-d {
+    left: 68vh;
+    top: 9.2vh;
+}
+
+a#note-e {
+    left: 51vh;
+    top: 6.5vh;
+}
+
+a#note-g {
+    left: 76vh;
+    top: 6.6vh;
+}
