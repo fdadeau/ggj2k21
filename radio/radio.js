@@ -34,7 +34,7 @@ function RadioGame(element) {
             }
             while (this.distance() < 50);
             this.element.dataset.frequency = (this.current/10).toFixed(1);
-            document.getElementById("bcRadioDebug").innerHTML = this.target;
+            document.getElementById("bcRadioDebug").innerHTML = (this.target/10).toFixed(1);
         },
         // update
         update: function(now) {
@@ -50,7 +50,7 @@ function RadioGame(element) {
                 }
                 while (this.distance() < 50);
                 this.changeDate = null;
-                document.getElementById("bcRadioDebug").innerHTML = this.target;
+                document.getElementById("bcRadioDebug").innerHTML = (this.target/10).toFixed(1);
             }
 
             // no change
