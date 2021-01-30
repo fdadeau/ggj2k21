@@ -103,13 +103,14 @@ function GuitarGame(element) {
     }
 
     this.playFinale = function () {
-        this.code.split('').forEach(async (note, index) => {
+        const AMinor7 = ['A3', 'E3', 'A4', 'C4', 'G4']
+        AMinor7.forEach(async (note, index) => {
             await this.sleep(50 * (index + 1))
-            createjs.Sound.play(`regulars/${this.mapping[note]}`)
+            createjs.Sound.play(`regulars/${note}`)
         })
 
-        window.setTimeout(() => { createjs.Sound.play('short-circuit') }, 950)
-        window.setTimeout(() => { element.classList.add('blackout') }, 1300)
+        window.setTimeout(() => { createjs.Sound.play('short-circuit') }, 900)
+        window.setTimeout(() => { element.classList.add('blackout') }, 1250)
     }
 
     this.play = function () {
