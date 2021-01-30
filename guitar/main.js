@@ -1,5 +1,3 @@
-function sleep (delay = 50) { return new Promise((resolve) => { setTimeout(resolve, delay) }) }
-
 async function main () {
     const code = generateCode()
     let currentAttempt = ''
@@ -32,6 +30,10 @@ function generateCode () {
 function setPlayback (code) {
     play(code)
     return window.setInterval(() => play(code), 5000)
+}
+
+function sleep (delay = 50) { 
+    return new Promise((resolve) => { setTimeout(resolve, delay) }) 
 }
 
 function stopPlayback (intervalId) {
