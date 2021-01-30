@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Test telescope</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="telescope.css">
+    <script src="telescope.js"></script>
+    <script>
+        
+        document.addEventListener("DOMContentLoaded", function() {
+
+            var current = new TelescopeGame(document.getElementById("bcTelescope"));
+
+            document.getElementById("showBcTelescope").addEventListener("click", function() {
+                current.start();
+            });
+
+            function mainloop() {
+                requestAnimationFrame(mainloop);
+                var now = Date.now();
+                if (current && current.update) {
+                    current.update(now);
+                }
+            }
+            mainloop();
+
+        });
+
+    </script>
+</head>
+
+
+<body>
+    <button id="showBcTelescope">Play</button>
+    <section id="bcTelescope" class="minigame">
+        <div id="bcTelescopeStars"></div>
+        <div id="bcTelescopeLens"></div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+.minigame {
+    width: 100vw;
+    height: 100vh;
+    position: absolute; 
+    top: 0;
+    left: 0;
+}
+
+#bcTelescope {
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: white;
+    display: none;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    cursor: none;
+    overflow: hidden;
+    background-color: black;
+}
+#bcTelescope.show {
+    display: block;
+}
+
+
+#bcTelescopeStars {
+    display: block;
+    width: 100vw;
+    height: 200vh;
+    transform-origin: center center;
+    position: absolute; 
+    left: 0;
+    top: 0;
+    animation-name: animStars;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-delay: 0s;
+    animation-timing-function: linear;
+    animation-direction: normal;
+    background-color: black;
+}
+
+@keyframes animStars {
+    0% {
+        transform: rotate(0deg);   
+    }
+    100% {
+        transform: rotate(360deg);   
+    }
+}
+
+
+#bcTelescopeStars .star {
+    position: absolute;
+    transform-origin: center;
+}
+#bcTelescopeStars .star:before, #bcTelescopeStars .star:after {
+    display: block;
+    position: absolute;
+    text-align: center;
+    color: white;
+    font-size: 400%;
+    width: 5vw;
+    height: 5vw;
+}
+#bcTelescopeStars .star[data-order="1"]:before {
+     content: '\2726';   
+}
+#bcTelescopeStars .star[data-order="2"]:before {
+     content: '\2605';   
+}
+#bcTelescopeStars .star[data-order="3"]:before {
+     content: '\2736';   
+}
+#bcTelescopeStars .star[data-order="4"]:before {
+     content: '\2737';   
+}
+#bcTelescopeStars .star:after {
+    content: attr(data-number);   
+    color: black;
+    font-size: 150%;
+    text-align: center;
+    padding-top: 2vw;
+    line-height: 3vw;
+    vertical-align: middle;
+}
+#bcTelescopeStars .star[data-number="6"]:after, #bcTelescopeStars .star[data-number="9"]:after {
+    padding-bottom: 0.3vw;
+    text-decoration: underline;   
+}
+
+
+#bcTelescopeLens {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: center;
+    transform: translate(-50%, -50%); 
+    border: solid 0.2vw white;
+    border-radius: 50%;
+    width: 80vh;
+    border: solid 100vw #222;
+    height: 80vh;
+}   
