@@ -19,7 +19,7 @@ function setup () {
 
         createjs.Sound.registerSound(`notes/regulars/${fileName}.mp3`, soundId)
 
-        document.querySelector('tr.string > td#note-' + note).addEventListener('click', () => {
+        document.querySelector('a#note-' + note).addEventListener('click', () => {
             let attempt = document.querySelector('input[name=currentAttempt]')
 
             attempt.value += note
@@ -29,6 +29,8 @@ function setup () {
             }
 
             createjs.Sound.play(soundId)
+
+            return false
         })
     })
 }

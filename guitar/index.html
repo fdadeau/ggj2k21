@@ -3,10 +3,74 @@
 <head>
     <title>The Guitar mini-game</title>
     <style>
-        td.note {
-            font-weight: bold;
-            padding: 15px;
-            background: green;
+        div#guitar-neck {
+            position: relative;
+            width: 980px;
+            height: 180px;
+            background: url('assets/guitar-neck.webp') no-repeat;
+            background-size: cover;
+        }
+
+        div#guitar-neck a {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: rgba(128, 128, 128, 0.5);
+            border-radius: 10px;
+        }
+
+        div#guitar-neck a:hover {
+            background: rgba(128, 128, 128, 0.8);
+        }
+
+        a#note-A {
+            left: 402px;
+            top: 122px;
+        }
+        
+        a#note-C {
+            left: 582px;
+            top: 123px;
+        }
+        
+        a#note-D {
+            left: 402px;
+            top: 103px;
+        }
+        
+        a#note-E {
+            left: 527px;
+            top: 103px;
+        }
+        
+        a#note-G {
+            left: 402px;
+            top: 84px;
+        }
+        
+        a#note-a {
+            left: 527px;
+            top: 84px;
+        }
+        
+        a#note-c {
+            left: 402px;
+            top: 66px;
+        }
+        
+        a#note-d {
+            left: 527px;
+            top: 66px;
+        }
+        
+        a#note-e {
+            left: 402px;
+            top: 46px;
+        }
+        
+        a#note-g {
+            left: 583px;
+            top: 47px;
         }
     </style>
 
@@ -16,41 +80,18 @@
 </head>
 
 <body>
-
-    <table>
-        <tbody>
-            <tr id="string-e" class="string">
-                <td>0</td><td>1</td><td>2</td><td>3</td><td>4</td>
-                <td>5</td><td>6</td><td>7</td><td>8</td><td>9</td>
-                <td>5</td><td>6</td><td>7</td><td>8</td><td>9</td>
-            </tr>
-            <tr id="string-B" class="string">
-                <td>0</td><td>1</td><td>2</td><td>3</td><td>4</td>
-                <td id="note-e" class="note">e</td><td>6</td><td>7</td><td id="note-g" class="note">g</td><td>9</td>
-                <td>5</td><td>6</td><td>7</td><td>8</td><td>9</td>
-            </tr>
-            <tr id="string-G" class="string">
-                <td>0</td><td>1</td><td>2</td><td>3</td><td>4</td>
-                <td id="note-c" class="note">c</td><td>6</td><td id="note-d" class="note">d</td><td>8</td><td>9</td>
-                <td>5</td><td>6</td><td>7</td><td>8</td><td>9</td>
-            </tr>
-            <tr id="string-D" class="string">
-                <td>0</td><td>1</td><td>2</td><td>3</td><td>4</td>
-                <td id="note-G" class="note">G</td><td>6</td><td id="note-a" class="note">a</td><td>8</td><td>9</td>
-                <td>5</td><td>6</td><td>7</td><td>8</td><td>9</td>
-            </tr>
-            <tr id="string-A" class="string">
-                <td>0</td><td>1</td><td>2</td><td>3</td><td>4</td>
-                <td id="note-D" class="note">D</td><td>6</td><td id="note-E" class="note">E</td><td>8</td><td>9</td>
-                <td>5</td><td>6</td><td>7</td><td>8</td><td>9</td>
-            </tr>
-            <tr id="string-E" class="string">
-                <td>0</td><td>1</td><td>2</td><td>3</td><td>4</td>
-                <td id="note-A" class="note">A</td><td>6</td><td>7</td><td id="note-C" class="note">C</td><td>9</td>
-                <td>5</td><td>6</td><td>7</td><td>8</td><td>9</td>
-            </tr>
-        </tbody>
-    </table>
+    <div id="guitar-neck">
+        <a href="#" id="note-A"></a>
+        <a href="#" id="note-C"></a>
+        <a href="#" id="note-D"></a>
+        <a href="#" id="note-E"></a>
+        <a href="#" id="note-G"></a>
+        <a href="#" id="note-a"></a>
+        <a href="#" id="note-c"></a>
+        <a href="#" id="note-d"></a>
+        <a href="#" id="note-e"></a>
+        <a href="#" id="note-g"></a>
+    </div>
 
     <input type="hidden" name="currentAttempt" value="" />
     <script type="text/javascript" src="main.js"></script>
