@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Test Radio</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="radio.css">    
+    <script src="radio.js"></script>
+    <script>
+        
+    document.addEventListener("DOMContentLoaded", function() {
+        
+    var current = new RadioGame(document.getElementById("bcRadio"));    
+        
+    document.getElementById("showBcRadio").addEventListener("click", function() {
+         current.start();
+    });
+        
+    function mainloop() {
+        requestAnimationFrame(mainloop);
+        var now = Date.now();
+        if (current) {
+            current.update(now);   
+        }
+    }
+    mainloop();
+    
+    });
+    </script>
+</head>
+
+    
+<body>
+    <button id="showBcRadio">Play</button>
+    <section id="bcRadio">
+        <div id="bcRadioFrequency">
+            <button id="bcRadioBtnPlus"></button>
+            <button id="bcRadioBtnMinus"></button>
+        </div>
+        <div id="bcRadioDebug"></div>
+    </section>     
+</body>
+
+</html>
