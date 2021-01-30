@@ -46,8 +46,8 @@ async function main () {
         found = currentAttempt === code
     }
 
-    console.log("finally!")
     stopPlayback(intervalId)
+    playChord(code)
 }
 
 function generateCode () {
@@ -73,6 +73,13 @@ function sleep (delay = 50) {
 
 function stopPlayback (intervalId) {
     window.clearInterval(intervalId)
+}
+
+function playChord (code) {
+    code.split('').forEach(async (note, index) => {
+        await sleep(50 * (index + 1))
+        createjs.Sound.play(`regulars/${mapping[note]}`)
+    })
 }
 
 function play(code) {
