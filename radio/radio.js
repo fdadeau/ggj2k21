@@ -155,6 +155,7 @@ function RadioGame(element) {
     // init game data
     freq.reset(freq.generate());
     freq.target = freq.current + 3;
+    document.getElementById("bcRadioDebug").innerHTML = (freq.target/10).toFixed(1);
     code.generate();
 
     /** API **/

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Test Rat</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="rat.css">
+    <script src="rat.js"></script>
+    <script>
+        
+        document.addEventListener("DOMContentLoaded", function() {
+
+            var current = new RatGame(document.getElementById("bcRat"));
+
+            document.getElementById("showBcRat").addEventListener("click", function() {
+                current.start();
+            });
+
+            function mainloop() {
+                requestAnimationFrame(mainloop);
+                var now = Date.now();
+                if (current && current.update) {
+                    current.update(now);
+                }
+            }
+            mainloop();
+
+        });
+
+    </script>
+</head>
+
+
+<body>
+    <button id="showBcRat">Play</button>
+    <section id="bcRat" class="minigame">
+        <div id="bcRatBeast"></div>
+        <div id="bcRatFlashlight"></div>
+    </section>
+</body>
+
+</html>
