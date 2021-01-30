@@ -8,10 +8,10 @@
     <script src="https://code.createjs.com/1.0.0/soundjs.min.js"></script>
     <script src="guitar.js"></script>
     <script>
-        
+        var current = null
         document.addEventListener("DOMContentLoaded", function() {
 
-            var current = new GuitarGame(document.getElementById("bcGuitar"));
+            current = new GuitarGame(document.getElementById("bcGuitar"));
 
             document.getElementById("showBcGuitar").addEventListener("click", function() {
                 current.start();
@@ -34,6 +34,7 @@
 <body>
     <button id="showBcGuitar">Play</button>
     <section id="bcGuitar" class="minigame">
+        <div id="fog"></div>
         <div id="guitar-neck">
             <a href="#" id="note-A"></a>
             <a href="#" id="note-C"></a>

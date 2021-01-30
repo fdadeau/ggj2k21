@@ -20,7 +20,11 @@ function GuitarGame(element) {
     this.over = false
 
     this.setup = function () {
-        ['A', 'C', 'D', 'E', 'G', 'a', 'c', 'd', 'e', 'g'].forEach((note) => {
+        const notes = ['A', 'C', 'D', 'E', 'G', 'a', 'c', 'd', 'e', 'g']
+
+        createjs.Sound.registerSound(`assets/short-circuit.mp3`, 'short-circuit')
+
+        notes.forEach((note) => {
             const
                 fileName = this.mapping[note],
                 soundId = `regulars/${fileName}`
@@ -50,6 +54,7 @@ function GuitarGame(element) {
     this.start = function () {
         this.setup()
         this.code = this.generateCode()
+        console.log(this.code)
         element.classList.add("show");
         this.setPlayback()
         this.started = true
@@ -68,7 +73,7 @@ function GuitarGame(element) {
         const currentAttempt = document.querySelector('input[name=currentAttempt]').value
         if (currentAttempt === this.code) {
             document.querySelector('button#melody-player').disabled = true
-            this.playChord()
+            this.playFinale()
             this.over = true
         }
     }
@@ -97,11 +102,14 @@ function GuitarGame(element) {
         return new Promise((resolve) => { setTimeout(resolve, delay) }) 
     }
 
-    this.playChord = function () {
+    this.playFinale = function () {
         this.code.split('').forEach(async (note, index) => {
             await this.sleep(50 * (index + 1))
             createjs.Sound.play(`regulars/${this.mapping[note]}`)
         })
+
+        window.setTimeout(() => { createjs.Sound.play('short-circuit') }, 950)
+        window.setTimeout(() => { element.classList.add('blackout') }, 1300)
     }
 
     this.play = function () {
