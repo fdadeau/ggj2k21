@@ -1,10 +1,73 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Title of the document</title>
+    <title>The Guitar mini-game</title>
+    <style>
+        td.note {
+            font-weight: bold;
+            padding: 15px;
+            background: green;
+        }
+    </style>
 </head>
 
 <body>
+
+    <table>
+        <tbody>
+            <tr id="string-e" class="string">
+                <td>0</td><td>1</td><td>2</td><td>3</td><td>4</td>
+                <td>5</td><td>6</td><td>7</td><td>8</td><td>9</td>
+                <td>5</td><td>6</td><td>7</td><td>8</td><td>9</td>
+            </tr>
+            <tr id="string-B" class="string">
+                <td>0</td><td>1</td><td>2</td><td>3</td><td>4</td>
+                <td id="note-e" class="note">e</td><td>6</td><td>7</td><td id="note-g" class="note">g</td><td>9</td>
+                <td>5</td><td>6</td><td>7</td><td>8</td><td>9</td>
+            </tr>
+            <tr id="string-G" class="string">
+                <td>0</td><td>1</td><td>2</td><td>3</td><td>4</td>
+                <td id="note-c" class="note">c</td><td>6</td><td id="note-d" class="note">d</td><td>8</td><td>9</td>
+                <td>5</td><td>6</td><td>7</td><td>8</td><td>9</td>
+            </tr>
+            <tr id="string-D" class="string">
+                <td>0</td><td>1</td><td>2</td><td>3</td><td>4</td>
+                <td id="note-G" class="note">G</td><td>6</td><td id="note-a" class="note">a</td><td>8</td><td>9</td>
+                <td>5</td><td>6</td><td>7</td><td>8</td><td>9</td>
+            </tr>
+            <tr id="string-A" class="string">
+                <td>0</td><td>1</td><td>2</td><td>3</td><td>4</td>
+                <td id="note-D" class="note">D</td><td>6</td><td id="note-E" class="note">E</td><td>8</td><td>9</td>
+                <td>5</td><td>6</td><td>7</td><td>8</td><td>9</td>
+            </tr>
+            <tr id="string-E" class="string">
+                <td>0</td><td>1</td><td>2</td><td>3</td><td>4</td>
+                <td id="note-A" class="note">A</td><td>6</td><td>7</td><td id="note-C" class="note">C</td><td>9</td>
+                <td>5</td><td>6</td><td>7</td><td>8</td><td>9</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <input type="hidden" name="currentAttempt" value="" />
+
+    <script type="text/javascript">
+        function updateCurrentAttempt (note) {
+            let attempt = document.querySelector('input[name=currentAttempt]')
+
+            attempt.value += note
+            
+            if (attempt.value.length > 6) {
+                attempt.value = attempt.value.slice(attempt.value.length - 6)
+            }
+        }
+
+        ['A', 'C', 'D', 'E', 'G', 'a', 'c', 'd', 'e', 'g'].forEach((note) => {
+            document.querySelector('tr.string > td#note-' + note).addEventListener('click', () => {
+                updateCurrentAttempt(note)
+            })
+        })
+    </script>
+    <script type="text/javascript" src="main.js"></script>
 
 </body>
 
