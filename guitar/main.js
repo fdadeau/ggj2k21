@@ -47,8 +47,8 @@ async function main () {
         currentAttempt = document.querySelector('input[name=currentAttempt]').value
         found = currentAttempt === code
     }
-
-    stopPlayback(intervalId)
+    
+    document.querySelector('button#melody-player').disabled = true
     playChord(code)
 }
 
@@ -66,15 +66,14 @@ function generateCode () {
 
 function setPlayback (code) {
     play(code)
-    return window.setInterval(() => play(code), 15000)
+    document.querySelector('button#melody-player').addEventListener('click', () => {
+        play(code)
+        return false
+    })
 }
 
 function sleep (delay = 50) { 
     return new Promise((resolve) => { setTimeout(resolve, delay) }) 
-}
-
-function stopPlayback (intervalId) {
-    window.clearInterval(intervalId)
 }
 
 function playChord (code) {
@@ -85,6 +84,8 @@ function playChord (code) {
 }
 
 function play(code) {
+    document.querySelector('button#melody-player').disabled = true
+    window.setTimeout(() => { document.querySelector('button#melody-player').disabled = false }, 6000)
     code.split('').forEach(async (note, index) => {
         await sleep(715 * (index + 1))
         createjs.Sound.play(`regulars/${mapping[note]}`)
