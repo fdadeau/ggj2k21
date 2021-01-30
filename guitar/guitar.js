@@ -49,6 +49,17 @@ function GuitarGame(element) {
                 return false
             })
         })
+
+        this.resize()
+        window.addEventListener('resize', this.resize)
+    }
+
+    this.resize = function () {
+        const ratio = document.documentElement.clientHeight / document.documentElement.clientWidth
+
+        document.querySelectorAll('.fret-V').forEach(element => element.style.left = `${21 * ratio}vw`)
+        document.querySelectorAll('.fret-VII').forEach(element => element.style.left = `${61 * ratio}vw`)
+        document.querySelectorAll('.fret-VIII').forEach(element => element.style.left = `${80 * ratio}vw`)
     }
 
     this.start = function () {

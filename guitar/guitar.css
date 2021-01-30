@@ -39,70 +39,31 @@
 div#guitar-neck {
     position: relative;
     width: 100%;
-    height: 26vh;
-    background: url('assets/guitar-neck.webp') no-repeat;
+    height: 100%;
+    background: url('assets/guitar-neck-v3.webp') no-repeat 0 center;
     background-size: cover;
-    background-position: -7vh;
 }
 
-div#guitar-neck a {
+div#guitar-neck a,
+div.b-neck__strings a {
     position: absolute;
-    width: 3vh;
-    height: 3vh;
+    width: 6vh;
+    height: 6vh;
     background: rgba(128, 128, 128, 0.5);
-    border-radius: 10px;
+    border-radius: 3vh;
 }
 
 div#guitar-neck a:hover {
     background: rgba(128, 128, 128, 0.8);
 }
 
-a#note-A {
-    left: 51vh;
-    top: 17.9vh;
-}
+a.string-VI { top: 40vh; }
+a.string-V { top: 34vh; }
+a.string-IV { top: 28vh; }
+a.string-III { top: 22vh; }
+a.string-II { top: 16vh; }
 
-a#note-C {
-    left: 76vh;
-    top: 17.9vh;
-}
-
-a#note-D {
-    left: 51vh;
-    top: 15vh;
-}
-
-a#note-E {
-    left: 68vh;
-    top: 15vh;
-}
-
-a#note-G {
-    left: 51vh;
-    top: 12vh;
-}
-
-a#note-a {
-    left: 68vh;
-    top: 12vh;
-}
-
-a#note-c {
-    left: 51vh;
-    top: 9.2vh;
-}
-
-a#note-d {
-    left: 68vh;
-    top: 9.2vh;
-}
-
-a#note-e {
-    left: 51vh;
-    top: 6.5vh;
-}
-
-a#note-g {
-    left: 76vh;
-    top: 6.6vh;
-}
+/* the following are actually computed in javascript */
+a.fret-V { left: 10vw; }
+a.fret-VII { left: 30vw; }
+a.fret-VIII { left: 40vw; }
