@@ -9,6 +9,10 @@
             background: green;
         }
     </style>
+
+    <script src="https://code.createjs.com/1.0.0/soundjs.min.js"></script>
+
+
 </head>
 
 <body>
@@ -49,24 +53,6 @@
     </table>
 
     <input type="hidden" name="currentAttempt" value="" />
-
-    <script type="text/javascript">
-        function updateCurrentAttempt (note) {
-            let attempt = document.querySelector('input[name=currentAttempt]')
-
-            attempt.value += note
-            
-            if (attempt.value.length > 6) {
-                attempt.value = attempt.value.slice(attempt.value.length - 6)
-            }
-        }
-
-        ['A', 'C', 'D', 'E', 'G', 'a', 'c', 'd', 'e', 'g'].forEach((note) => {
-            document.querySelector('tr.string > td#note-' + note).addEventListener('click', () => {
-                updateCurrentAttempt(note)
-            })
-        })
-    </script>
     <script type="text/javascript" src="main.js"></script>
 
 </body>

@@ -1,3 +1,38 @@
+const mapping = {
+    A: 'A3',
+    C: 'C3',
+    D: 'D3',
+    E: 'E3',
+    G: 'G3',
+    a: 'A4',
+    c: 'C4',
+    d: 'D4',
+    e: 'E4',
+    g: 'G4'
+}
+
+function setup () {
+    ['A', 'C', 'D', 'E', 'G', 'a', 'c', 'd', 'e', 'g'].forEach((note) => {
+        const
+            fileName = mapping[note],
+            soundId = `regulars/${fileName}`
+
+        createjs.Sound.registerSound(`notes/regulars/${fileName}.mp3`, soundId)
+
+        document.querySelector('tr.string > td#note-' + note).addEventListener('click', () => {
+            let attempt = document.querySelector('input[name=currentAttempt]')
+
+            attempt.value += note
+            
+            if (attempt.value.length > 6) {
+                attempt.value = attempt.value.slice(attempt.value.length - 6)
+            }
+
+            createjs.Sound.play(soundId)
+        })
+    })
+}
+
 async function main () {
     const code = generateCode()
     let currentAttempt = ''
@@ -29,7 +64,7 @@ function generateCode () {
 
 function setPlayback (code) {
     play(code)
-    return window.setInterval(() => play(code), 5000)
+    return window.setInterval(() => play(code), 15000)
 }
 
 function sleep (delay = 50) { 
@@ -41,7 +76,13 @@ function stopPlayback (intervalId) {
 }
 
 function play(code) {
-    console.log(code)
+    code.split('').forEach(async (note, index) => {
+        await sleep(715 * (index + 1))
+        createjs.Sound.play(`regulars/${mapping[note]}`)
+    })
 }
 
-window.addEventListener('load', main)
+window.addEventListener('load', () => {
+    setup()
+    main()
+})
