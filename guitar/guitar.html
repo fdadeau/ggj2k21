@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Test Guitar</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="guitar.css">
+    <script src="https://code.createjs.com/1.0.0/soundjs.min.js"></script>
+    <script src="guitar.js"></script>
+    <script>
+        
+        document.addEventListener("DOMContentLoaded", function() {
+
+            var current = new GuitarGame(document.getElementById("bcGuitar"));
+
+            document.getElementById("showBcGuitar").addEventListener("click", function() {
+                current.start();
+            });
+
+            function mainloop() {
+                requestAnimationFrame(mainloop);
+                var now = Date.now();
+                if (current && current.update) {
+                    current.update(now);
+                }
+            }
+            mainloop();
+
+        });
+
+    </script>
+</head>
+
+<body>
+    <button id="showBcGuitar">Play</button>
+    <section id="bcGuitar" class="minigame">
+        <div id="guitar-neck">
+            <a href="#" id="note-A"></a>
+            <a href="#" id="note-C"></a>
+            <a href="#" id="note-D"></a>
+            <a href="#" id="note-E"></a>
+            <a href="#" id="note-G"></a>
+            <a href="#" id="note-a"></a>
+            <a href="#" id="note-c"></a>
+            <a href="#" id="note-d"></a>
+            <a href="#" id="note-e"></a>
+            <a href="#" id="note-g"></a>
+        </div>
+    
+        <button id="melody-player">
+            Play melody again!
+        </button>
+        <input type="hidden" name="currentAttempt" value="" />
+    </section>
+</body>
+
+</html>
