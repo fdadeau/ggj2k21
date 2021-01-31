@@ -180,8 +180,8 @@ main #bcCharacter {
     position: absolute; 
     transform-origin: center center;
     transform: translate(-50%, -85%);
-    --largeur-perso: 18vw;
-    --hauteur-perso: 27vw;
+    --largeur-perso: 17vw;
+    --hauteur-perso: 25vw;
     width: var(--largeur-perso);
     height: var(--hauteur-perso);
     top: 80%;

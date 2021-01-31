@@ -80,7 +80,6 @@ function Game(scenes, actions) {
         if (poi) {
             btnAction.dataset.poi = poi;
             btnAction.dataset.type = actions[poi].type;
-//            btnAction.dataset.icon = actions[poi].icon;
         } else {
             btnAction.dataset.poi = "";
         }

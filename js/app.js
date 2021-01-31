@@ -126,33 +126,58 @@ document.addEventListener("DOMContentLoaded", function(e) {
         },
         "bathroom-exit-door": {
             type: "door",
-            poi: { x: 56, y: 80, w: 5, h: 8 },
+            poi: { x: 57, y: 80, w: 2, h: 8 },
             isActive: function () {
                 return true;
             },
             start: function () {
                 document.querySelector('#bcBackground').classList.remove('masked-1')
                 game.hero.setPosition(46, 84);
+                game.render();
             }
         },
         "bathroom-entry-door": {
             type: "door",
-            poi: { x: 46, y: 80, w: 5, h: 8 },
+            poi: { x: 46, y: 80, w: 3, h: 8 },
             isActive: function () {
                 return true;
             },
             start: function () {
-                game.hero.setPosition(57, 84);
+                game.hero.setPosition(58, 84);
+                game.render();
             }
         },
         "bedroom-exit-door": {
             type: "door",
-            poi: { x: 20, y: 64, w: 10, h: 4 },
+            poi: { x: 20, y: 65, w: 10, h: 2 },
             isActive: function () {
                 return true;
             },
             start: function () {
-                document.querySelector('#bcBackground').classList.remove('masked-2')
+                document.querySelector('#bcBackground').classList.remove('masked-2');
+                game.hero.setPosition(22, 46);
+                game.render();
+            }
+        },
+        "bedroom-entry-door": {
+            type: "action",
+            poi: { x: 20, y: 46, w: 10, h: 2 },
+            isActive: function () {
+                return true;
+            },
+            start: function () {
+                game.hero.setPosition(22, 66);
+                game.render();
+            }
+        },
+        "final-exit": {
+            type: "action",
+            poi: { x: 5, y: 25, w: 2, h: 8 },
+            isActive: function () {
+                return true;
+            },
+            start: function () {
+                alert("Game over");
             }
         },
         // to be continued...
