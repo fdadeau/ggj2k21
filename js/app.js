@@ -81,7 +81,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
         }, 
         "guitar": {
             type: "game",
-            icon: icons["game"],
             poi: { x: 0, y: 0, w: 0, h: 0 },
             puzzle: new GuitarGame(document.getElementById("bcGuitar")),
             isActive: function() {
@@ -93,7 +92,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
         },
         "lamp": {
             type: "pickup",
-            icon: icons["pickup"],
             poi: { x: 0, y: 0, w: 0, h: 0 },
             done: false,
             isActive: function() {
@@ -106,7 +104,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
         }, 
         "disjunct": {
             type: "game", 
-            icon: icons["game"],
             poi: { x: 0, y: 0, w: 0, h: 0 },
             puzzle: null,   // TODO
             isActive: function() {
@@ -118,7 +115,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
         },
         "bed": {
             type: "thought", 
-            icon: icons["thought"],
             poi: { x: 0, y: 0, w: 0, h: 0 },
             isActive: function() {
                 return true;
@@ -130,7 +126,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
         },
         "bathroom-exit-door": {
             type: "door",
-            icon: icons["door"],
             poi: { x: 56, y: 80, w: 5, h: 8 },
             isActive: function () {
                 return true;
@@ -142,7 +137,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
         },
         "bathroom-entry-door": {
             type: "door",
-            icon: icons["door"],
             poi: { x: 46, y: 80, w: 5, h: 8 },
             isActive: function () {
                 return true;
@@ -152,7 +146,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
             }
         },
         "bedroom-exit-door": {
-            type: "action",
+            type: "door",
             poi: { x: 20, y: 64, w: 10, h: 4 },
             isActive: function () {
                 return true;

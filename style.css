@@ -271,7 +271,7 @@ main #btnAction:not([data-poi=""]) {
     margin-top: 25%;
 }
 #btnAction:not([data-poi=""])[data-type="game"]:before {
-    content: '\01F92B';
+    content: '\01F914';
 }
 #btnAction[data-type="thought"]:before {
     content: '\01F4AD';
