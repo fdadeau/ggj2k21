@@ -1,11 +1,122 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Title of the document</title>
+    <title>Title of the document</title>
+    <meta charset="utf-8">
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="js/gui.js"></script>
+    <script src="js/Character.js"></script>
+    
+    <!-----------------------------------------------
+      -                Mini-games                   -
+      -----------------------------------------------> 
+    
+    <link rel="stylesheet" href="guitar/guitar.css">
+    <script src="guitar/guitar.js"></script>
+    
+    <link rel="stylesheet" href="water/water.css">
+    <script src="water/water.js"></script>
+    
+    <link rel="stylesheet" href="telescope/telescope.css">
+    <script src="telescope/telescope.js"></script>
+    
+    <link rel="stylesheet" href="radio/radio.css">
+    <script src="radio/radio.js"></script>
+    
+    <link rel="stylesheet" href="rat/rat.css">
+    <script src="rat/rat.js"></script>
+    
 </head>
 
 <body>
+    <!-- Main game screen -->
+    <main>
+        <div id="bcBackground" class="sdb">
+            <div id="point"></div>
+        </div>  
+        <div id="bcCharacter"></div>
+        <div id="talk"></div>
+        <div id="btnAction"></div>
+        <div id="joystick"><div></div></div>
+    </main>
+    
+    <!-- Water -->
+    <section id="bcWater" class="minigame">
 
+        <div id="bcWaterPipe"></div>
+        
+        <div id="bcWaterLevels">
+
+            <div id="bcWaterLevelR">
+                <button class="bcWaterBtnPlus"></button>
+                <button class="bcWaterBtnMinus"></button>
+            </div>
+            <div id="bcWaterLevelG">
+                <button class="bcWaterBtnPlus"></button>
+                <button class="bcWaterBtnMinus"></button>
+            </div>
+            <div id="bcWaterLevelB">
+                <button class="bcWaterBtnPlus"></button>
+                <button class="bcWaterBtnMinus"></button>
+            </div>
+            <div id="bcWaterLevelA">
+                <button class="bcWaterBtnPlus"></button>
+                <button class="bcWaterBtnMinus"></button>
+            </div>
+        </div>
+        
+        <div id="bcWaterDebug"></div>
+        <button class="btnBack"></button>
+    </section>     
+    
+    <!-- Telescope -->
+     <section id="bcTelescope" class="minigame">
+        <div id="bcTelescopeStars"></div>
+        <div id="bcTelescopeLens"></div>
+        <button class="btnBack"></button>
+    </section>
+    
+    <!-- Guitar -->
+    <section id="bcGuitar" class="minigame">
+        <div id="fog"></div>
+        <div id="guitar-neck">
+            <a href="#" id="note-A" class="string-VI fret-V"></a>
+            <a href="#" id="note-C" class="string-VI fret-VIII"></a>
+            <a href="#" id="note-D" class="string-V fret-V"></a>
+            <a href="#" id="note-E" class="string-V fret-VII"></a>
+            <a href="#" id="note-G" class="string-IV fret-V"></a>
+            <a href="#" id="note-a" class="string-IV fret-VII"></a>
+            <a href="#" id="note-c" class="string-III fret-V"></a>
+            <a href="#" id="note-d" class="string-III fret-VII"></a>
+            <a href="#" id="note-e" class="string-II fret-V"></a>
+            <a href="#" id="note-g" class="string-II fret-VIII"></a>
+        </div>
+    
+        <button id="melody-player">
+            Play melody again!
+        </button>
+        <input type="hidden" name="currentAttempt" value="" />
+        <button class="btnBack"></button>
+    </section>
+    
+    <!-- Rat --> 
+    <section id="bcRat" class="minigame">
+        <div id="bcRatBeast"></div>
+        <div id="bcRatFlashlight"></div>
+        <button class="btnBack"></button>
+    </section>
+    
+    <!-- Radio -->
+    <section id="bcRadio">
+        <div id="bcRadioFrequency">
+            <button id="bcRadioBtnPlus"></button>
+            <button id="bcRadioBtnMinus"></button>
+        </div>
+        <div id="bcRadioDebug"></div>
+        <button class="btnBack"></button>
+    </section>    
+    
 </body>
 
 </html> 

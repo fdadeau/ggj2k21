@@ -38,7 +38,7 @@
     animation-delay: 0s;
     animation-timing-function: linear;
     animation-direction: normal;
-    background-color: black;
+    background: black url(./assets/star-space-tile.jpg) repeat; 
 }
 
 @keyframes animStars {

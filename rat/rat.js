@@ -51,6 +51,13 @@ function RatGame(element) {
                     this.direction.x = (this.target.x - this.position.x) / dist;
                     this.direction.y = (this.target.y - this.position.y) / dist;
                     this.elem.classList.add("anim");
+                    var w = (Math.asin(this.direction.y)) * 180 / Math.PI + 90;
+                    if (this.direction.x < 0) {
+                        w = -w;   
+                    }
+                    console.log(this.direction.x, this.direction.y, w);
+                    this.elem.style.transform = "rotate(" + w + "deg)";
+
                 }
                 return;
             }
@@ -70,7 +77,12 @@ function RatGame(element) {
                 this.target = this.next();
                 var dist = Math.sqrt(sqDistance(this.target, this.position));
                 this.direction.x = (this.target.x - this.position.x) / dist;
-                this.direction.y = (this.target.y - this.position.y) / dist;                    
+                this.direction.y = (this.target.y - this.position.y) / dist;     
+                var w = (Math.asin(this.direction.y)) * 180 / Math.PI + 90;
+                    if (this.direction.x < 0) {
+                        w = -w;   
+                    }
+                this.elem.style.transform = "rotate(" + w + "deg)";
             }
             this.position.x = this.position.x + this.direction.x * this.speed;
             this.position.y = this.position.y + this.direction.y * this.speed;

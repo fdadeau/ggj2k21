@@ -18,6 +18,10 @@ function WaterGame(element) {
         
     });
     
+    element.querySelector(".btnBack").addEventListener("click", function(e) {
+        this.stop();
+    }.bind(this));
+    
         
     var color = {
         generate: function(lvl) {
@@ -32,7 +36,6 @@ function WaterGame(element) {
         init: function() {
             this.current = this.generate([0, 1, 2, 3, 4]);
             this.target = this.generate([1, 2, 3, 4]);
-            console.log(this.target);
             element.querySelector("#bcWaterDebug").style.backgroundColor = this.getRGBA(this.target);
         },
         update: function(delta, which) {
@@ -61,6 +64,10 @@ function WaterGame(element) {
     
     color.init();
     color.render();
+    
+    this.isSolved = function() {
+        return color.getRGBA(color.target) == color.getRGBA(color.current);   
+    }
     
     this.start = function() {
         element.classList.add("show");   

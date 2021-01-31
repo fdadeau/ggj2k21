@@ -50,26 +50,32 @@ function TelescopeGame(element) {
     var blur = {
         
         currentBlur: [5, 8, 12, 16],
-
+        targetBlur: [5, 8, 12, 16],
+        
         playerBlur: 10,
+        playerTarget: 10,
         
         distance: function(i) {
             return Math.abs(this.currentBlur[i] - this.playerBlur);   
         }, 
         
         lastU: Date.now(),
-        refreshDelta: 100, 
+        refreshDelta: 40, 
         update: function(now) {
             if (now - this.lastU < this.refreshDelta) {
                 return;
             }
             
+            if (this.playerBlur != this.playerTarget) {
+                this.playerBlur += (this.playerBlur < this.playerTarget) ? 1 : -1;
+            }
+            
             for (var i in this.currentBlur) {
-                if (this.distance(i) < 2) {
-                    do {
-                        this.currentBlur[i] = (this.currentBlur[i] + (Math.random() * 20 | 0)) % 20;
-                    }
-                    while (this.distance(i) < 5);
+                if (/*this.currentBlur[i] == this.targetBlur[i] &&*/ this.distance(i) < 5) {
+                    this.targetBlur[i] = (this.playerTarget + 10) % 20;
+                }
+                if (this.targetBlur[i] != this.currentBlur[i]) {
+                    this.currentBlur[i] += (this.targetBlur[i] > this.currentBlur[i]) ? 1 : -1;
                 }
             }
             this.lastU = now;
@@ -80,7 +86,7 @@ function TelescopeGame(element) {
     element.addEventListener("touchmove", function(e) {
         e.preventDefault();
         if (e.changedTouches[0]) {
-            blur.playerBlur = e.changedTouches[0].clientY * 20 / window.innerHeight | 0
+            blur.playerTarget = e.changedTouches[0].clientY * 20 / window.innerHeight | 0
         }
     });
     

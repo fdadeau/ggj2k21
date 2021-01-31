@@ -9,22 +9,21 @@
 #bcWater {
     box-sizing: border-box;
     display: none;
-    margin: 20vh 20vw;
-    width: 60vw;
-    height: 60vh;
-    border: solid 2px #000;
-    box-shadow: 10px 10px 10px #000;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
 }
 #bcWater.show {
     display: block;
 }
 
 #bcWaterPipe {
-    margin: 5vh 0;
+    margin: 10vh 0;
     border-top: solid 0.3vw #000;
     border-bottom: solid 0.3vw #000;
     border-right: solid 0.3vw #000;
-    height: 5vh;
+    height: 10vh;
     width: 50%;
     box-sizing: border-box;
     position: relative;
@@ -69,7 +68,7 @@
     height: 20vh;
 }
 
-#bcWater button {
+#bcWaterLevels button {
     position: absolute;
     left: 0;
     width: 3vw;
@@ -100,7 +99,7 @@
     background-color: blue;   
 }
 #bcWaterLevelA:before {
-    background-image: linear-gradient(to bottom, lightgray, white);   
+    background-color: yellow;
 }
 #bcWaterLevels > div:before {
     border-top: solid 0.1vw #000;   
@@ -121,11 +120,11 @@
 
 #bcWaterDebug {
     position: absolute; 
-    top: 5vh;
+    top: 10vh;
     border-top: solid 0.3vw #000;
     border-bottom: solid 0.3vw #000;
     right: 0;
     width: 50%;
     box-sizing: border-box;
-    height: 5vh;
+    height: 10vh;
 }   

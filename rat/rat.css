@@ -21,19 +21,6 @@
 }
 
 
-#bcRatBeast {
-    position: absolute;
-    box-sizing: border-box;
-    display: block;
-    margin: 0;
-    width: 3vw;
-    height: 3vw;
-    background-color: black;
-    border-radius: 50%;   
-    transform: translate(-50%, -50%);
-}
-
-
 #bcRatFlashlight { 
     position: absolute;
     border: solid 1px #000;
@@ -41,7 +28,48 @@
     width: 8vw;
     height: 8vw;
     border-radius: 50%;
-    border: solid 150vw rgba(0, 0, 0, 0.9);
+    border: solid 150vw rgba(0, 0, 0, 0.1);
+}
+
+
+#bcRatBeast {
+    position: absolute;
+    box-sizing: border-box;
+    display: block;
+    margin: 0;
+    width: 4vw;
+    height: 8vw;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes sourpent {
+    0% {
+        background-position: 0 0;
+    }
+    25% {
+        background-position: -8vw 0;
+    }
+    50% {
+        background-position: -4vw 0;
+    }
+    75% {
+        background-position: -12vw 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+#bcRatBeast.anim {
+    animation-name: sourpent;
+    animation-direction: normal;
+    animation-timing-function: step-start;
+    animation-iteration-count: infinite;
+    animation-duration: 0.4s;
+    background-image: url(../assets/spritesheet-sourpent.png);
+    background-repeat: no-repeat;
+    background-size: 16vw 8vw;
+    background-position: 0 0;
 }
 
 #bcRatBeast.anim:before {

@@ -1,0 +1,257 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
+/** Media query for landscape orientation */
+@media screen and (orientation: portrait) {
+    body:before {
+        content: 'Turn the device to play the game';
+        box-sizing: border-box;
+        font-size: 3vh;
+        width: 36vh;
+        padding: 5vh 1vw 15vh;
+        line-height: 1.3;
+        height: 20vh;
+        position: absolute; 
+        top: calc(50vh - 10vh);
+        left: calc(50vw - 18vh);
+        text-align: center;
+        border-top: solid 4vw white;
+        border-bottom: solid 5vw white;
+        border-left: solid 1vw white;
+        border-right: solid 1vw white;
+        border-radius: 2vw;    
+        color: white;
+        transform-origin: center;
+        animation: rotateDevice 2s linear 0s infinite;
+    }
+    body {
+        font-family: arial, sans-serif;
+        background-color: black;   
+    }
+    body > * {
+        display: none !important;   
+    }
+    @keyFrames rotateDevice {
+        0% {
+            transform: rotate(90deg);   
+        }
+        70% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(0deg);
+        }
+    }
+}
+
+
+/*** DEBUT DE LA FEUILLE DE STYLE ***/
+
+main {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    border: none;
+    overflow: hidden;
+    background-color: black;
+}
+
+#bcBackground {
+    position: absolute;
+    background-repeat: no-repeat;
+}
+#bcBackground.sdb {
+    width: 120vw;
+    height: calc(120vw / 1.767);
+    background-image: url(assets/sdb_chambre.png);
+    background-size: cover;
+}
+
+main #talk {
+    display: block;
+    position: absolute; 
+    box-sizing: border-box;
+    border: solid 0.3vw #500;
+    background-color: beige;
+    color: black;
+    height: 10vh;
+    width: 90vw;
+    left: 5vw;
+    font-size: 5vh;
+    padding: 2vh;
+    border-radius: 2vh;
+    top: 2vw;
+}
+main #talk:empty {
+    display: none;   
+}
+
+main #talk:after {
+    content: '';
+    display: block;
+    position: absolute;
+    border: solid 0.3vw #500;
+    background-color: beige;
+    border-radius: 50%;
+    height: 10vh;
+    width: 10vh;
+    right: -1vw;
+    top: 1vw;
+    background-image: url(assets/tete.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.zonesOK, .POI {
+    position: absolute; 
+    display: block;
+    border: solid 2px #0F0;
+}
+.POI {
+    background-color: lightgreen;   
+}
+
+
+/** Character **/
+main #bcCharacter {
+    display: block;
+    position: absolute; 
+    transform-origin: center center;
+    transform: translate(-50%, -50%);
+    width: 1vw;
+    height: 1vw;
+    top: 50%;
+    left: 50%;
+    border: solid 2px blue;
+}
+
+
+
+/** Bouton action **/
+main #btnAction {
+    display: none;
+    position: absolute;
+    border: solid 0.3vw #500;
+    background-color: beige;
+    border-radius: 50%;
+    height: 10vh;
+    width: 10vh;
+    right: 1vw;
+    bottom: 1vw;       
+}
+main #btnAction[data-poi] {
+    display: block;
+}
+
+
+#point {
+    position: absolute; 
+    width: 1vw;
+    height: 1vw;
+    background-color: red;
+    transform-origin: center;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+}
+
+
+#joystick {
+    position: absolute; 
+    width: 16vh;
+    height: 16vh;
+    bottom: 2vh;
+    left: 2vh;
+    box-sizing: border-box;
+    border: solid 0.3vw #000;
+    border-radius: 50%;
+}
+#joystick > div {
+    position: absolute;
+    width: 7vh;
+    height: 7vh;
+    transform: translate(-50%, -50%);
+    transform-origin: center;
+    left: 50%;
+    border-radius: 50%;
+    top: 50%;
+    background-color: #222;
+}
+
+
+
+/*** Sections / mini-game **/
+.minigame {
+    width: 100vw;
+    height: 100vh;
+    position: absolute; 
+    top: 0;
+    left: 0;
+}
+
+section .btnBack {
+    display: block;
+    position: absolute; 
+    right: 1vw;
+    top: 1vw;
+    background-color: transparent;
+    border: none;
+    font-size: 100%;
+}
+section .btnBack:before {
+    content: '\2716';
+    color: red;
+}
