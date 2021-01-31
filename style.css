@@ -189,7 +189,8 @@ main #bcCharacter {
     border: solid 2px blue;
     background-image: url(assets/spritesheet-perso.png);
     background-repeat: no-repeat;
-    background-size: calc(4 * var(--largeur-perso)) var(--hauteur-perso);
+    background-size: calc(5 * var(--largeur-perso)) var(--hauteur-perso);
+    background-position: calc(-4 * var(--largeur-perso)) 0;
 }
 
 .animMarcheG {
@@ -201,7 +202,7 @@ main #bcCharacter {
     animation-duration: 1s;
 }
 .animMarcheD {
-    transform: translate(-50%, -85%) scaleX(-1, 1);
+    transform: translate(-50%, -85%) scaleX(-1);
     animation-name: animPersoMarcheG;
     animation-delay: 0s;
     animation-iteration-count: infinite;
@@ -215,19 +216,36 @@ main #bcCharacter {
         background-position: -0vw 0;
     }
     25% {
-        background-position: calc(-1 * var(--largeur-perso) - 2vw) 0;
+        background-position: calc(-1 * var(--largeur-perso) - 1vw) 0;
     }
     50% {
-        background-position: calc(-2 * var(--largeur-perso) - 2vw) 0;
+        background-position: calc(-2 * var(--largeur-perso) - 1vw) 0;
     }
     75% {
-        background-position: calc(-3 * var(--largeur-perso) - 2vw) 0;        
+        background-position: calc(-3 * var(--largeur-perso) - 1vw) 0;        
     }
     100% {
         background-position: -0vw 0;
     }
 }
 
+main.light #bcCharacter:after, main.nolight #bcCharacter:after {
+    content: '';
+    position: absolute;
+    transform-origin: center;
+    transform: translate(-50%, -50%);
+    left: -6vw;
+    top: 20vw;
+    width: 20vw;
+    border-radius: 50%; 
+    height: 10vw;
+    display: block;
+    border: solid 100vw rgba(0, 0, 0, 0.95);
+}
+main.nolight #bcCharacter:after {
+    width: 0;
+    height: 0;
+}
 
 
 /** Bouton action **/

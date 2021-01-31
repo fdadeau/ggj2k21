@@ -17,12 +17,14 @@ document.addEventListener("DOMContentLoaded", function(e) {
                 "I need to find a way to get out of here...",
                 "and find out what I'm doing there." 
             ],
-            start: { x: 70, y: 95 },
+            start: { x: 12, y: 27 },
             // maybe other things later...?
         }, 
         "chambre": { 
             zonesOK: [
-                { x: 70, y: 69, w: 7, h: 5 },       // WC area
+                { x: 16, y: 95, w: 35, h: 3 },       // bed-bottom
+                { x: 35, y: 73, w: 12, h: 22 },      // bed-right + door to bathroom
+                { x: 6, y: 66, w: 35, h: 7 }         // bed-top + door to spaceship
             ],
             text: [
                 "OK it looks like a room.", 
@@ -32,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
         }, 
         "spaceship": {
             zonesOK: [
-            
+                { x: 6, y: 25, w: 35, h: 30 },       // bed-bottom
             ],
             text: [
                 "OK... that's unusual...", 
