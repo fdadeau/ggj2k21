@@ -244,8 +244,10 @@ function Game(scenes, actions) {
 *********************************************/
 function Dialog() {
 
+    var talk = document.getElementById("talk");
+    
     // GUI 
-    document.getElementById("talk").addEventListener("click", function (e) {
+    talk.addEventListener("click", function (e) {
         this.say();
     }.bind(this));
 
@@ -258,12 +260,12 @@ function Dialog() {
 
     // say dialog lines
     this.say = function () {
-        document.getElementById("talk").innerHTML = (texts.length > 0) ? texts.splice(0, 1) : "";
+        talk.innerHTML = (texts.length > 0) ? texts.splice(0, 1) : "";
     }
 
     // check if current dialog is over
     this.ended = function () {
-        return texts.length == 0;
+        return texts.length == 0 && talk.innerHTML.length == 0;
     }
 
 }

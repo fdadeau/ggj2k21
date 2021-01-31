@@ -65,6 +65,10 @@ document.addEventListener("DOMContentLoaded", function(e) {
                 return true;   
             },
             start: function() {
+                if (!this.puzzle.isSolved()) {
+                    game.dialogs.push("Something seems to be broken in there.", "I should try to fix it."); 
+                    game.dialogs.say(); 
+                }
                 this.puzzle.start();
             }
         },
@@ -131,9 +135,15 @@ document.addEventListener("DOMContentLoaded", function(e) {
                 return true;
             },
             start: function () {
-                document.querySelector('#bcBackground').classList.remove('masked-1')
-                game.hero.setPosition(46, 84);
-                game.render();
+                if (actions.water.puzzle.isSolved()) {
+                    document.querySelector('#bcBackground').classList.remove('masked-1')
+                    game.hero.setPosition(46, 84);
+                    game.render();
+                }
+                else {
+                    game.dialogs.push("Hum, I can't open that door, I don't have the key.");
+                    game.dialogs.say();
+                }
             }
         },
         "bathroom-entry-door": {
