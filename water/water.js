@@ -4,6 +4,8 @@
 function WaterGame(element) {
     
     
+    var that = this;
+    
     element.querySelector("#bcWaterLevels").addEventListener("click", function(e) {
         
         if (e.target.tagName != "BUTTON") {
@@ -16,6 +18,7 @@ function WaterGame(element) {
 
         color.update(plus ? 1 : -1, c);
         
+        that.check();        
     });
     
     element.querySelector(".btnBack").addEventListener("click", function(e) {
@@ -64,6 +67,16 @@ function WaterGame(element) {
     
     color.init();
     color.render();
+    
+    this.check = function() {
+        if (this.isSolved()) {
+            this.stop();   
+            if (this.game) {
+                this.game.dialogs.push("Yes! It worked!", "And I now get the key of the bathroom!", "I can exit the room.");
+                this.game.dialogs.say();
+            }
+        }
+    }
     
     this.isSolved = function() {
         return color.getRGBA(color.target) == color.getRGBA(color.current);   

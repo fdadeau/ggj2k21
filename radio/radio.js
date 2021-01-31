@@ -161,6 +161,7 @@ function RadioGame(element) {
     /** API **/
     this.start = function() {
         element.classList.add("show");
+        console.log(this.getCode());
         code.playSounds();   
     }    
     this.stop = function() {
@@ -170,5 +171,9 @@ function RadioGame(element) {
     this.update = function(now) {
         freq.update(now);
         code.update(freq.distance());
+    }
+    
+    this.getCode = function() {
+        return code.zeCode.filter((e,i) => i > 0).join("-");   
     }
 }

@@ -65,8 +65,10 @@ document.addEventListener("DOMContentLoaded", function(e) {
                 return true;   
             },
             start: function() {
+                // set the game instance
+                this.puzzle.game = game;
                 if (!this.puzzle.isSolved()) {
-                    game.dialogs.push("Something seems to be broken in there.", "I should try to fix it."); 
+                    game.dialogs.push("Something seems to be broken in there.", "The water is cannot be evacuated,", "and there is something that seems to be locked in there.", "I should try to fix it."); 
                     game.dialogs.say(() => this.puzzle.start());
                 }
             }

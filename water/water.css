@@ -72,9 +72,11 @@
     position: absolute;
     left: 0;
     width: 3vw;
-    height: 3vh;
+    height: 4vh;
     text-align: center;
     font-weight: bold; 
+    border: none;
+    background: transparent;
 }
 #bcWater .bcWaterBtnPlus {
     top: 0;   
@@ -86,7 +88,7 @@
     bottom: 0;   
 }
 #bcWater .bcWaterBtnMinus:before {
-    content: '-';
+    content: '\2212';
 }
 
 #bcWaterLevelR:before {

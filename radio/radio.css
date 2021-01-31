@@ -71,8 +71,8 @@ body {
     content: '\2212';
 }
 
-#debug {
-    display: block;
+#bcRadioDebug {
+    display: none;
     position: absolute; 
     bottom: 0;
     left: 0;
