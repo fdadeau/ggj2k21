@@ -142,6 +142,8 @@ document.addEventListener("DOMContentLoaded", function(e) {
                     document.querySelector('#bcBackground').classList.add('masked-2')
                     game.hero.setPosition(46, 84);
                     game.render();
+                    game.dialogs.push(...scenes.chambre.text);
+                    game.dialogs.say();
                 }
                 else {
                     game.dialogs.push("Hum, I can't open that door, I don't have the key.");
