@@ -16,20 +16,21 @@ function GuitarGame(element) {
 
     this.code = ''
 
+    this.ready = false
     this.started = false
     this.over = false
 
     this.setup = function () {
         const notes = ['A', 'C', 'D', 'E', 'G', 'a', 'c', 'd', 'e', 'g']
 
-        createjs.Sound.registerSound(`assets/short-circuit.mp3`, 'short-circuit')
+        createjs.Sound.registerSound(`guitar/assets/short-circuit.mp3`, 'short-circuit')
 
         notes.forEach((note) => {
             const
                 fileName = this.mapping[note],
                 soundId = `regulars/${fileName}`
     
-            createjs.Sound.registerSound(`notes/regulars/${fileName}.mp3`, soundId)
+            createjs.Sound.registerSound(`guitar/notes/regulars/${fileName}.mp3`, soundId)
     
             document.querySelector('a#note-' + note).addEventListener('click', () => {
                 if (this.over) {
@@ -52,6 +53,10 @@ function GuitarGame(element) {
 
         this.resize()
         window.addEventListener('resize', this.resize)
+
+        element.querySelector(".btnBack").addEventListener("click", function(e) {
+            this.stop();
+        }.bind(this));    
     }
 
     this.resize = function () {
@@ -63,9 +68,12 @@ function GuitarGame(element) {
     }
 
     this.start = function () {
-        this.setup()
-        this.code = this.generateCode()
-        console.log(this.code)
+        if (!this.ready) {
+            this.setup()
+            this.code = this.generateCode()
+            console.log(this.code)
+            this.ready = true
+        }
         element.classList.add("show");
         this.setPlayback()
         this.started = true
@@ -76,6 +84,10 @@ function GuitarGame(element) {
         this.started = false
     }
     
+    this.isSolved = function() {
+        return this.over;   
+    }
+
     this.update = function(now) {
         if (!this.started || this.over) {
             return

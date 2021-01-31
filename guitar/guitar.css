@@ -36,6 +36,20 @@
     z-index: 1;
 }
 
+#bcGuitar button#melody-player {
+    border: none;
+    background: transparent;
+    text-shadow: 0 0 3px rgba(0, 0, 0, .8);
+    color: rgba(234, 112, 112, .8);
+    position: absolute;
+    bottom: 1vh;
+    left: 1vw;
+}
+
+#bcGuitar button#melody-player[disabled] {
+    display: none;
+}
+
 div#guitar-neck {
     position: relative;
     width: 100%;
