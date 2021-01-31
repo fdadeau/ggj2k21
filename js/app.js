@@ -85,13 +85,14 @@ document.addEventListener("DOMContentLoaded", function(e) {
         }, 
         "guitar": {
             type: "game",
-            poi: { x: 0, y: 0, w: 0, h: 0 },
+            poi: { x: 42, y: 68, w: 8, h: 6 },
             puzzle: new GuitarGame(document.getElementById("bcGuitar")),
             isActive: function() {
                 return !this.puzzle.isSolved();   
             },
             start: function() {
-                this.puzzle.start();   
+                game.dialogs.push("That guitar has a broken string...", "Well, that reminds me some music..."); 
+                game.dialogs.say(() => this.puzzle.start()); 
             }
         },
         "lamp": {

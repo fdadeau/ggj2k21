@@ -245,10 +245,11 @@ function Game(scenes, actions) {
 function Dialog() {
 
     var talk = document.getElementById("talk");
+    this.callback = null;
     
     // GUI 
     talk.addEventListener("click", function (e) {
-        this.say();
+        this.say(this.callback);
     }.bind(this));
 
     var texts = [];
@@ -259,8 +260,15 @@ function Dialog() {
     }
 
     // say dialog lines
-    this.say = function () {
+    this.say = function (callback) {
+        this.callback = callback
+        var execCallback = this.callback && texts.length <= 0
+
         talk.innerHTML = (texts.length > 0) ? texts.splice(0, 1) : "";
+
+        if (execCallback) {
+            this.callback()
+        }
     }
 
     // check if current dialog is over

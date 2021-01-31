@@ -133,7 +133,7 @@ function GuitarGame(element) {
         })
 
         window.setTimeout(() => { createjs.Sound.play('short-circuit') }, 900)
-        window.setTimeout(() => { element.classList.add('blackout') }, 1250)
+        window.setTimeout(() => this.stop(), 1250)
     }
 
     this.play = function () {
