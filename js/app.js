@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
         }, 
         "guitar": {
             type: "game",
-            poi: { x: 42, y: 68, w: 8, h: 6 },
+            poi: { x: 40, y: 68, w: 8, h: 6 },
             puzzle: new GuitarGame(document.getElementById("bcGuitar")),
             isActive: function() {
                 return !this.puzzle.isSolved();   
