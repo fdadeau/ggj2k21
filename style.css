@@ -187,9 +187,9 @@ main #bcCharacter {
     top: 80%;
     left: 50%;
     /*border: solid 2px blue;*/
-    background-image: url(assets/persomarche.png);
+    background-image: url(assets/marcheimperiale.png);
     background-repeat: no-repeat;
-    background-size: calc(5 * var(--largeur-perso)) var(--hauteur-perso);
+    background-size: calc(7 * var(--largeur-perso)) var(--hauteur-perso);
     background-position: calc(-4 * var(--largeur-perso)) 0;
 }
 main #bcCharacter.animStopD {
@@ -202,7 +202,7 @@ main #bcCharacter.animMarcheG {
     animation-iteration-count: infinite;
     animation-timing-function: step-start;
     animation-direction: normal;
-    animation-duration: 0.6s;
+    animation-duration: 1s;
 }
 main #bcCharacter.animMarcheD {
     transform: translate(-50%, -85%) scaleX(-1) !important;
@@ -216,16 +216,22 @@ main #bcCharacter.animMarcheD {
 
 @keyframes animPersoMarcheG {
     0% {
-        background-position: -0vw 0;
+        background-position: -2vw 0;
     }
-    25% {
+    16% {
         background-position: calc(-1 * var(--largeur-perso) - 1vw) 0;
     }
-    50% {
-        background-position: calc(-2 * var(--largeur-perso) - 1vw) 0;
+    33% {
+        background-position: calc(-5 * var(--largeur-perso) - 1vw) 0;
     }
-    75% {
+    50% {
+        background-position: calc(-2 * var(--largeur-perso) - 1vw) 0;        
+    }
+    66% {
         background-position: calc(-3 * var(--largeur-perso) - 1vw) 0;        
+    }
+    83% {
+        background-position: calc(-6 * var(--largeur-perso) - 1vw) 0;        
     }
     100% {
         background-position: -0vw 0;
