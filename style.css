@@ -110,11 +110,10 @@ main {
 #bcBackground {
     position: absolute;
     background-repeat: no-repeat;
-}
-#bcBackground.sdb {
-    width: 120vw;
-    height: calc(120vw / 1.767);
-    background-image: url(assets/sdb_chambre.png);
+    --map-width: 150vw;
+    width: var(--map-width);
+    height: calc(var(--map-width) / 0.83);
+    background-image: url(assets/the-map.webp);
     background-size: cover;
 }
 
@@ -169,11 +168,11 @@ main #bcCharacter {
     position: absolute; 
     transform-origin: center center;
     transform: translate(-50%, -85%);
-    --largeur-perso: 20vw;
-    --hauteur-perso: 30vw;
+    --largeur-perso: 18vw;
+    --hauteur-perso: 27vw;
     width: var(--largeur-perso);
     height: var(--hauteur-perso);
-    top: 50%;
+    top: 80%;
     left: 50%;
     border: solid 2px blue;
     background-image: url(assets/spritesheet-perso.png);

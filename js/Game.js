@@ -42,8 +42,10 @@ function Game(scenes, actions) {
     function isOnPOI(hero) {
         for (var i in actions) {
             var p = actions[i].poi;
-            if (hero.position.x >= p.x && hero.position.x <= p.x + p.w && hero.position.y >= p.y && hero.position.y <= p.y + p.h) {
-                return i;
+            if (actions[i].isActive()) {
+                if (hero.position.x >= p.x && hero.position.x <= p.x + p.w && hero.position.y >= p.y && hero.position.y <= p.y + p.h) {
+                    return i;
+                }
             }
         }
         return null;
@@ -65,7 +67,7 @@ function Game(scenes, actions) {
         
         // view centering on the character
         var deltaX = (window.innerWidth / 2) - xPxHero;
-        var deltaY = window.innerHeight / 2 - yPxHero;
+        var deltaY = window.innerHeight * 0.8 - yPxHero;
         background.style.left = deltaX + "px";
         background.style.top = deltaY + "px";
         

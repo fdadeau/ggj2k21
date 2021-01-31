@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
         "sdb": { 
             zonesOK: [ 
                 { x: 65, y: 27, w: 11, h: 30 },
-                { x: 56, y: 41, w: 38, h: 34 },
+                { x: 6, y: 41, w: 98, h: 34 },
                 { x: 56, y: 75, w: 25, h: 20 }
             ], 
             text: [ 
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
             }
         },
         "vomit": { 
-            type: "throught", 
+            type: "thought", 
             poi: { x: 65, y: 27, w: 8, h: 16 },
             isActive: function() {
                 return true;   
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
             poi: { x: 0, y: 0, w: 0, h: 0 },
             puzzle: new GuitarGame(document.getElementById("bcGuitar")),
             isActive: function() {
-                return true;   
+                return !this.puzzle.isSolved();   
             },
             start: function() {
                 this.puzzle.start();   
@@ -86,6 +86,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
             },
             start: function() {
                 this.done = true;  
+                // TODO update display
             }
         }, 
         "disjunct": {
