@@ -3,7 +3,7 @@
 function LockGame(element) {
     
     
-    element.querySelector("#bcLockInputs").addEventListener("click", function(e) {
+    element.querySelector("#bcLockColorInputs").addEventListener("click", function(e) {
         
         if (e.target.tagName != "BUTTON") {
             return;
@@ -50,7 +50,7 @@ function LockGame(element) {
     
     this.getCode = function() {
         var tab = [];
-        var items = element.querySelectorAll("#bcLockInputs > div");
+        var items = element.querySelectorAll("#bcLockColorInputs > div");
         for (var i=0; i < items.length; i++) {
             var elem = items.item(i);
             tab.push(elem.dataset.value);

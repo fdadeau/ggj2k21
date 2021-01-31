@@ -193,7 +193,7 @@ main #bcCharacter {
     background-position: calc(-4 * var(--largeur-perso)) 0;
 }
 
-.animMarcheG {
+main #bcCharacter.animMarcheG {
     animation-name: animPersoMarcheG;
     animation-delay: 0s;
     animation-iteration-count: infinite;
@@ -201,8 +201,8 @@ main #bcCharacter {
     animation-direction: normal;
     animation-duration: 1s;
 }
-.animMarcheD {
-    transform: translate(-50%, -85%) scaleX(-1);
+main #bcCharacter .animMarcheD {
+    transform: translate(-50%, -85%) scaleX(-1) !important;
     animation-name: animPersoMarcheG;
     animation-delay: 0s;
     animation-iteration-count: infinite;

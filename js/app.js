@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
                 "I need to find a way to get out of here...",
                 "and find out what I'm doing there." 
             ],
-            start: { x: 59, y: 75 },
+            start: { x: 65, y: 80 },
             // maybe other things later...?
         }, 
         "chambre": { 
