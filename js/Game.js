@@ -9,6 +9,8 @@ function Game(scenes, actions) {
     var hero = new Character(document.getElementById("bcCharacter"));
     hero.setZonesOK(scenes);
 
+    this.hero = hero;
+    
     // dialog manager
     this.dialogs = new Dialog();
 
@@ -32,7 +34,10 @@ function Game(scenes, actions) {
         mainloop();
         //        this.dialogs.say();    
     }
-
+    
+    this.render = function() {
+        render();
+    }
 
     var current = null;
 

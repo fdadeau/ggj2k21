@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
                 "I need to find a way to get out of here...",
                 "and find out what I'm doing there." 
             ],
-            start: { x: 12, y: 27 },
+            start: { x: 59, y: 75 },
             // maybe other things later...?
         }, 
         "chambre": { 
@@ -34,7 +34,13 @@ document.addEventListener("DOMContentLoaded", function(e) {
         }, 
         "spaceship": {
             zonesOK: [
-                { x: 6, y: 25, w: 35, h: 30 },       // bed-bottom
+                { x: 6, y: 25, w: 22, h: 22 },           // final exit door
+                { x: 25, y: 40, w: 10, h: 5 },          // bottom-left corner of the table
+                { x: 16, y: 44.5, w: 64, h: 3.5 },       // bottom (door to bedroom)
+                { x: 74, y: 21, w: 6, h: 26 },       // right-hand side
+                { x: 6, y: 24, w: 34, h: 3 },       // top side
+                { x: 40, y: 21, w: 34, h: 5 }       // top side
+                
             ],
             text: [
                 "OK... that's unusual...", 
@@ -56,8 +62,12 @@ document.addEventListener("DOMContentLoaded", function(e) {
     var actions = {
         "water": { 
             type: "game", 
+<<<<<<< HEAD
             icon: icons["game"],
             poi: { x: 83, y: 41, w: 11, h: 3 },
+=======
+            poi: { x: 85, y: 73, w: 11, h: 3 },
+>>>>>>> 5c22bfa (zonesOK)
             puzzle: new WaterGame(document.getElementById("bcWater")),
             isActive: function() {
                 return true;   
@@ -68,8 +78,12 @@ document.addEventListener("DOMContentLoaded", function(e) {
         },
         "vomit": { 
             type: "thought", 
+<<<<<<< HEAD
             icon: icons["thought"],
             poi: { x: 65, y: 27, w: 8, h: 16 },
+=======
+            poi: { x: 65, y: 68, w: 10, h: 8 },
+>>>>>>> 5c22bfa (zonesOK)
             isActive: function() {
                 return true;   
             },
@@ -127,24 +141,34 @@ document.addEventListener("DOMContentLoaded", function(e) {
                 game.dialogs.say();
             }
         },
-        "bathroom-door": {
+        "bathroom-exit-door": {
             type: "door",
             icon: icons["door"],
             poi: { x: 56, y: 80, w: 5, h: 8 },
             isActive: function () {
-                return true
+                return true;
             },
             start: function () {
                 document.querySelector('#bcBackground').classList.remove('masked-1')
-                document.querySelector('#bcBackground').classList.add('masked-2')
+                game.hero.setPosition(46, 84);
             }
         },
-        "bedroom-door": {
+        "bathroom-entry-door": {
             type: "door",
             icon: icons["door"],
+            poi: { x: 46, y: 80, w: 5, h: 8 },
+            isActive: function () {
+                return true;
+            },
+            start: function () {
+                game.hero.setPosition(57, 84);
+            }
+        },
+        "bedroom-exit-door": {
+            type: "action",
             poi: { x: 20, y: 64, w: 10, h: 4 },
             isActive: function () {
-                return true
+                return true;
             },
             start: function () {
                 document.querySelector('#bcBackground').classList.remove('masked-2')
