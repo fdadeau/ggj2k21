@@ -139,6 +139,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
             start: function () {
                 if (actions.water.puzzle.isSolved()) {
                     document.querySelector('#bcBackground').classList.remove('masked-1')
+                    document.querySelector('#bcBackground').classList.add('masked-2')
                     game.hero.setPosition(46, 84);
                     game.render();
                 }
