@@ -62,8 +62,8 @@ document.addEventListener("DOMContentLoaded", function(e) {
                 return true;   
             },
             start: function() { 
-                dialogs.push("Ouch. I hope this isn't mine...", "This is disgusting."); 
-                dialogs.say(); 
+                game.dialogs.push("Ouch. I hope this isn't mine...", "This is disgusting."); 
+                game.dialogs.say(); 
             } 
         }, 
         "guitar": {
@@ -107,15 +107,15 @@ document.addEventListener("DOMContentLoaded", function(e) {
                 return true;
             }, 
             start: function() {
-                dialogs.push("Hum...", "It looks like someone had some fun right here...", "But I don't remember anything...", "or anyone.");
-                dialogs.say();
+                game.dialogs.push("Hum...", "It looks like someone had some fun right here...", "But I don't remember anything...", "or anyone.");
+                game.dialogs.say();
             }
         },
         // to be continued...
     };
 
-    
     var game = new Game(scenes, actions);
+        
     game.start();
     
 });

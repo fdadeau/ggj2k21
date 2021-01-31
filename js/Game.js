@@ -11,7 +11,7 @@ function Game(scenes, actions) {
     hero.setZonesOK(scenes);
 
     // dialog manager
-    var dialogs = new Dialog();
+    this.dialogs = new Dialog();
     
     // background and bounding box (dynamically set by CSS) 
     var background = document.getElementById("bcBackground");
@@ -30,8 +30,8 @@ function Game(scenes, actions) {
         hero.setPosition(70, 30);
         render();
         mainloop();
-        dialogs.push(...scenes.sdb.text);
-        dialogs.say();    
+        this.dialogs.push(...scenes.sdb.text);
+        this.dialogs.say();    
     }
     
     
@@ -172,12 +172,13 @@ function Game(scenes, actions) {
     /****************************************
                     MAIN LOOP 
     ****************************************/
+    var that = this;
     
     function mainloop() {
         requestAnimationFrame(mainloop);
         var now = Date.now();
         
-        if (!dialogs.ended()) {
+        if (! that.dialogs.ended()) {
             return;   
         }
         
