@@ -133,7 +133,7 @@ main #talk {
     display: block;
     position: absolute; 
     box-sizing: border-box;
-    border: solid 0.3vw #500;
+    border: solid 0.5vw #500;
     background-color: beige;
     color: black;
     width: 90vw;
@@ -151,11 +151,11 @@ main #talk:after {
     content: '';
     display: block;
     position: absolute;
-    border: solid 0.3vw #500;
+    border: solid 0.5vw #500;
     background-color: beige;
     border-radius: 50%;
-    height: 10vh;
-    width: 10vh;
+    height: 14vh;
+    width: 14vh;
     right: -1vw;
     top: 1vw;
     background-image: url(assets/tete.png);
@@ -255,13 +255,14 @@ main.nolight #bcCharacter:after {
 main #btnAction {
     display: none;
     position: absolute;
-    border: solid 0.3vw #500;
+    border: solid 0.5vw #500;
     background-color: beige;
     border-radius: 50%;
-    height: 10vh;
-    width: 10vh;
-    right: 1vw;
-    bottom: 1vw;       
+    height: 14vh;
+    width: 14vh;
+    right: 2vw;
+    font-size: 10vh;
+    bottom: 2vw;       
 }
 main #btnAction:not([data-poi=""]) {
     display: block;
