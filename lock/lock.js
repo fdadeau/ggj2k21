@@ -16,7 +16,7 @@ function LockGame(element) {
             }
             e.target.parentElement.dataset.value = value;            
         }
-        else if (e.target.classList.contains("bcDigitBtnMoins")) {
+        else if (e.target.classList.contains("bcDigitBtnMinus")) {
             var value = 1 * e.target.parentElement.dataset.value - 1;
             if (value < 1) {
                 value = 4;   
