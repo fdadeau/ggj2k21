@@ -35,8 +35,11 @@ function Character(element) {
             this.element.className = "animMarcheG";
         }
         else if (vecY == 0) {
-            this.element.className = "";
+            this.element.className = this.element.className.endsWith("D") ? "animStopD" : "";
         }   
+        else {
+            this.element.className = this.element.className.endsWith("D") ? "animMarcheD" : "animMarcheG";  
+        }
         // sets new direction
         this.vec.x = vecX;
         this.vec.y = vecY;

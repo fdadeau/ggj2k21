@@ -105,8 +105,7 @@ function Game(scenes, actions) {
 
         var dist = Math.sqrt((x - centerX) * (x - centerX) + (y - centerY) * (y - centerY));
 
-        hero.vec.x = (x - centerX) / dist;
-        hero.vec.y = (y - centerY) / dist;
+        hero.setDirection((x - centerX) / dist, (y - centerY) / dist);
 
         stick.style.left = (hero.vec.x * 50 + 50) + "%";
         stick.style.top = (hero.vec.y * 50 + 50) + "%";
@@ -114,8 +113,7 @@ function Game(scenes, actions) {
     // release on the joystick
     document.getElementById("joystick").addEventListener("touchend", function (e) {
         e.preventDefault();
-        hero.vec.x = 0;
-        hero.vec.y = 0;
+        hero.setDirection(0, 0);
         stick.style.left = "50%";
         stick.style.top = "50%";
     });
