@@ -27,7 +27,7 @@ function Game(scenes, actions) {
 
     // starts the game 
     this.start = function() {
-        hero.setPosition(70, 30);
+        hero.setPosition(78, 94);
         render();
         mainloop();
         this.dialogs.push(...scenes.sdb.text);
