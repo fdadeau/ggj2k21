@@ -1,0 +1,86 @@
+.minigame {
+    width: 100vw;
+    height: 100vh;
+    position: absolute; 
+    top: 0;
+    left: 0;
+}
+
+#bcLockColor {
+    box-sizing: border-box;
+    display: none;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    color: black;
+}
+#bcLockColor.show {
+    display: block;
+}
+
+#bcLockColorInputs {
+    padding-top: 20vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: center;
+    width: 80%;
+    height: 30vh;
+    margin: 5vh auto;
+}
+#bcLockColorInputs > div {
+    margin: 1vh 3vw;
+    height: 12vw;
+    width: 3vw;
+    position: relative;
+    font-size: 6vw;
+    font-weight: bold;
+}
+
+#bcLockColorInputs button {
+    position: absolute;
+    left: 0;
+    width: 3vw;
+    height: 4vh;
+    text-align: center;
+    font-weight: bold; 
+    border: none;
+    background: transparent;
+    font-size: 3vw;
+    
+}
+#bcLockColorInputs .bcDigitBtnPlus {
+    top: -5vw;   
+}
+#bcLockColorInputs .bcDigitBtnPlus:before {
+    content: '+';
+}
+#bcLockColorInputs .bcDigitBtnMinus {
+    bottom: 0;   
+}
+#bcLockColorInputs .bcDigitBtnMinus:before {
+    content: '\2212';
+}
+#bcLockColorInputs .bcDigitBtnColor {
+    bottom: -5vw;
+}
+#bcLockColorInputs .bcDigitBtnColor:before {
+    content: '\01F3A8';
+}
+
+#bcLockColorInputs > div[data-value]:before {
+    content: attr(data-value);
+}
+#bcLockColorInputs > div[data-color="red"]:before {
+    color: red;
+}
+#bcLockColorInputs > div[data-color="yellow"]:before {
+    color: yellow;
+}
+#bcLockColorInputs > div[data-color="green"]:before {
+    color: green;
+}
+#bcLockColorInputs > div[data-color="blue"]:before {
+    color: blue;
+}

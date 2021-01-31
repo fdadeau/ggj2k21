@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Test Lock</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="lock.css">    
+    <script src="lock.js"></script>
+    <script>
+        
+    document.addEventListener("DOMContentLoaded", function() {
+        
+    var current = new LockGame(document.getElementById("bcLock"));    
+        
+    document.getElementById("showBcLock").addEventListener("click", function() {
+         current.start();
+    });
+        
+    function mainloop() {
+        requestAnimationFrame(mainloop);
+        var now = Date.now();
+        if (current) {
+            current.update(now);   
+        }
+    }
+    mainloop();
+    
+    });
+    </script>
+</head>
+    
+    
+<body>
+    <button id="showBcLock">Play</button>
+    <section id="bcLockColor" class="minigame">
+        <div id="bcLockColorInputs">
+            <div data-value="1" data-color="red">
+                <button class="bcDigitBtnPlus"></button>
+                <button class="bcDigitBtnMinus"></button>
+                <button class="bcDigitBtnColor"></button>
+            </div>
+            <div data-value="1" data-color="red">
+                <button class="bcDigitBtnPlus"></button>
+                <button class="bcDigitBtnMinus"></button>
+                <button class="bcDigitBtnColor"></button>
+            </div>            
+            <div data-value="1" data-color="red">
+                <button class="bcDigitBtnPlus"></button>
+                <button class="bcDigitBtnMinus"></button>
+                <button class="bcDigitBtnColor"></button>
+            </div>            
+            <div data-value="1" data-color="red">
+                <button class="bcDigitBtnPlus"></button>
+                <button class="bcDigitBtnMinus"></button>
+                <button class="bcDigitBtnColor"></button>
+            </div>            
+        </div>
+        <button class="btnBack"></button>
+    </section>     
+</body>
+
+</html>
