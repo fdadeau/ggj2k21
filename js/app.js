@@ -67,9 +67,8 @@ document.addEventListener("DOMContentLoaded", function(e) {
             start: function() {
                 if (!this.puzzle.isSolved()) {
                     game.dialogs.push("Something seems to be broken in there.", "I should try to fix it."); 
-                    game.dialogs.say(); 
+                    game.dialogs.say(() => this.puzzle.start());
                 }
-                this.puzzle.start();
             }
         },
         "vomit": { 
