@@ -111,6 +111,27 @@ document.addEventListener("DOMContentLoaded", function(e) {
                 game.dialogs.say();
             }
         },
+        "bathroom-door": {
+            type: "action",
+            poi: { x: 56, y: 80, w: 5, h: 8 },
+            isActive: function () {
+                return true
+            },
+            start: function () {
+                document.querySelector('#bcBackground').classList.remove('masked-1')
+                document.querySelector('#bcBackground').classList.add('masked-2')
+            }
+        },
+        "bedroom-door": {
+            type: "action",
+            poi: { x: 20, y: 64, w: 10, h: 4 },
+            isActive: function () {
+                return true
+            },
+            start: function () {
+                document.querySelector('#bcBackground').classList.remove('masked-2')
+            }
+        },
         // to be continued...
     };
 
