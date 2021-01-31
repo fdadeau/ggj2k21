@@ -71,6 +71,9 @@ document.addEventListener("DOMContentLoaded", function(e) {
                     game.dialogs.push("Something seems to be broken in there.", "The water is cannot be evacuated,", "and there is something that seems to be locked in there.", "I should try to fix it."); 
                     game.dialogs.say(() => this.puzzle.start());
                 }
+                else {
+                    this.puzzle.start();
+                }
             }
         },
         "vomit": { 
