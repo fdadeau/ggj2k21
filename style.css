@@ -117,6 +117,18 @@ main {
     background-size: cover;
 }
 
+#bcBackground.masked-1 {
+    background-image: url(assets/mask-1.webp), url(assets/the-map.webp);
+    background-repeat: no-repeat, no-repeat;
+    background-size: cover, cover;
+}
+
+#bcBackground.masked-2 {
+    background-image: url(assets/mask-2.webp), url(assets/the-map.webp);
+    background-repeat: no-repeat, no-repeat;
+    background-size: cover, cover;
+}
+
 main #talk {
     display: block;
     position: absolute; 
