@@ -6,9 +6,9 @@ document.addEventListener("DOMContentLoaded", function(e) {
     var scenes = { 
         "sdb": { 
             zonesOK: [ 
-                { x: 70, y: 69, w: 7, h: 5 },
-                { x: 58, y: 73.5, w: 38, h: 14 },
-                { x: 58, y: 86, w: 24, h: 10 }
+                { x: 70, y: 69, w: 7, h: 5 },       // WC area
+                { x: 58, y: 73.5, w: 38, h: 14 },   // starting area
+                { x: 58, y: 86, w: 24, h: 10 }      // door/shower
             ], 
             text: [ 
                 "Ouch, what a headache!", 
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
         }, 
         "chambre": { 
             zonesOK: [
-                
+                { x: 70, y: 69, w: 7, h: 5 },       // WC area
             ],
             text: [
                 "OK it looks like a room.", 
