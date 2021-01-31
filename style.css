@@ -264,6 +264,13 @@ main #btnAction:not([data-poi=""]) {
     display: block;
 }
 
+#btnAction::before {
+    display: block;
+    content: attr(data-icon);
+    width: 100%;
+    text-align: center;
+    margin-top: 25%;
+}
 
 #point {
     position: absolute; 
