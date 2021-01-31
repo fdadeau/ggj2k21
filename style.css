@@ -169,13 +169,47 @@ main #bcCharacter {
     display: block;
     position: absolute; 
     transform-origin: center center;
-    transform: translate(-50%, -50%);
-    width: 1vw;
-    height: 1vw;
+    transform: translate(-50%, -85%);
+    --largeur-perso: 20vw;
+    --hauteur-perso: 30vw;
+    width: var(--largeur-perso);
+    height: var(--hauteur-perso);
     top: 50%;
     left: 50%;
     border: solid 2px blue;
+    background-image: url(assets/spritesheet-perso.png);
+    background-repeat: no-repeat;
+    background-size: calc(4 * var(--largeur-perso)) var(--hauteur-perso);
 }
+
+.animMarcheG {
+    animation-name: animPersoMarcheG;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-timing-function: step-start;
+    animation-direction: normal;
+    animation-duration: 1s;
+}
+
+@keyframes animPersoMarcheG {
+    0% {
+        background-position: -0vw 0;
+    }
+    25% {
+        background-position: calc(-1 * var(--largeur-perso) - 2vw) 0;
+    }
+    50% {
+        background-position: calc(-2 * var(--largeur-perso) - 2vw) 0;
+    }
+    75% {
+        background-position: calc(-3 * var(--largeur-perso) - 2vw) 0;        
+    }
+    100% {
+        background-position: -0vw 0;
+    }
+}
+
+
 
 
 

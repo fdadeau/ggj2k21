@@ -129,7 +129,11 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
     var textsToSay = [...scenes.sdb.text];
     say();
+    document.getElementById("talk").addEventListener("dblclick", function(e) {
+        e.preventDefault();
+    });
     document.getElementById("talk").addEventListener("click", function(e) {
+        e.preventDefault();
         say();
     });
     function say() {
