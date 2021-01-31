@@ -133,6 +133,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
         "bathroom-exit-door": {
             type: "door",
             poi: { x: 57, y: 80, w: 2, h: 8 },
+            firstTime: true,
             isActive: function () {
                 return true;
             },
@@ -142,8 +143,11 @@ document.addEventListener("DOMContentLoaded", function(e) {
                     document.querySelector('#bcBackground').classList.add('masked-2')
                     game.hero.setPosition(46, 84);
                     game.render();
-                    game.dialogs.push(...scenes.chambre.text);
-                    game.dialogs.say();
+                    if (this.firstTime) {
+                        game.dialogs.push(...scenes.chambre.text);
+                        game.dialogs.say();
+                        this.firstTime = false;
+                    }
                 }
                 else {
                     game.dialogs.push("Hum, I can't open that door, I don't have the key.");
