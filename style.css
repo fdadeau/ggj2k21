@@ -186,7 +186,7 @@ main #bcCharacter {
     height: var(--hauteur-perso);
     top: 80%;
     left: 50%;
-    border: solid 2px blue;
+    /*border: solid 2px blue;*/
     background-image: url(assets/persomarche.png);
     background-repeat: no-repeat;
     background-size: calc(5 * var(--largeur-perso)) var(--hauteur-perso);
