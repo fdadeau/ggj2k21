@@ -6,9 +6,9 @@ document.addEventListener("DOMContentLoaded", function(e) {
     var scenes = { 
         "sdb": { 
             zonesOK: [ 
-                { x: 65, y: 27, w: 11, h: 30 },
-                { x: 6, y: 41, w: 98, h: 34 },
-                { x: 56, y: 75, w: 25, h: 20 }
+                { x: 70, y: 69, w: 7, h: 5 },
+                { x: 58, y: 73.5, w: 38, h: 14 },
+                { x: 58, y: 86, w: 24, h: 10 }
             ], 
             text: [ 
                 "Ouch, what a headache!", 
@@ -16,7 +16,8 @@ document.addEventListener("DOMContentLoaded", function(e) {
                 "Hum it looks like the door is closed.", 
                 "I need to find a way to get out of here...",
                 "and find out what I'm doing there." 
-            ]
+            ],
+            start: { x: 70, y: 95 },
             // maybe other things later...?
         }, 
         "chambre": { 
