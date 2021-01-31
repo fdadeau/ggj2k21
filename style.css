@@ -190,6 +190,15 @@ main #bcCharacter {
     animation-direction: normal;
     animation-duration: 1s;
 }
+.animMarcheD {
+    transform: translate(-50%, -85%) scaleX(-1, 1);
+    animation-name: animPersoMarcheG;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-timing-function: step-start;
+    animation-direction: normal;
+    animation-duration: 1s;
+}
 
 @keyframes animPersoMarcheG {
     0% {

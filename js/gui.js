@@ -78,6 +78,19 @@ document.addEventListener("DOMContentLoaded", function(e) {
         background.style.left = deltaX + "px";
         background.style.top = deltaY + "px";
     
+        if (hero.vec.x > 0) {
+            hero.element.classList.add("animMarcheD");
+            hero.element.classList.remove("animMarcheG");
+        }
+        else if (hero.vec.x < 0) {
+            hero.element.classList.add("animMarcheG");
+            hero.element.classList.remove("animMarcheD");
+        }
+        else {
+            hero.element.classList.remove("animMarcheG");
+            hero.element.classList.remove("animMarcheD");
+        }
+        
         var poi = hero.isOnPOI();
         if (poi) {
             btnAction.dataset.poi = poi;

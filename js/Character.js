@@ -7,6 +7,8 @@ function Character(element) {
         this.position.y = perY;
     }
     
+    this.element = element;
+    
     this.position = {x: 70, y: 50 }; 
         
     this.zonesOK = [];
