@@ -273,7 +273,9 @@ main #btnAction[data-poi] {
     background-color: #222;
 }
 
-
+#joystick, #joystick > div {
+    box-shadow: 0 0 6px 2px rgba(255, 255, 255, 0.75)
+}
 
 /*** Sections / mini-game **/
 .minigame {
