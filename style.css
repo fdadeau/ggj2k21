@@ -219,8 +219,6 @@ main #bcCharacter {
 
 
 
-
-
 /** Bouton action **/
 main #btnAction {
     display: none;
@@ -233,7 +231,7 @@ main #btnAction {
     right: 1vw;
     bottom: 1vw;       
 }
-main #btnAction[data-poi] {
+main #btnAction:not([data-poi=""]) {
     display: block;
 }
 

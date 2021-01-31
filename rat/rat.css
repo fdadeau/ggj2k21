@@ -25,10 +25,10 @@
     position: absolute;
     border: solid 1px #000;
     transform: translate(-50%, -50%);
-    width: 8vw;
-    height: 8vw;
+    width: 10vw;
+    height: 10vw;
     border-radius: 50%;
-    border: solid 150vw rgba(0, 0, 0, 0.1);
+    border: solid 150vw rgba(0, 0, 0, 0.95);
 }
 
 
