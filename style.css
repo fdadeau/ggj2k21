@@ -264,12 +264,23 @@ main #btnAction:not([data-poi=""]) {
     display: block;
 }
 
-#btnAction::before {
+#btnAction:before {
     display: block;
-    content: attr(data-icon);
     width: 100%;
     text-align: center;
     margin-top: 25%;
+}
+#btnAction:not([data-poi=""])[data-type="game"]:before {
+    content: '\01F92B';
+}
+#btnAction[data-type="thought"]:before {
+    content: '\01F4AD';
+}
+#btnAction[data-type="pickup"]:before {
+    content: '\01F447';
+}
+#btnAction[data-type="door"]:before {
+    content: '\01F6AA';
 }
 
 #point {

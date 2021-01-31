@@ -52,22 +52,14 @@ document.addEventListener("DOMContentLoaded", function(e) {
     
     
     var icons = {
-        "game": "🤔",
-        "thought": "💭",
-        "pickup": "🧲",
-        "door": "🚪",
+       
     }
 
     // Possible actions / POI
     var actions = {
         "water": { 
             type: "game", 
-<<<<<<< HEAD
-            icon: icons["game"],
-            poi: { x: 83, y: 41, w: 11, h: 3 },
-=======
             poi: { x: 85, y: 73, w: 11, h: 3 },
->>>>>>> 5c22bfa (zonesOK)
             puzzle: new WaterGame(document.getElementById("bcWater")),
             isActive: function() {
                 return true;   
@@ -78,12 +70,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
         },
         "vomit": { 
             type: "thought", 
-<<<<<<< HEAD
-            icon: icons["thought"],
-            poi: { x: 65, y: 27, w: 8, h: 16 },
-=======
             poi: { x: 65, y: 68, w: 10, h: 8 },
->>>>>>> 5c22bfa (zonesOK)
             isActive: function() {
                 return true;   
             },
