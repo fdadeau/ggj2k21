@@ -452,6 +452,7 @@ main #btnAction:not([data-poi=""]) {
     height: 100vh;
     position: absolute; 
     top: 0;
+    overflow: hidden;
     left: 0;
 }
 
@@ -462,6 +463,7 @@ section .btnBack {
     top: 1vw;
     background-color: transparent;
     border: none;
+    z-index: 100;
     font-size: 4vw;
 }
 section .btnBack:before {
