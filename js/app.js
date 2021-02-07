@@ -66,6 +66,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
             isActive: function() {
                 return true;   
             },
+            done: false,
             start: function() {
                 this.puzzle.game = game;
                 if (!this.puzzle.isSolved()) {
@@ -77,7 +78,8 @@ document.addEventListener("DOMContentLoaded", function(e) {
                 }
             }, 
             end: function() {
-                if (this.puzzle.isSolved()) {
+                if (this.done == false && this.puzzle.isSolved()) {
+                    this.done = true;
                     game.dialogs.push("Yes! It worked!", "And I now get the key of the bathroom!", "I can exit the room.");
                     game.dialogs.say();
                 }

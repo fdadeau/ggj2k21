@@ -8,6 +8,10 @@ function WaterGame(element) {
     
     element.querySelector("#bcWaterLevels").addEventListener("click", function(e) {
         
+        if (that.hasBeenSolved) {
+            return;   
+        }
+        
         if (e.target.tagName != "BUTTON") {
             return;
         }
@@ -68,8 +72,11 @@ function WaterGame(element) {
     color.init();
     color.render();
     
+    this.hasBeenSolved = false;
+    
     this.check = function() {
         if (this.isSolved()) {
+            this.hasBeenSolved = true;
             this.stop();   
         }
     }
