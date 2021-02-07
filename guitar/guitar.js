@@ -82,6 +82,9 @@ function GuitarGame(element) {
     this.stop = function() {
         element.classList.remove("show");
         this.started = false
+        if (this.game) {
+            this.game.endgame("guitar");
+        }
     }
     
     this.isSolved = function() {
@@ -98,6 +101,7 @@ function GuitarGame(element) {
             document.querySelector('button#melody-player').disabled = true
             this.playFinale()
             this.over = true
+            this.stop();
         }
     }
 

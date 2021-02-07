@@ -121,6 +121,7 @@ main {
     background-image: url(assets/mask-1.webp), url(assets/the-map.webp);
     background-repeat: no-repeat, no-repeat;
     background-size: cover, cover;
+    
 }
 
 #bcBackground.masked-2 {
@@ -138,6 +139,7 @@ main #talk {
     color: black;
     width: 90vw;
     left: 5vw;
+    z-index: 1000;
     font-size: 5vh;
     padding: 2vh;
     border-radius: 2vh;
@@ -185,6 +187,7 @@ main #bcCharacter {
     width: var(--largeur-perso);
     height: var(--hauteur-perso);
     top: 80%;
+    z-index: 1;
     left: 50%;
     /*border: solid 2px blue;*/
     background-image: url(assets/marcheimperiale.png);
@@ -249,11 +252,119 @@ main.light #bcCharacter:after, main.nolight #bcCharacter:after {
     border-radius: 50%; 
     height: 10vw;
     display: block;
-    border: solid 100vw rgba(0, 0, 0, 0.95);
+    border: solid 100vw rgba(0, 0, 0, 0.8);
 }
 main.nolight #bcCharacter:after {
     width: 0;
     height: 0;
+    border: solid 100vw rgba(0, 0, 0, 0.95);
+}
+main.light #bcCharacter.animMarcheD:after, 
+main.light #bcCharacter.animMarcheG:after {
+    animation-name: animPersoLightspot;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-timing-function: step-start;
+    animation-direction: normal;
+    animation-duration: 1s;
+    left: -8vw;
+    top: 20vw;
+}
+@keyframes animPersoLightspot {
+    0% {
+        top: 20vw;
+        left: -8vw;
+    }
+    12.5% {
+        top: 19vw;
+        left: -7.5vw;
+    }
+    25% {
+        top: 18vw;
+        left: -7vw;
+    }
+    37.5% {
+        top: 19vw;
+        left: -7.5vw;
+    }
+    50% {
+        top: 20vw;
+        left: -8vw;
+    }
+    62.5% {
+        top: 21vw;
+        left: -7.5vw;
+    }
+    75% {
+        top: 22vw;
+        left: -7vw;
+    }
+    87.5% {
+        top: 21vw;
+        left: -7.5vw;
+    }
+    100% {
+        top: 20vw;
+        left: -8vw;
+    }
+}
+
+
+/** Flashlight in the hand of the character */
+main.light #bcCharacter:before {
+    display: block;
+    position: absolute; 
+    content: '';   
+    width: 7vw;
+    height: 3vw;
+    top: 13.5vw;
+    left: 1.5vw;
+    z-index: -1;
+    background: transparent url(./assets/lampe2.png) no-repeat;
+    background-size: contain;
+    transform-origin: center;
+    transform: rotate(-10deg);
+}
+main.light #bcCharacter.animMarcheD:before, 
+main.light #bcCharacter.animMarcheG:before {
+    animation-name: animPersoLight;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-timing-function: step-start;
+    animation-direction: normal;
+    animation-duration: 1s;
+    top: 11.5vw;
+    left: 0.3vw;
+}
+@keyframes animPersoLight {
+    0% {
+        top: 11.5vw;
+        left: 0.7vw;
+    }
+    16% {
+        top: 11.6vw;
+        left: 0vw;
+    }
+    33% {
+        top: 11.5vw;
+        left: -0.5vw;
+    }
+    50% {
+        top: 11.3vw;
+        left: -0.1vw;
+    }
+    66% {
+        top: 11.6vw;
+        left: 0vw;
+    }
+    83% {
+        top: 11.8vw;
+        left: 0.1vw;
+    }
+    100% {
+        top: 11.5vw;
+        left: 0.7vw;
+    }   
 }
 
 
@@ -267,8 +378,10 @@ main #btnAction {
     height: 14vh;
     width: 14vh;
     right: 2vw;
+    line-height: 8vh;
     font-size: 10vh;
     bottom: 2vw;       
+    z-index: 1000;
 }
 main #btnAction:not([data-poi=""]) {
     display: block;
@@ -315,6 +428,7 @@ main #btnAction:not([data-poi=""]) {
     box-sizing: border-box;
     border: solid 0.3vw #000;
     border-radius: 50%;
+    z-index: 1000;
 }
 #joystick > div {
     position: absolute;

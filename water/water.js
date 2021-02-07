@@ -71,11 +71,12 @@ function WaterGame(element) {
     this.check = function() {
         if (this.isSolved()) {
             this.stop();   
-            if (this.game) {
-                this.game.dialogs.push("Yes! It worked!", "And I now get the key of the bathroom!", "I can exit the room.");
-                this.game.dialogs.say();
-            }
         }
+    }
+    
+    // retrieves the code of the form { R: 1..4, G: 1..4, B: 1..4, A: 1..4 }
+    this.getCode = function() {
+        return color.target;   
     }
     
     this.isSolved = function() {
@@ -88,6 +89,9 @@ function WaterGame(element) {
     
     this.stop = function() {
         element.classList.remove("show");   
+        if (this.game) {
+            this.game.endgame("water");
+        }
     }
     
     this.update = function(now) {

@@ -19,22 +19,50 @@
     display: block;
 }
 
+#bcLockColor:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 20vw;
+    width: 5vw;
+    height: 100vh;
+    border-left: solid 2vw #000;
+    border-right: solid 2vw #000;
+}
+
+#bcLockColor #bcLockColorHandle {
+    position: absolute;
+    width: 8vw;
+    height: 8vw;
+    border-radius: 50%;
+    bottom: 20vh;
+    left: 2vw;
+    border: solid 2vw #222;
+    background-color: #FFF;
+    box-shadow: -1vw 1vw 1vw grey; 
+}
+
 #bcLockColorInputs {
-    padding-top: 20vh;
+    position: absolute;
+    right: 5vw;
+    top: 20vh;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-content: center;
-    width: 80%;
+    width: 50vw;
     height: 30vh;
+    background-color: lightgray;
+    border: solid 2vw #000;
+    border-radius: 3vw;
     margin: 5vh auto;
 }
 #bcLockColorInputs > div {
-    margin: 1vh 3vw;
-    height: 12vw;
+    top: 6vh;
+    height: 50%;
     width: 3vw;
     position: relative;
-    font-size: 6vw;
+    font-size: 5vw;
     font-weight: bold;
 }
 
@@ -42,7 +70,7 @@
     position: absolute;
     left: 0;
     width: 3vw;
-    height: 4vh;
+    height: 2vh;
     text-align: center;
     font-weight: bold; 
     border: none;
@@ -51,19 +79,19 @@
     
 }
 #bcLockColorInputs .bcDigitBtnPlus {
-    top: -5vw;   
+    top: -3vw;   
 }
 #bcLockColorInputs .bcDigitBtnPlus:before {
     content: '+';
 }
 #bcLockColorInputs .bcDigitBtnMinus {
-    bottom: 0;   
+    bottom: 2vw;   
 }
 #bcLockColorInputs .bcDigitBtnMinus:before {
     content: '\2212';
 }
 #bcLockColorInputs .bcDigitBtnColor {
-    bottom: -5vw;
+    bottom: -1vw;
 }
 #bcLockColorInputs .bcDigitBtnColor:before {
     content: '\01F3A8';

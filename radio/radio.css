@@ -2,7 +2,7 @@
                Stylesheet for radio mini-game
  ********************************************************/
 
-body {
+#bcRadio {
     --color-bg: #281A29;
     --color-btn: #E0E0E0;
     background-color: var(--color-bg);

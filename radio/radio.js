@@ -89,6 +89,14 @@ function RadioGame(element) {
         e.preventDefault();
         freq.delta = 0;
     });
+    document.getElementById("bcRadioBtnPlus").addEventListener("touchstart", function(e) {
+        e.preventDefault();
+        freq.delta = 1;
+    });
+    document.getElementById("bcRadioBtnPlus").addEventListener("touchend", function(e) {
+        e.preventDefault();
+        freq.delta = 0;
+    });
 
     document.getElementById("bcRadioBtnMinus").addEventListener("mousedown", function(e) {
         e.preventDefault();
@@ -102,34 +110,53 @@ function RadioGame(element) {
         e.preventDefault();
         freq.delta = 0;
     });
+    document.getElementById("bcRadioBtnMinus").addEventListener("touchstart", function(e) {
+        e.preventDefault();
+        freq.delta = -1;        
+    });
+    document.getElementById("bcRadioBtnMinus").addEventListener("touchend", function(e) {
+        e.preventDefault();
+        freq.delta = 0;
+    });
+    
+    var that = this;
+    document.querySelector("#bcRadio .btnBack").addEventListener("click", function(e) {
+        that.stop();
+    });
+    
+    
 
     var code = {
-        noise: new Audio('assets/noise.mp3'),
-        code: new Audio('assets/repeating.mp3'),
+        noise: new Audio('./radio/assets/noise.mp3'),
+        code: new Audio('./radio/assets/repeating.mp3'),
         step: 0,
         generate: function() {
+            this.zeCode = {};
             var ret = ["repeating"];
-            while (ret.length < 9) {
-                ret.push(Math.random() * 4 + 1 | 0);
-                ret.push(["red", "green", "yellow", "blue"][Math.random()*4 | 0]);
+            var colors = ["red", "green", "yellow", "blue"];
+            while (colors.length > 0) {
+                var v = Math.random() * 4 + 1 | 0;
+                ret.push(v);
+                var c = Math.random() * colors.length | 0;
+                ret.push(colors[c]);
+                this.zeCode[colors[c]] = v;
+                colors.splice(c, 1);                
             }
-            this.zeCode = ret;
-            console.log(ret);
         },
         playSounds: function() {
             // background noise
-            this.noise.volume = 0.8;
+            this.noise.volume = 0.6;
             this.noise.loop = true;
             this.noise.play();
             // repeating code 
             this.step = 0;
-            this.code.src = "assets/" + this.zeCode[this.step] + ".mp3";            
+            this.code.src = "./radio/assets/" + this.zeCode[this.step] + ".mp3";            
             this.code.volume = 0;
             this.code.play();
         },
         stopSounds: function() {
-            this.noise.stop();   
-            this.code.stop();   
+            this.noise.pause();   
+            this.code.pause();   
         },
         update: function(dist) {
             // update code playing
@@ -138,17 +165,17 @@ function RadioGame(element) {
                 if (this.step >= this.zeCode.length) {
                     this.step = 0;   
                 }
-                this.code.src = "assets/" + this.zeCode[this.step] + ".mp3";
+                this.code.src = "./radio/assets/" + this.zeCode[this.step] + ".mp3";
                 this.code.play();
             }
             // update volume
             if (dist < 2) {
                 this.code.volume = 1 - dist/2;
-                this.noise.volume = dist/2 * 0.8;
+                this.noise.volume = dist/2 * 0.6;
                 return true;
             }
             this.code.volume = 0;
-            this.noise.volume = 0.8;
+            this.noise.volume = 0.6;
         }
     }
 
@@ -165,8 +192,11 @@ function RadioGame(element) {
         code.playSounds();   
     }    
     this.stop = function() {
-        element.classList.remove("show");
         code.stopSounds();   
+        element.classList.remove("show");
+        if (this.game) {
+            game.endgame("radio");   
+        }
     }
     this.update = function(now) {
         freq.update(now);
@@ -174,6 +204,6 @@ function RadioGame(element) {
     }
     
     this.getCode = function() {
-        return code.zeCode.filter((e,i) => i > 0).join("-");   
+        return code.zeCode;   
     }
 }

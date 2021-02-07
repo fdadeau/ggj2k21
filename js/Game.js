@@ -1,6 +1,6 @@
 "use strict";
 
-const DEBUG = false;
+const DEBUG = true;
 
 
 function Game(scenes, actions) {
@@ -38,8 +38,19 @@ function Game(scenes, actions) {
     this.render = function() {
         render();
     }
+    
+    
 
     var current = null;
+    
+    /** Should be called when the game is ended **/
+    this.endgame = function(which) {
+        console.log("end game: ", which);
+        if (actions[which] && actions[which].end) {
+            actions[which].end();
+        }
+        current = null;   
+    }
 
 
     /** Check if the hero is on the POI */
@@ -62,13 +73,6 @@ function Game(scenes, actions) {
         var xPxHero = hero.position.x * rect.width / 100;
         var yPxHero = hero.position.y * rect.height / 100;
 
-        if (DEBUG) {
-            // point used to debug character position
-            var point = document.getElementById("point");
-            point.style.left = xPxHero + "px";
-            point.style.top = yPxHero + "px";
-        }
-
         // view centering on the character
         var deltaX = (window.innerWidth / 2) - xPxHero;
         var deltaY = window.innerHeight * 0.8 - yPxHero;
@@ -88,6 +92,7 @@ function Game(scenes, actions) {
 
     /**** EVENT LISTENERS *****/
 
+    var that = this;
 
     // Virtual joystick management 
 
@@ -95,6 +100,13 @@ function Game(scenes, actions) {
 
     // movement on the joystick
     document.getElementById("joystick").addEventListener("touchmove", function (e) {
+        
+        if (! that.dialogs.ended())
+            return;
+        
+        if (current != null)
+            return;
+        
         e.preventDefault();
 
         var x = e.changedTouches[0].clientX;
@@ -107,8 +119,14 @@ function Game(scenes, actions) {
 
         hero.setDirection((x - centerX) / dist, (y - centerY) / dist);
 
-        stick.style.left = (hero.vec.x * 50 + 50) + "%";
-        stick.style.top = (hero.vec.y * 50 + 50) + "%";
+        if (dist > window.innerHeight / 20) {
+            stick.style.left = (hero.vec.x * 50 + 50) + "%";
+            stick.style.top = (hero.vec.y * 50 + 50) + "%";
+        }
+        else {
+            stick.style.left = (50 + x - centerX) + "%";
+            stick.style.top = (50 + y - centerY) + "%"; 
+        }
     });
     // release on the joystick
     document.getElementById("joystick").addEventListener("touchend", function (e) {
@@ -120,6 +138,8 @@ function Game(scenes, actions) {
 
     // click/touch on actions
     document.getElementById("btnAction").addEventListener("click", function (e) {
+        if (current != null)
+            return;
         var act = this.dataset.poi;
         if (actions[act]) {
             actions[act].start();
@@ -129,6 +149,18 @@ function Game(scenes, actions) {
 
     // déplacements au clavier 
     document.addEventListener("keydown", function (e) {
+        
+        if (! that.dialogs.ended()) {
+            if (e.keyCode == 32) {
+                that.dialogs.say(that.dialogs.callback);    
+            }
+            return;
+        }
+        
+        if (current != null) {
+            return;   
+        }
+        
         switch (e.keyCode)  {
             case 38: // up arrow
                 hero.setDirection(hero.vec.x, -1);
@@ -181,7 +213,6 @@ function Game(scenes, actions) {
     /****************************************
                     MAIN LOOP 
     ****************************************/
-    var that = this;
 
     function mainloop() {
         requestAnimationFrame(mainloop);

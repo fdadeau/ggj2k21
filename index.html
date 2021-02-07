@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Title of the document</title>
+    <title>The Hangover of the Century</title>
     <meta charset="utf-8">
 
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimal-ui,shrink-to-fit=no" />    
@@ -36,13 +36,16 @@
     <link rel="stylesheet" href="lock/lock.css">
     <script src="lock/lock.js"></script>
     
+    <link rel="stylesheet" href="linky/linky.css">
+    <script src="linky/linky.js"></script>
+    
 </head>
 
 <body>
     <!-- Main game screen -->
-    <main>
+    <main class="">
         <div id="bcBackground" class="sdb masked-1"></div>  
-        <div id="bcCharacter"></div>
+        <div id="bcCharacter" class=""></div>
         <div id="talk"></div>
         <div id="btnAction"></div>
         <div id="joystick"><div></div></div>
@@ -115,7 +118,7 @@
     </section>
     
     <!-- Radio -->
-    <section id="bcRadio">
+    <section id="bcRadio" class="minigame">
         <div id="bcRadioFrequency">
             <button id="bcRadioBtnPlus"></button>
             <button id="bcRadioBtnMinus"></button>
@@ -148,8 +151,16 @@
                 <button class="bcDigitBtnColor"></button>
             </div>            
         </div>
+        <div id="bcLockColorHandle"></div>
         <button class="btnBack"></button>
     </section>     
+    
+    <!-- linky lock -->
+    <section id="bcLinky" class="minigame">
+        <div id="bcLinkyBox"></div>
+        <button class="btnBack"></button>
+    </section>     
+
 
     
 </body>

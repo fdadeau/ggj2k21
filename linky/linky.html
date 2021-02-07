@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Test Lock</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="linky.css">    
+    <script src="linky.js"></script>
+    <script>
+        
+    document.addEventListener("DOMContentLoaded", function() {
+        
+    var current = new LinkyGame(document.getElementById("bcLinky"));    
+        
+    document.getElementById("showBcLinky").addEventListener("click", function() {
+        var tab = [];
+        while (tab.length < 4) {
+            var n = Math.random() * 9 + 1 | 0;
+            if (tab.indexOf(n) < 0) {
+                tab.push(n);
+            }
+        }
+        current.start(tab);
+    });
+        
+    function mainloop() {
+        requestAnimationFrame(mainloop);
+        var now = Date.now();
+        if (current) {
+            current.update(now);   
+        }
+    }
+    mainloop();
+    
+    });
+    </script>
+    <style>
+section .btnBack {
+    display: block;
+    position: absolute; 
+    right: 1vw;
+    top: 1vw;
+    background-color: transparent;
+    border: none;
+    font-size: 100%;
+}
+section .btnBack:before {
+    content: '\2716';
+    color: red;
+}
+    </style>
+</head>
+    
+    
+<body class="nolight">
+    <button id="showBcLinky">Play</button>
+    <section id="bcLinky" class="minigame">
+        <div id="bcLinkyBox">
+        </div>
+        <button class="btnBack"></button>
+    </section>     
+</body>
+
+</html>

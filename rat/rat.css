@@ -46,13 +46,19 @@
     0% {
         background-position: 0 0;
     }
-    25% {
-        background-position: -8vw 0;
+    16% {
+        background-position: -16vw 0;
     }
-    50% {
+    33% {
         background-position: -4vw 0;
     }
-    75% {
+    50% {
+        background-position: -8vw 0;
+    }
+    66% {
+        background-position: -20vw 0;
+    }
+    83% {
         background-position: -12vw 0;
     }
     100% {
@@ -65,20 +71,43 @@
     animation-direction: normal;
     animation-timing-function: step-start;
     animation-iteration-count: infinite;
-    animation-duration: 0.4s;
-    background-image: url(../assets/deplacementssourpent.png);
+    animation-duration: 2s;
+    background-image: url(./assets/deplacementssourpent.png);
     background-repeat: no-repeat;
-    background-size: 16vw 8vw;
+    background-size: 24vw 8vw;
     background-position: 0 0;
 }
 
-#bcRatBeast.anim:before {
-    content: 'M';
+#bcRatBeast:not(.anim):before {
+    content: '';
+    display: block;
+    background-image: url(./assets/chiffres-sourpent.png);
+    background-size: 36vw 8vw;
+    width: 4vw;
+    height: 8vw;
+    background-position: 0 0; 
 }
-#bcRatBeast:before {
-    content: attr(data-number);
-    padding: 1vw 1vw;
-    line-height: 3vw;
-    text-align: center;
-    color: white;
+#bcRatBeast[data-number="2"]:before {
+    background-position: -4vw 0; 
+}
+#bcRatBeast[data-number="3"]:before {
+    background-position: -8vw 0; 
+}
+#bcRatBeast[data-number="4"]:before {
+    background-position: -12vw 0; 
+}
+#bcRatBeast[data-number="5"]:before {
+    background-position: -16vw 0; 
+}
+#bcRatBeast[data-number="6"]:before {
+    background-position: -20vw 0; 
+}
+#bcRatBeast[data-number="7"]:before {
+    background-position: -24vw 0; 
+}
+#bcRatBeast[data-number="8"]:before {
+    background-position: -28vw 0; 
+}
+#bcRatBeast[data-number="9"]:before {
+    background-position: -32vw 0; 
 }

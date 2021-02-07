@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
             zonesOK: [
                 { x: 16, y: 95, w: 35, h: 3 },       // bed-bottom
                 { x: 35, y: 73, w: 12, h: 22 },      // bed-right + door to bathroom
-                { x: 6, y: 66, w: 35, h: 7 }         // bed-top + door to spaceship
+                { x: 7, y: 66, w: 35, h: 9 }         // bed-top + door to spaceship
             ],
             text: [
                 "OK it looks like a room.", 
@@ -44,8 +44,10 @@ document.addEventListener("DOMContentLoaded", function(e) {
             ],
             text: [
                 "OK... that's unusual...", 
-                "I'm in a sort of... spaceship ?!?",
-                "How the f*** is it possible?"
+                "I'm in a sort of... SPACESHIP!?",
+                "How the f*** is it possible?!",
+                "I need to find out what I'm doing there,", 
+                "and then get the hell out of here."
             ]
         }
     };
@@ -65,7 +67,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
                 return true;   
             },
             start: function() {
-                // set the game instance
                 this.puzzle.game = game;
                 if (!this.puzzle.isSolved()) {
                     game.dialogs.push("Something seems to be broken in there.", "The water is cannot be evacuated,", "and there is something that seems to be locked in there.", "I should try to fix it."); 
@@ -74,6 +75,10 @@ document.addEventListener("DOMContentLoaded", function(e) {
                 else {
                     this.puzzle.start();
                 }
+            }, 
+            end: function() {
+                game.dialogs.push("Yes! It worked!", "And I now get the key of the bathroom!", "I can exit the room.");
+                game.dialogs.say();
             }
         },
         "vomit": { 
@@ -87,6 +92,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
                 game.dialogs.say(); 
             } 
         }, 
+        // Room
         "guitar": {
             type: "game",
             poi: { x: 40, y: 68, w: 8, h: 6 },
@@ -95,30 +101,69 @@ document.addEventListener("DOMContentLoaded", function(e) {
                 return !this.puzzle.isSolved();   
             },
             start: function() {
+                this.puzzle.game = game;
                 game.dialogs.push("That guitar has a broken string...", "Well, that reminds me some music..."); 
                 game.dialogs.say(() => this.puzzle.start()); 
+            },
+            end: function() {
+                if (this.puzzle.isSolved()) {
+                    document.querySelector("main").classList.add("nolight");
+                    game.dialogs.push("Ouch!", "The lights are out!", "Maybe there is a flashlight somewhere...");
+                }
+                else {
+                    game.dialogs.push("Hum... that's difficult...", "but I need to try harder to find the melody.");
+                }
+                game.dialogs.say();
             }
         },
         "lamp": {
             type: "pickup",
-            poi: { x: 0, y: 0, w: 0, h: 0 },
+            poi: { x: 6, y: 73, w: 6, h: 3 },
             done: false,
+            mainElt: document.querySelector("main"),
             isActive: function() {
-                return !this.done;  
+                return !this.done && this.mainElt.classList.contains("nolight");  
             },
             start: function() {
                 this.done = true;  
-                // TODO update display
+                this.mainElt.classList.add("light");
+                this.mainElt.classList.remove("nolight");
             }
         }, 
+        "radio": {
+            type: "game",
+            poi: { x: 12, y: 95, w: 5, h: 3 },
+            puzzle: new RadioGame(document.getElementById("bcRadio")),
+            isActive: function() {
+                return true;
+            },
+            start: function() {
+                this.puzzle.game = game;
+                this.puzzle.start();   
+            }
+        },
         "disjunct": {
             type: "game", 
-            poi: { x: 0, y: 0, w: 0, h: 0 },
-            puzzle: null,   // TODO
+            poi: { x: 6, y: 65, w: 5, h: 3 },
+            puzzle: new LinkyGame(document.getElementById("bcLinky")),   
             isActive: function() {
                 return true;
             }, 
             start: function() {
+                this.puzzle.game = game;
+                this.puzzle.start(actions.sourpent.puzzle.getCode(), actions.guitar.puzzle.isSolved());   
+            }
+        },
+        "sourpent": {
+            type: "game", 
+            poi: { x: 14, y: 65, w: 3, h: 3 },
+            puzzle: new RatGame(document.getElementById("bcRat")),
+            mainElt: document.querySelector("main"), 
+            isActive: function() {
+                return this.mainElt.classList.contains("light");    
+            },
+            start: function() {
+                this.puzzle.game = game;
                 this.puzzle.start();   
             }
         },
@@ -133,6 +178,44 @@ document.addEventListener("DOMContentLoaded", function(e) {
                 game.dialogs.say();
             }
         },
+        "colorlock": {
+            type: "game",
+            poi: { x: 20, y: 65, w: 10, h: 2 },
+            puzzle: new LockGame(document.getElementById("bcLockColor")),
+            isActive: function () {
+                return this.puzzle.isSolved() < 0;
+            },
+            start: function() {
+                this.puzzle.game = game;
+                this.puzzle.start(actions.radio.puzzle.getCode(), actions.water.puzzle.getCode(), actions.guitar.puzzle.isSolved());
+            },
+            end: function() {
+                if (this.puzzle.isSolved() > 0) {
+                    document.querySelector('#bcBackground').classList.remove('masked-2');
+                    game.hero.setPosition(22, 46);
+                    game.render();
+                    game.dialogs.push(...scenes.spaceship.text);
+                    game.dialogs.say();
+                    return;
+                }
+                if (this.puzzle.isSolved() == -1) {
+                    game.dialogs.push("Oops, I need to disable the alarm.");
+                    game.dialogs.say();
+                    return;
+                }
+                if (this.puzzle.isSolved() == -2) {
+                    game.dialogs.push("That didn't work.");
+                    game.dialogs.say();
+                    return;
+                }
+                if (this.puzzle.isSolved() == -3) {
+                    game.dialogs.push("The code seems to be correct, ", "but maybe it's in the wrong order.");
+                    game.dialogs.say();
+                    return;
+                }
+                
+            }
+        },        
         "bathroom-exit-door": {
             type: "door",
             poi: { x: 57, y: 80, w: 2, h: 8 },
@@ -141,7 +224,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
                 return true;
             },
             start: function () {
-                if (actions.water.puzzle.isSolved()) {
+                if (DEBUG || actions.water.puzzle.isSolved()) {
                     document.querySelector('#bcBackground').classList.remove('masked-1')
                     document.querySelector('#bcBackground').classList.add('masked-2')
                     game.hero.setPosition(46, 84);
@@ -173,16 +256,15 @@ document.addEventListener("DOMContentLoaded", function(e) {
             type: "door",
             poi: { x: 20, y: 65, w: 10, h: 2 },
             isActive: function () {
-                return true;
+                return !actions.colorlock.isActive();
             },
             start: function () {
-                document.querySelector('#bcBackground').classList.remove('masked-2');
                 game.hero.setPosition(22, 46);
                 game.render();
             }
         },
         "bedroom-entry-door": {
-            type: "action",
+            type: "door",
             poi: { x: 20, y: 46, w: 10, h: 2 },
             isActive: function () {
                 return true;
@@ -193,7 +275,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
             }
         },
         "final-exit": {
-            type: "action",
+            type: "door",
             poi: { x: 5, y: 25, w: 2, h: 8 },
             isActive: function () {
                 return true;

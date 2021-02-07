@@ -9,7 +9,7 @@ function RatGame(element) {
     
     var beast = {
         
-        speed: 0.6,
+        speed: 0.03,
         
         timeBeforeMovement: 2000,   // 0: moving, > 0 delay before movement (ms)
         
@@ -25,7 +25,7 @@ function RatGame(element) {
         code: (function() {
             var values = [1, 2, 3, 4, 5, 6, 7, 8, 9];
             var r = [];
-            while (r.length < 4) {
+            while (r.length < 5) {
                 var i = Math.random() * values.length | 0;
                 r.push(values[i]);
                 values.splice(i, 1);
@@ -34,7 +34,7 @@ function RatGame(element) {
             return r;
         })(),
         
-        lastU: 0,
+        lastU: Date.now(),
         
         update: function(now) {
             var dt = now - this.lastU;
@@ -55,7 +55,6 @@ function RatGame(element) {
                     if (this.direction.x < 0) {
                         w = -w;   
                     }
-                    console.log(this.direction.x, this.direction.y, w);
                     this.elem.style.transform = "rotate(" + w + "deg)";
 
                 }
@@ -71,6 +70,7 @@ function RatGame(element) {
                     if (this.step >= this.code.length) {
                         this.step = 0;   
                     }
+                    this.step = Math.random() * this.code.length | 0;
                     this.elem.dataset.number = this.code[this.step];
                     return;
                 }
@@ -84,8 +84,8 @@ function RatGame(element) {
                     }
                 this.elem.style.transform = "rotate(" + w + "deg)";
             }
-            this.position.x = this.position.x + this.direction.x * this.speed;
-            this.position.y = this.position.y + this.direction.y * this.speed;
+            this.position.x = this.position.x + this.direction.x * this.speed * dt;
+            this.position.y = this.position.y + this.direction.y * this.speed * dt;
             return 1;
         },
         
@@ -124,6 +124,11 @@ function RatGame(element) {
         move(e.touches[0]);   
     });        
     
+    var that = this;
+    element.querySelector(".btnBack").addEventListener("click", function() {
+        that.stop();
+    });
+    
     
     this.start = function() {
         beast.lastU = Date.now();
@@ -134,13 +139,20 @@ function RatGame(element) {
     }
     
     this.stop = function() {
-        element.classList.add("show");
+        element.classList.remove("show");
+        if (this.game) {
+            this.game.endgame("sourpent");   
+        }
     }
     
     this.update = function(now) {
         if (beast.update(now)) {    
             beast.render();
         }
+    }
+ 
+    this.getCode = function() {
+        return beast.code;   
     }
     
 }

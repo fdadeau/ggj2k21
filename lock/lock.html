@@ -13,7 +13,7 @@
     var current = new LockGame(document.getElementById("bcLockColor"));    
         
     document.getElementById("showBcLock").addEventListener("click", function() {
-         current.start();
+         current.start({ red: 4, blue: 3, green: 4, yellow: 3}, {R: 1, G: 2, B: 3, A: 4}, true);
     });
         
     function mainloop() {
@@ -55,6 +55,7 @@
                 <button class="bcDigitBtnColor"></button>
             </div>            
         </div>
+        <div id="bcLockColorHandle"></div>
         <button class="btnBack"></button>
     </section>     
 </body>
