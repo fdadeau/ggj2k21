@@ -77,8 +77,10 @@ document.addEventListener("DOMContentLoaded", function(e) {
                 }
             }, 
             end: function() {
-                game.dialogs.push("Yes! It worked!", "And I now get the key of the bathroom!", "I can exit the room.");
-                game.dialogs.say();
+                if (this.puzzle.isSolved()) {
+                    game.dialogs.push("Yes! It worked!", "And I now get the key of the bathroom!", "I can exit the room.");
+                    game.dialogs.say();
+                }
             }
         },
         "vomit": { 

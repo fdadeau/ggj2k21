@@ -7,8 +7,15 @@
 }
 
 #bcGuitar {
-    box-sizing: border-box;
+    background-color: white;
     display: none;
+}
+#bcGuitar.show {
+    display: block;
+}
+
+#bcGuitarContent {
+    box-sizing: border-box;
     margin: 20vh 20vw;
     width: 60vw;
     height: 60vh;
@@ -16,9 +23,6 @@
     box-shadow: 10px 10px 10px #000;
 }
 
-#bcGuitar.show {
-    display: block;
-}
 
 #fog {
     display: none;
@@ -40,10 +44,11 @@
     border: none;
     background: transparent;
     text-shadow: 0 0 3px rgba(0, 0, 0, .8);
-    color: rgba(234, 112, 112, .8);
+    color: black; /*rgba(234, 112, 112, .8);*/
     position: absolute;
     bottom: 1vh;
     left: 1vw;
+    font-size: 3vw;
 }
 
 #bcGuitar button#melody-player[disabled] {

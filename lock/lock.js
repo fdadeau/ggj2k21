@@ -125,6 +125,9 @@ function LockGame(element) {
     this.stop = function() {
         element.classList.remove("show");   
         console.log("solved = ", this.isSolved());
+        if (this.game){
+            this.game.endgame();   
+        }
     }
     
     this.update = function(now) {

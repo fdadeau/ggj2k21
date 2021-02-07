@@ -131,7 +131,7 @@ function RadioGame(element) {
         code: new Audio('./radio/assets/repeating.mp3'),
         step: 0,
         generate: function() {
-            this.zeCode = {};
+            this.target = {};
             var ret = ["repeating"];
             var colors = ["red", "green", "yellow", "blue"];
             while (colors.length > 0) {
@@ -139,9 +139,10 @@ function RadioGame(element) {
                 ret.push(v);
                 var c = Math.random() * colors.length | 0;
                 ret.push(colors[c]);
-                this.zeCode[colors[c]] = v;
+                this.target[colors[c]] = v;
                 colors.splice(c, 1);                
             }
+            this.zeCode = ret;
         },
         playSounds: function() {
             // background noise
@@ -195,7 +196,7 @@ function RadioGame(element) {
         code.stopSounds();   
         element.classList.remove("show");
         if (this.game) {
-            game.endgame("radio");   
+            this.game.endgame("radio");   
         }
     }
     this.update = function(now) {
@@ -204,6 +205,6 @@ function RadioGame(element) {
     }
     
     this.getCode = function() {
-        return code.zeCode;   
+        return code.target;   
     }
 }

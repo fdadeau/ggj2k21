@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>The Hangover of the Century</title>
     <meta charset="utf-8">
 
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimal-ui,shrink-to-fit=no" />    
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimal-ui,shrink-to-fit=no" />
 
     <link rel="stylesheet" href="style.css">
 
@@ -13,49 +14,51 @@
     <script src="js/Character.js"></script>
     <script src="js/Game.js"></script>
     <script src="js/app.js"></script>
-    
+
     <!-----------------------------------------------
       -                Mini-games                   -
-      -----------------------------------------------> 
-    
+      ----------------------------------------------->
+
     <link rel="stylesheet" href="guitar/guitar.css">
     <script src="guitar/guitar.js"></script>
-    
+
     <link rel="stylesheet" href="water/water.css">
     <script src="water/water.js"></script>
-    
+
     <link rel="stylesheet" href="telescope/telescope.css">
     <script src="telescope/telescope.js"></script>
-    
+
     <link rel="stylesheet" href="radio/radio.css">
     <script src="radio/radio.js"></script>
-    
+
     <link rel="stylesheet" href="rat/rat.css">
     <script src="rat/rat.js"></script>
-    
+
     <link rel="stylesheet" href="lock/lock.css">
     <script src="lock/lock.js"></script>
-    
+
     <link rel="stylesheet" href="linky/linky.css">
     <script src="linky/linky.js"></script>
-    
+
 </head>
 
 <body>
     <!-- Main game screen -->
     <main class="">
-        <div id="bcBackground" class="sdb masked-1"></div>  
+        <div id="bcBackground" class="sdb masked-1"></div>
         <div id="bcCharacter" class=""></div>
         <div id="talk"></div>
         <div id="btnAction"></div>
-        <div id="joystick"><div></div></div>
+        <div id="joystick">
+            <div></div>
+        </div>
     </main>
-    
+
     <!-- Water -->
     <section id="bcWater" class="minigame">
 
         <div id="bcWaterPipe"></div>
-        
+
         <div id="bcWaterLevels">
 
             <div id="bcWaterLevelR">
@@ -75,48 +78,50 @@
                 <button class="bcWaterBtnMinus"></button>
             </div>
         </div>
-        
+
         <div id="bcWaterDebug"></div>
         <button class="btnBack"></button>
-    </section>     
-    
+    </section>
+
     <!-- Telescope -->
-     <section id="bcTelescope" class="minigame">
+    <section id="bcTelescope" class="minigame">
         <div id="bcTelescopeStars"></div>
         <div id="bcTelescopeLens"></div>
         <button class="btnBack"></button>
     </section>
-    
+
     <!-- Guitar -->
     <section id="bcGuitar" class="minigame">
-        <div id="fog"></div>
-        <div id="guitar-neck">
-            <a href="#" id="note-A" class="string-VI fret-V"></a>
-            <a href="#" id="note-C" class="string-VI fret-VIII"></a>
-            <a href="#" id="note-D" class="string-V fret-V"></a>
-            <a href="#" id="note-E" class="string-V fret-VII"></a>
-            <a href="#" id="note-G" class="string-IV fret-V"></a>
-            <a href="#" id="note-a" class="string-IV fret-VII"></a>
-            <a href="#" id="note-c" class="string-III fret-V"></a>
-            <a href="#" id="note-d" class="string-III fret-VII"></a>
-            <a href="#" id="note-e" class="string-II fret-V"></a>
-            <a href="#" id="note-g" class="string-II fret-VIII"></a>
+        <div id="bcGuitarContent">
+            <div id="fog"></div>
+            <div id="guitar-neck">
+                <a href="#" id="note-A" class="string-VI fret-V"></a>
+                <a href="#" id="note-C" class="string-VI fret-VIII"></a>
+                <a href="#" id="note-D" class="string-V fret-V"></a>
+                <a href="#" id="note-E" class="string-V fret-VII"></a>
+                <a href="#" id="note-G" class="string-IV fret-V"></a>
+                <a href="#" id="note-a" class="string-IV fret-VII"></a>
+                <a href="#" id="note-c" class="string-III fret-V"></a>
+                <a href="#" id="note-d" class="string-III fret-VII"></a>
+                <a href="#" id="note-e" class="string-II fret-V"></a>
+                <a href="#" id="note-g" class="string-II fret-VIII"></a>
+            </div>
+
+            <button id="melody-player">
+                Replay melody
+            </button>
+            <input type="hidden" name="currentAttempt" value="" />
         </div>
-    
-        <button id="melody-player">
-            What was that melody?
-        </button>
-        <input type="hidden" name="currentAttempt" value="" />
         <button class="btnBack"></button>
     </section>
-    
-    <!-- Rat --> 
+
+    <!-- Rat -->
     <section id="bcRat" class="minigame">
         <div id="bcRatBeast"></div>
         <div id="bcRatFlashlight"></div>
         <button class="btnBack"></button>
     </section>
-    
+
     <!-- Radio -->
     <section id="bcRadio" class="minigame">
         <div id="bcRadioFrequency">
@@ -125,8 +130,8 @@
         </div>
         <div id="bcRadioDebug"></div>
         <button class="btnBack"></button>
-    </section>    
-    
+    </section>
+
     <!-- Color Lock -->
     <section id="bcLockColor" class="minigame">
         <div id="bcLockColorInputs">
@@ -139,30 +144,30 @@
                 <button class="bcDigitBtnPlus"></button>
                 <button class="bcDigitBtnMinus"></button>
                 <button class="bcDigitBtnColor"></button>
-            </div>            
+            </div>
             <div data-value="1" data-color="red">
                 <button class="bcDigitBtnPlus"></button>
                 <button class="bcDigitBtnMinus"></button>
                 <button class="bcDigitBtnColor"></button>
-            </div>            
+            </div>
             <div data-value="1" data-color="red">
                 <button class="bcDigitBtnPlus"></button>
                 <button class="bcDigitBtnMinus"></button>
                 <button class="bcDigitBtnColor"></button>
-            </div>            
+            </div>
         </div>
         <div id="bcLockColorHandle"></div>
         <button class="btnBack"></button>
-    </section>     
-    
+    </section>
+
     <!-- linky lock -->
     <section id="bcLinky" class="minigame">
         <div id="bcLinkyBox"></div>
         <button class="btnBack"></button>
-    </section>     
+    </section>
 
 
-    
+
 </body>
 
-</html> 
+</html>

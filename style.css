@@ -72,10 +72,6 @@ table {
         transform-origin: center;
         animation: rotateDevice 2s linear 0s infinite;
     }
-    body {
-        font-family: arial, sans-serif;
-        background-color: black;   
-    }
     body > * {
         display: none !important;   
     }
@@ -94,6 +90,10 @@ table {
 
 
 /*** DEBUT DE LA FEUILLE DE STYLE ***/
+body {
+    font-family: arial, sans-serif;
+    background-color: black;   
+}
 
 main {
     position: fixed;
@@ -462,7 +462,7 @@ section .btnBack {
     top: 1vw;
     background-color: transparent;
     border: none;
-    font-size: 100%;
+    font-size: 4vw;
 }
 section .btnBack:before {
     content: '\2716';
