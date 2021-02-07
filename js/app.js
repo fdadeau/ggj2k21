@@ -111,6 +111,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
                 if (this.puzzle.isSolved()) {
                     document.querySelector("main").classList.add("nolight");
                     game.dialogs.push("Ouch!", "The lights are out!", "Maybe there is a flashlight somewhere...");
+                    game.render();  // remove POI
                 }
                 else {
                     game.dialogs.push("Hum... that's difficult...", "but I need to try harder to find the melody.");

@@ -26,12 +26,11 @@ function LinkyGame(element) {
     });
     
     function checkCode() {
-        if (alarmIsDisabled) {
+        var bcLight = document.querySelector('[class$="light"]');
+        if (alarmIsDisabled && bcLight) {
             // check code 
             if (that.getCode().length == zeCode.length && that.getCode().every(e => zeCode.indexOf(1*e) >= 0)) {
-                var bclight = document.querySelector('[class$="light"]');
-                bclight.className = "";
-                bclight = null;
+                bcLight.className = "";
                 element.classList.add("alarmoff");
             }
         }
