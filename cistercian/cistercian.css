@@ -79,9 +79,9 @@
 
 #bcCistercianLock {
     position: absolute;
-    width: 50vh;
+    width: 45vh;
     height: 30vh;
-    top: 60%;
+    top: 70%;
     left: 50%;
     text-align: center;
     background-color: goldenrod;
@@ -96,25 +96,25 @@
 #bcCistercianLock:after {
     content: '';
     position: absolute; 
-    top: -22vh;
-    left: 0vh;
+    top: -26.2vh;
+    left: -2vh;
     margin: 0 5vh;
     width: 38vh;
     box-sizing: border-box;
     border-right: solid 6vh gray;
 }
 #bcCistercianLock:before {
-    height: 22vh;
+    height: 26vh;
     border-radius: 15vh 15vh 0 0;
     border-top: solid 6vh gray;
     border-left: solid 6vh gray;
 }
 #bcCistercianLock:after {
-    height: 7vh;
-    top: -7vh;
+    height: 10vh;
+    top: -11vh;
 }
 .opened #bcCistercianLock:before {
-    top: -28vh;
+    top: -36vh;
 }
 
 
@@ -129,7 +129,7 @@
     line-height: 7vh;
     font-size: 6vh;
     cursor: pointer;    
-    color: darkgoldenrod;
+    color: black;
     text-shadow: 0.1vh 0.1vh 0 white, -0.1vh -0.1vh 0 grey; 
 }
 #bcCistercianInput .bcCistercianNumber:before, 

@@ -142,8 +142,8 @@ function Game(scenes, actions) {
             return;
         var act = this.dataset.poi;
         if (actions[act]) {
-            actions[act].start();
             current = actions[act].puzzle;
+            actions[act].start();
         }
     });
 
@@ -178,8 +178,8 @@ function Game(scenes, actions) {
                 var act;
                 if (act = btnAction.dataset.poi) {
                     if (actions[act]) {
-                        actions[act].start();
                         current = actions[act].puzzle;
+                        actions[act].start();
                     }
                 }
         }

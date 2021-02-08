@@ -132,6 +132,7 @@ function RatGame(element) {
     
     this.start = function() {
         beast.lastU = Date.now();
+        beast.elem.dataset.number = beast.code[beast.step];
         beast.render();
         flashlight.style.left = "50%";
         flashlight.style.top = "50%";

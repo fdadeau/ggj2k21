@@ -3,6 +3,12 @@
 function CistercianGame(element) {
     
     
+    var that = this;
+    element.querySelector(".btnBack").addEventListener("click", function(e) {
+        that.stop();
+    });
+
+            
     element.querySelector("#bcCistercianLock").addEventListener("click", function(e) {
         if (e.target.classList.contains("bcCistercianNumber")) {
             e.preventDefault();
@@ -40,30 +46,37 @@ function CistercianGame(element) {
         }
     });
 
-    var zeCode = [-1];
+    var zeCode = [Math.random() * 8 + 1 | 0, Math.random() * 8 + 1 | 0, Math.random() * 8 + 1 | 0, Math.random() * 8 + 1 | 0];
+    var solved = false;
     
     function check() {
         for (var i=1; i < 5; i++) {
-            if (element.querySelector("#bcCistercianCode > div:nth-child("+i+")").dataset.number !=
-                element.querySelector(".bcCistercianNumber:nth-child("+i+")").innerHTML) {
+            if (element.querySelector(".bcCistercianNumber:nth-child("+i+")").innerHTML != zeCode[i-1]) {
                     return false;   
             }
         }
+        solved = true;
         return true;
     }
+
     
-    this.start = function(code) {
-        zeCode = code;
-        code = "" + code;
-        element.querySelector("#bcCistercianCode > div:nth-child(1)").dataset.number = code.substr(0,1);
-        element.querySelector("#bcCistercianCode > div:nth-child(2)").dataset.number = code.substr(1,1);
-        element.querySelector("#bcCistercianCode > div:nth-child(3)").dataset.number = code.substr(2,1);
-        element.querySelector("#bcCistercianCode > div:nth-child(4)").dataset.number = code.substr(3,1);
+    this.start = function() {
         element.classList.add("show");   
+    }
+    
+    this.isSolved = function() {
+        return solved;
+    }
+    
+    this.getCode = function() {
+        return zeCode.join("");   
     }
     
     this.stop = function() {
         element.classList.remove("show");   
+        if (this.game) {
+            this.game.endgame("cistercian");   
+        }
     }
     
     this.update = function(now) {

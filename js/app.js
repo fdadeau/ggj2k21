@@ -68,9 +68,15 @@ document.addEventListener("DOMContentLoaded", function(e) {
             },
             done: false,
             start: function() {
+                if (!actions.cistercian.puzzle.isSolved()) {
+                    game.dialogs.push("I have nothing to wash.");
+                    game.dialogs.say();
+                    game.endgame("water");
+                    return;
+                }
                 this.puzzle.game = game;
                 if (!this.puzzle.isSolved()) {
-                    game.dialogs.push("Something seems to be broken in there.", "The water is cannot be evacuated,", "and there is something that seems to be locked in there.", "I should try to fix it."); 
+                    game.dialogs.push("Something seems to be broken in there.", "The water is cut, I should try to fix it."); 
                     game.dialogs.say(() => this.puzzle.start());
                 }
                 else {
@@ -87,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
         },
         "vomit": { 
             type: "thought", 
-            poi: { x: 65, y: 68, w: 10, h: 8 },
+            poi: { x: 65, y: 68, w: 8, h: 6 },
             isActive: function() {
                 return true;   
             },
@@ -96,6 +102,53 @@ document.addEventListener("DOMContentLoaded", function(e) {
                 game.dialogs.say(); 
             } 
         }, 
+        "shower": {
+            type: "game",
+            poi: { x: 81, y: 88, w: 2, h: 8 },
+            puzzle: new DetailGame(document.getElementById("bcDetail")),
+            isActive: function() {
+                return true;   
+            },
+            start: function() {
+                this.puzzle.game = game;
+                game.dialogs.push("That shower curtain has some funny patterns on it."); 
+                game.dialogs.say(() => this.puzzle.start("shower"));
+            }
+        },
+        "towel": {
+            type: "game",
+            poi: { x: 76, y: 68, w: 2, h: 3 },
+            puzzle: new DetailGame(document.getElementById("bcDetail")),
+            isActive: function() {
+                return true;   
+            },
+            start: function() {
+                this.puzzle.game = game;
+                game.dialogs.push("That towel has a funny pattern on it."); 
+                game.dialogs.say(() => this.puzzle.start("towel", actions.cistercian.puzzle.getCode()));
+            }
+        },
+        "cistercian": {
+            type: "game",
+            poi: { x: 57, y: 73, w: 4, h: 2 },
+            puzzle: new CistercianGame(document.getElementById("bcCistercian")),
+            isActive: function() {
+                return true;
+            },
+            start: function() {
+                this.puzzle.game = game;
+                game.dialogs.push("There is a locker on the toilet bowl."); 
+                game.dialogs.say(() => this.puzzle.start());
+            },
+            done: false,
+            end: function() {
+                if (this.puzzle.isSolved() && !this.done) {
+                    this.done = true;
+                    game.dialogs.push("There is something in the toilet bowl.", "It's a key!", "But it is...quite dirty...", "I should wash it if I want to use it.");
+                    game.dialogs.say();
+                }
+            }
+        },
         // Room
         "guitar": {
             type: "game",
@@ -174,12 +227,12 @@ document.addEventListener("DOMContentLoaded", function(e) {
         },
         "bed": {
             type: "thought", 
-            poi: { x: 0, y: 0, w: 0, h: 0 },
+            poi: { x: 34, y: 76, w: 2, h: 17 },
             isActive: function() {
                 return true;
             }, 
             start: function() {
-                game.dialogs.push("Hum...", "It looks like someone had some fun right here...", "But I don't remember anything...", "or anyone.");
+                game.dialogs.push("Hum...", "It looks like someone had some fun right here...", "But I don't remember anything...", "...or anyone.");
                 game.dialogs.say();
             }
         },
