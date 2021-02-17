@@ -117,17 +117,33 @@ main {
     background-size: cover;
 }
 
-#bcBackground.masked-1 {
+#bcBackground.masked-1:before {
+    /**
     background-image: url(assets/mask-1.webp), url(assets/the-map.webp);
     background-repeat: no-repeat, no-repeat;
-    background-size: cover, cover;
-    
+    background-size: cover, cover;*/
+    display: block;
+    content: '';
+    position: absolute; 
+    background-color: black;
+    bottom: 0;
+    width: 54%;
+    height: 100%;
 }
 
-#bcBackground.masked-2 {
+#bcBackground.masked-2:after {
+    /**
     background-image: url(assets/mask-2.webp), url(assets/the-map.webp);
     background-repeat: no-repeat, no-repeat;
     background-size: cover, cover;
+    **/
+    display: block;
+    content: '';
+    position: absolute; 
+    background-color: black;
+    top: 0;
+    height: 50%;
+    width: 100%;
 }
 
 main #talk {

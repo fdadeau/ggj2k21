@@ -1,0 +1,359 @@
+.minigame {
+    width: 100vw;
+    height: 100vh;
+    position: absolute; 
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+#bcDetail {
+    box-sizing: border-box;
+    display: none;
+    margin: 0;
+    width: 100vw;
+    overflow: hidden;
+    height: 100vh;
+    background-color: lightgray;
+    color: black;
+}
+#bcDetail.show {
+    display: block;
+}
+
+.nolight ~ #bcDetail:after {
+    content: '';
+    position: absolute;    
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.95);
+}
+.light ~ #bcDetail:after {
+    content: '';
+    position: absolute;    
+    top: 60vh;
+    left: 50vw;
+    width: 80vw;
+    height: 80vw;
+    border-radius: 50%;
+    transform-origin: center;
+    transform: translate(-50%, -50%); 
+    border: solid 100vw rgba(0, 0, 0, 0.85);
+}
+
+#bcDetailContent {
+    position: absolute; 
+    top: 0; 
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+/*** Shower content ***/
+#bcDetailContent.shower {
+    background-image: url("../assets/cistercian-rideau.png");
+    background-repeat: repeat;
+    background-size: contain;
+}
+
+/*** Towel content ***/
+#bcDetailContent.towel .cistercianCode {
+    position: absolute;
+    width: 6vw;
+    height: 7vw;
+    left: 10vw;
+    top: 10vh;
+}
+
+#bcDetailContent.towel .cistercianCode:nth-of-type(2) {
+    left: 30vw;
+    top: 60vh;
+}
+#bcDetailContent.towel .cistercianCode:nth-of-type(3) {
+    left: 50vw;
+    top: 10vh;
+}
+#bcDetailContent.towel .cistercianCode:nth-of-type(4) {
+    left: 70vw;
+    top: 60vh;
+}
+#bcDetailContent.towel .cistercianCode:nth-of-type(5) {
+    left: 90vw;
+    top: 10vh;
+}
+
+.cistercianCode > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url(../assets/cistercian.png);
+    background-size: 90vw 73.35vw;
+    background-position: 0 0;
+    width: 10vw;
+    height: 12vw;
+}
+.cistercianCode > div:nth-child(1) {
+    background-position-y: -55vw;    
+}
+.cistercianCode > div:nth-child(2) {
+    background-position-y: -36.66vw;    
+} 
+.cistercianCode > div:nth-child(3) {
+    background-position-y: -18.37vw;
+}
+.cistercianCode > div:nth-child(4) {
+    background-position-y: 0vw;    
+}
+.cistercianCode > div[data-number="2"] {
+    background-position-x: -10vw;    
+}
+.cistercianCode > div[data-number="3"] {
+    background-position-x: -20vw;    
+}
+.cistercianCode > div[data-number="4"] {
+    background-position-x: -30vw;    
+}
+.cistercianCode > div[data-number="5"] {
+    background-position-x: -40vw;    
+}
+.cistercianCode > div[data-number="6"] {
+    background-position-x: -50vw;    
+}
+.cistercianCode > div[data-number="7"] {
+    background-position-x: -60vw;    
+}
+.cistercianCode > div[data-number="8"] {
+    background-position-x: -70vw;    
+}
+.cistercianCode > div[data-number="9"] {
+    background-position-x: -80vw;    
+}
+
+
+/** Zodiac signs **/
+#bcDetailContent.constellations {
+    background-color: black;
+    color: white;
+    box-sizing: border-box;
+}
+#bcDetailContent.constellations > div {
+    background-image: url("../assets/zodiac-spritesheet.png");
+    background-size: 92vh 81vh;
+    width: 23vh;
+    height: 26vh;
+    box-sizing: border-box;
+    background-position: 0 0;
+    display: block;
+    position: absolute;
+    transform-origin: center;
+    transform: translate(-50%, -50%);
+}
+#bcDetailContent.constellations > div:before {
+    content: 'Aries';
+    font-size: 4vh;
+    position: absolute; 
+    bottom: -2vh;
+}
+/** First line */
+#bcDetailContent.constellations > div.aries:before {
+    bottom: 0vh;
+    left: 6vh;
+}
+#bcDetailContent.constellations > div.aries {
+    top: 20vh;
+    left: 12vw;
+    height: 20vh;
+}
+#bcDetailContent.constellations > div.taurus:before {
+    content: 'Taurus';
+    bottom: 20vh;
+    right: 0vh;
+}
+#bcDetailContent.constellations > div.taurus {
+    background-position: -23vh 0;
+    left: 37vw;
+    top: 20vh;
+}
+#bcDetailContent.constellations > div.gemini:before {
+    left: -2vh;
+    bottom: 4vh;
+    content: 'Gemini';
+}
+#bcDetailContent.constellations > div.gemini {
+    top: 20vh;
+    left: 66vw;
+    background-position: -46vh 0;
+}
+#bcDetailContent.constellations > div.cancer:before {
+    top: 2vh;
+    right: 1vh;
+    content: 'Cancer';
+}
+#bcDetailContent.constellations > div.cancer {
+    top: 20vh;
+    left: 88vw;
+    background-position: -69vh 0;
+}
+/** Middle line */
+#bcDetailContent.constellations > div.leo:before {
+    content: 'Leo';
+    left: 16vh;
+    bottom: 2vh;
+}
+#bcDetailContent.constellations > div.leo {
+    top: 50vh;
+    left: 12vw;
+    background-position: 0vh -26vh;
+}
+#bcDetailContent.constellations > div.virgo:before {
+    content: 'Virgo';
+    top: 5vh;
+    right: -6vh;
+}
+#bcDetailContent.constellations > div.virgo {
+    top: 50vh;
+    left: 37vw;
+    background-position: -23vh -26vh;
+}
+#bcDetailContent.constellations > div.libra:before {
+    content: 'Libra';
+    bottom: 5vh;
+    left: -3vh;
+}
+#bcDetailContent.constellations > div.libra {
+    top: 50vh;
+    left: 66vw;
+    background-position: -46vh -26vh;
+}
+#bcDetailContent.constellations > div.scorpio:before {
+    content: 'Scorpio';
+    top: 0;
+    left: -3vh;
+}
+#bcDetailContent.constellations > div.scorpio {
+    top: 50vh;
+    left: 88vw;
+    background-position: -69vh -26vh;
+}
+/** Last line **/
+#bcDetailContent.constellations > div.sagittarius:before {
+    content: 'Sagittarius';
+    left: 3vh;
+    bottom: 0;
+}
+#bcDetailContent.constellations > div.sagittarius {
+    top: 80vh;
+    left: 12vw;
+    background-position: 0vh -54vh;
+}
+#bcDetailContent.constellations > div.capricorn:before {
+    content: 'Capricorn';
+    top: 2vh;
+    left: -4vh;
+}
+#bcDetailContent.constellations > div.capricorn {
+    top: 85vh;
+    left: 40vw;
+    background-position: -23vh -52vh;
+}
+#bcDetailContent.constellations > div.aquarius:before {
+    content: 'Aquarius';
+    left: 5vh;
+    bottom: 0;
+}
+#bcDetailContent.constellations > div.aquarius {
+    top: 80vh;
+    left: 66vw;
+    background-position: -46vh -54vh;
+}
+#bcDetailContent.constellations > div.pisces:before {
+    content: 'Pisces';
+    left: 2vh;
+    top: -2vh;
+}
+#bcDetailContent.constellations > div.pisces {
+    top: 86vh;
+    left: 88vw;
+    background-position: -69vh -54vh;
+}
+    
+
+/*** Photos ***/
+#bcDetailContent .photo {
+    position: absolute;   
+    transform-origin: center;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    padding: 2vw;
+}
+#bcDetailContent .photo > img {
+    width: 50vw;
+    height: auto;
+}
+#bcDetailContent .photo:nth-of-type(1) {
+    transform: translate(-46%, -51%) rotate(3deg);
+}
+#bcDetailContent .photo:nth-of-type(2) {
+    transform: translate(-53%, -52%) rotate(-2deg);
+}
+#bcDetailContent .photo:nth-of-type(3) {
+    transform: translate(-47%, -48%) rotate(3deg);
+}
+#bcDetailContent .photo:nth-of-type(4) {
+    transform: translate(-52%, -47%) rotate(-3deg);
+}
+
+#bcDetailContent .btnPrevious, #bcDetailContent .btnNext {
+    position: absolute; 
+    font-size: 5vw;
+    width: 6vw;
+    text-align: center;
+    border-radius: 1vw;
+    background-color: white;
+    color: black;
+    top: 45vh;
+    border: solid 0.2vw #000;
+}
+#bcDetailContent .btnPrevious {
+    left: 5vw;   
+}
+#bcDetailContent .btnPrevious:before {
+    content: '\21BB';
+}
+#bcDetailContent .btnNext {
+    right: 5vw;   
+}
+#bcDetailContent .btnNext:before {
+    content: '\21BA';
+}
+
+#bcDetailContent .photo:after {
+    position: absolute;
+    font-size: 3vw;
+}
+#bcDetailContent .photo[data-card="hearts"]:after {
+    top: 3vw;
+    left: 4vw;
+    content: '\2665';   
+}
+#bcDetailContent .photo[data-card="spades"]:after {
+    top: 4vw;
+    right: 4vw;
+    content: '\2660';
+}
+#bcDetailContent .photo[data-card="clubs"]:after {
+    top: 3vw;
+    left: 4vw;
+    content: '\2663';   
+}
+#bcDetailContent .photo[data-card="diams"]:after {
+    top: 4vw;
+    right: 4vw;
+    content: '\2666';
+}   
+
+
+

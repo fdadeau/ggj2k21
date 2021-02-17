@@ -46,6 +46,22 @@
     <link rel="stylesheet" href="cistercian/cistercian.css">
     <script src="cistercian/cistercian.js"></script>
 
+    <link rel="stylesheet" href="zodiac/zodiac.css">
+    <script src="zodiac/zodiac.js"></script>
+
+    <link rel="stylesheet" href="lockF/lockF.css">
+    <script src="lockF/lockF.js"></script>
+
+    <link rel="stylesheet" href="lockZ/lockZ.css">
+    <script src="lockZ/lockZ.js"></script>
+
+    <link rel="stylesheet" href="gobelet/gobelet.css">
+    <script src="gobelet/gobelet.js"></script>
+
+    <link rel="stylesheet" href="nes/nes.css">
+    <script src="nes/nes.js"></script>
+
+    
 </head>
 
 <body>
@@ -191,7 +207,78 @@
         <button class="btnBack"></button>
     </section>     
 
-
+    <!-- Zodiac -->
+    <section id="bcZodiac" class="minigame">
+        <section id="bcZodiacContent">
+            <div id="bcZodiacLocker"></div>
+        </section>
+        <button class="btnBack"></button>
+    </section>    
+    
+    <!-- Lock Z -->
+     <section id="bcLockZ" class="minigame">
+        <div id="bcLockZContent">
+            <div data-value="0" data-sign="virgo"></div>
+            <div data-value="0" data-sign="sagittarius"></div>
+            <div data-value="0" data-sign="pisces"></div>
+            <div data-value="0" data-sign="cancer"></div>
+            <div data-value="0" data-sign="capricorn"></div>
+            <div data-value="0" data-sign="scorpio"></div>
+            <div data-value="0" data-sign="aries"></div>
+            <div data-value="0" data-sign="libra"></div>
+            <div data-value="0" data-sign="aquarius"></div>
+            <div data-value="0" data-sign="leo"></div>
+            <div data-value="0" data-sign="gemini"></div>
+            <div data-value="0" data-sign="taurus"></div>            
+        </div>
+        <button class="btnBack"></button>
+    </section>     
+    
+    <!-- Final lock -->
+     <section id="bcLockF" class="minigame">
+        <table>
+            <tr>
+                <td colspan="3"></td>
+            </tr>
+            <tr>
+                <td data-key="1"></td>
+                <td data-key="2"></td>
+                <td data-key="3"></td>
+            </tr>
+            <tr>
+                <td data-key="4"></td>
+                <td data-key="5"></td>
+                <td data-key="6"></td>
+            </tr>
+            <tr>
+                <td data-key="7"></td>
+                <td data-key="8"></td>
+                <td data-key="9"></td>
+            </tr>
+            <tr>
+                <td data-key="C"></td>
+                <td data-key="0"></td>
+                <td data-key="V"></td>
+            </tr>
+        </table>
+        <button class="btnBack"></button>
+    </section>     
+    
+    <!-- Gobelet -->
+     <section id="bcGobelet" class="minigame">
+        <section id="bcGobeletContent">
+        </section>
+        <button class="btnBack"></button>
+    </section>     
+    
+    <!-- NES -->
+     <section id="bcNes" class="minigame">
+        <canvas id="bcNesCvs"></canvas>
+        <div id="bcNesGO"></div>
+        <div id="bcNesCongrats"></div>
+        <button class="btnBack"></button>
+    </section>     
+    
 </body>
 
 </html>

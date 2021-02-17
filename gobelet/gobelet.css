@@ -1,0 +1,66 @@
+.minigame {
+    width: 100vw;
+    height: 100vh;
+    position: absolute; 
+    top: 0;
+    left: 0;
+    margin: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+#bcGobelet {
+    display: none;
+    background-color: lightgray;
+    color: black;
+}
+#bcGobelet.show {
+    display: block;
+}
+
+
+.card {
+    position: absolute; 
+    font-size: 10vw;
+    background-color: transparent;
+    color: black;
+    transform-origin: center;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    
+    width: 12vw;
+    height: 8vw;
+    
+    border-radius: 5vw 5vw 20% 20%;
+    
+    transition-property: left, top, color, background-color;
+    transition-duration: 1.5s;
+    transition-delay: 0s;
+    transition-timing-function: ease-in-out;
+}
+.hidden .card {
+    background-color: black;   
+    box-shadow: 0 1vw 1vw #000;
+    font-size: 6vw;
+    line-height: 10vw;   
+}
+
+.spades:before {
+    content: '\2660';
+}
+.clubs:before {
+    content: '\2663';   
+}
+.hearts:before {
+    content: '\2665';   
+}
+.diams:before {
+    content: '\2666';
+}   
+
+.hidden .card:before {
+    display: none;
+}
+.hidden .card:after {
+    content: '\1F440';
+}

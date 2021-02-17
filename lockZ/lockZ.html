@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Test Lock</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="lockZ.css">    
+    <script src="lockZ.js"></script>
+    <script>
+        
+    document.addEventListener("DOMContentLoaded", function() {
+        
+    var current = new LockZGame(document.getElementById("bcLockZ"));    
+        
+    document.getElementById("showBcLockZ").addEventListener("click", function() {
+         current.start({ cancer: 2, sagittarius: 3, capricorn: 4, libra: 1 });
+    });
+        
+    function mainloop() {
+        requestAnimationFrame(mainloop);
+        var now = Date.now();
+        if (current) {
+            current.update(now);   
+        }
+    }
+    mainloop();
+    
+    });
+    </script>
+</head>
+    
+    
+<body>
+    <button id="showBcLockZ">Play</button>
+    <section id="bcLockZ" class="minigame">
+        <div id="bcLockZContent">
+            <div data-value="1" data-sign="virgo"></div>
+            <div data-value="2" data-sign="sagittarius"></div>
+            <div data-value="3" data-sign="pisces"></div>
+            <div data-value="4" data-sign="cancer"></div>
+            <div data-value="0" data-sign="capricorn"></div>
+            <div data-value="0" data-sign="scorpio"></div>
+            <div data-value="0" data-sign="aries"></div>
+            <div data-value="0" data-sign="libra"></div>
+            <div data-value="0" data-sign="aquarius"></div>
+            <div data-value="0" data-sign="leo"></div>
+            <div data-value="0" data-sign="gemini"></div>
+            <div data-value="0" data-sign="taurus"></div>            
+        </div>
+        <button class="btnBack"></button>
+    </section>     
+</body>
+
+</html>

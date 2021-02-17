@@ -2,6 +2,8 @@
 
 document.addEventListener("DOMContentLoaded", function(e) {
     
+    var puzzleDetail = new DetailGame(document.getElementById("bcDetail"));
+    
     // SCENES
     var scenes = { 
         "sdb": { 
@@ -17,7 +19,8 @@ document.addEventListener("DOMContentLoaded", function(e) {
                 "I need to find a way to get out of here...",
                 "and find out what I'm doing there." 
             ],
-            start: { x: 65, y: 80 },
+            //start: { x: 65, y: 80 },
+            start: { x: 25, y: 25 },
             // maybe other things later...?
         }, 
         "chambre": { 
@@ -105,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
         "shower": {
             type: "game",
             poi: { x: 81, y: 88, w: 2, h: 8 },
-            puzzle: new DetailGame(document.getElementById("bcDetail")),
+            puzzle: puzzleDetail,
             isActive: function() {
                 return true;   
             },
@@ -118,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
         "towel": {
             type: "game",
             poi: { x: 76, y: 68, w: 2, h: 3 },
-            puzzle: new DetailGame(document.getElementById("bcDetail")),
+            puzzle: puzzleDetail,
             isActive: function() {
                 return true;   
             },
@@ -225,6 +228,18 @@ document.addEventListener("DOMContentLoaded", function(e) {
                 this.puzzle.start();   
             }
         },
+        "constellations_map": {
+            type: "game", 
+            poi: { x: 34, y: 65, w: 6, h: 2 },
+            puzzle: puzzleDetail,
+            isActive: function() {
+                return true;    
+            },
+            start: function() {
+                this.puzzle.game = game;
+                this.puzzle.start("constellations");   
+            }
+        },
         "bed": {
             type: "thought", 
             poi: { x: 34, y: 76, w: 2, h: 17 },
@@ -241,7 +256,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
             poi: { x: 20, y: 65, w: 10, h: 2 },
             puzzle: new LockGame(document.getElementById("bcLockColor")),
             isActive: function () {
-                return this.puzzle.isSolved() < 0;
+                return DEBUG == false && this.puzzle.isSolved() < 0;
             },
             start: function() {
                 this.puzzle.game = game;
@@ -273,7 +288,162 @@ document.addEventListener("DOMContentLoaded", function(e) {
                 }
                 
             }
-        },        
+        },  
+        // Spaceship
+        "photos": {
+            type: "game",
+            poi: {x : 73, y: 35, w: 2, h: 6 },
+            isActive: function() {
+                return actions["lockZ"].done;    // TODO need to unlock file   
+            },
+            puzzle: puzzleDetail,
+            done: false,
+            start: function() {
+                this.puzzle.game = game;
+                if (!this.done) {
+                    game.dialogs.push("OK let's see what's in this...", "Oh my God!");
+                }
+                else {
+                    game.dialogs.push("Do we really need to watch this again?");
+                }
+                game.dialogs.say(() => this.puzzle.start("photos"));
+            },
+            end: function() {
+                if (!this.done) {
+                    game.dialogs.push("This is insane!", "Now I understand why I feel so dizzy...", "I need to escape quickly!");
+                    this.done = true;
+                }
+                else {
+                    game.dialogs.push("I think I'm about to puke...", "again.");
+                }
+                game.dialogs.say();
+            }
+        },
+        "cups": {
+            type: "thought",
+            poi: {x : 34, y: 40, w: 2, h: 5 },
+            isActive: function() {
+                return true;   
+            },
+            start: function() {
+                if (actions["photos"].done) {
+                    game.dialogs.push("It looks like those who did this to me", "participated to the GGJ 2021 in Besancon...");
+                }
+                else {
+                    game.dialogs.push("These are nice mugs from the GGJ 2021 in Besancon");   
+                }
+                game.dialogs.say();
+            }
+        },    
+        "emergency_meeting": {
+            type: "thought",
+            poi: {x : 50, y: 44, w: 6, h: 1 },
+            isActive: function() {
+                return true;   
+            },
+            start: function() {
+                if (actions["photos"].done) {
+                    game.dialogs.push("I don't want to call these creatures.", "My first encounter was sufficient.");
+                }
+                else {
+                    game.dialogs.push("I'm not sure it is a good idea to call for a meeting...", "besides, the button is unplugged.");   
+                }
+                game.dialogs.say();
+            }
+        },     
+        "telescope": {
+            type: "game",
+            poi: {x : 55, y: 20, w: 10, h: 2 },
+            isActive: function() {
+                return true;
+            },
+            puzzle: new TelescopeGame(document.getElementById("bcTelescope")),
+            start: function() {
+                this.puzzle.game = game;
+                game.dialogs.push("This telescope points to the stars.", "I can adjust the focus by swiping up and down.");
+                game.dialogs.say(() => this.puzzle.start());
+            }
+        },
+        "lockZ": {
+            type: "game",
+            poi: {x : 73, y: 35, w: 2, h: 6 },
+            done: false,
+            isActive: function() {
+                return !this.done;
+            },
+            puzzle: new LockZGame(document.getElementById("bcLockZ")),
+            start: function() {
+                this.puzzle.game = game;
+                game.dialogs.push("It looks like there is combination to open this file.");
+                game.dialogs.say(() => this.puzzle.start(actions["zodiac_game"].puzzle.getCode()));
+            },
+            end: function() {
+                if (!this.done && this.puzzle.isSolved()) {
+                    this.done = true;
+                    game.startgame("photos");   
+                }
+            }
+        },
+        "zodiac_game": {
+            type: "game",
+            poi: {x : 23, y: 23, w: 5, h: 2 },
+            isActive: function() {
+                return true;
+            },
+            puzzle: new ZodiacGame(document.getElementById("bcZodiac")),
+            start: function() {
+                this.puzzle.game = game;
+                this.puzzle.start();
+            }
+        },
+        "gobelet": {
+            type: "game",
+            poi: {x : 12, y: 23, w: 5, h: 2 },
+            isActive: function() {
+                return true;
+            },
+            puzzle: new GobeletGame(document.getElementById("bcGobelet")),
+            start: function() {
+                this.puzzle.game = game;
+                this.puzzle.start();
+            }
+        },
+        "lockF": {
+            type: "game",
+            poi: { x: 5, y: 25, w: 2, h: 8 },
+            isActive: function() {
+                return true;
+            },
+            puzzle: new LockFGame(document.getElementById("bcLockF")),
+            start: function() {
+                this.puzzle.game = game;
+                this.puzzle.start(actions["photos"].puzzle.getCode(), actions["gobelet"].puzzle.getCode());
+            },
+            end: function() {
+                if (this.puzzle.isSolved()) {
+                    game.startgame("nes");   
+                }
+            }
+        },
+        "nes": {
+            type: "game",
+            poi: { x: 5, y: 25, w: 0, h: 0 },
+            isActive: function() {
+                return false;   
+            },
+            puzzle: new NesGame(document.getElementById("bcNes")),
+            start: function() {
+                this.puzzle.game = game;
+                game.dialogs.push("Hurray! The doors are opening!", "But, wait a minute...");
+                game.dialogs.say(() => this.puzzle.start());
+            },
+            end: function() {
+                
+            }
+        },
+     
+        
+        // Doors
         "bathroom-exit-door": {
             type: "door",
             poi: { x: 57, y: 80, w: 2, h: 8 },
@@ -314,9 +484,10 @@ document.addEventListener("DOMContentLoaded", function(e) {
             type: "door",
             poi: { x: 20, y: 65, w: 10, h: 2 },
             isActive: function () {
-                return !actions.colorlock.isActive();
+                return DEBUG || !actions.colorlock.isActive();
             },
             start: function () {
+                document.querySelector('#bcBackground').classList.remove('masked-2')
                 game.hero.setPosition(22, 46);
                 game.render();
             }

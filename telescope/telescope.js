@@ -3,11 +3,11 @@
 
 function TelescopeGame(element) {
     
-    var values = [1,2,3,4,5,6,7,8,9];
-    var coordsX = [ 30, 40, 50, 60, 70, 80 ];
-    var coordsY = [ 70, 60, 50, 30, 40, 30 ];
-
+    var all_signs = ["aries", "cancer", "taurus", "sagittarius", "leo", "scorpio", "aquarius", "virgo", "capricorn", "pisces", "gemini", "libra"];
     var code = [];
+    
+    
+    var that = this;
     
     var allStarsElement = element.querySelector("#bcTelescopeStars");
         
@@ -18,33 +18,38 @@ function TelescopeGame(element) {
     var starElements = [];
     
     while (code.length < 4) {
-        var i = Math.random() * values.length | 0;
-        code.push(values[i]);
+        // select sign
+        var i = Math.random() * all_signs.length | 0;
+        var sign = all_signs[i];
+        all_signs.splice(i, 1);
+        // add to code
+        code.push(sign);
+        
         var starElement = document.createElement("div");
         starElement.className = "star";
         
-        do {
-            var x = (Math.random() * WIDTH * 0.8 + WIDTH * 0.1) | 0;
-            var y = (Math.random() * HEIGHT * 0.8 + HEIGHT * 0.1) | 0;
-            var xM = WIDTH / 2;
-            var yM = HEIGHT / 2;
-            var deltaX = (x-xM)*(x-xM);
-            var deltaY = (y-yM)*(y-yM);
-            var dist = Math.sqrt(deltaX + deltaY);
+        switch (code.length) {
+            case 1: 
+                starElement.style.top = "75%";
+                starElement.style.left = "50%";
+                break;
+            case 2: 
+                starElement.style.top = "50%";
+                starElement.style.left = "75%";
+                break;
+            case 3: 
+                starElement.style.top = "50%";
+                starElement.style.left = "25%";
+                break;
+            default: 
+                starElement.style.top = "25%";
+                starElement.style.left = "50%";
+                break;                
         }
-        while (dist < HEIGHT*0.2 || dist > HEIGHT*0.4 || coords.some(e => {
-            return ((x-e.x)*(x-e.x)+(y-e.y)*(y-e.y)) < 40000;
-        }));
-        coords.push({x: x, y: y });
-        
-        starElement.style.top = (100 * y / HEIGHT) + "%";
-        starElement.style.left = (100 * x / WIDTH) + "%";
         starElement.style.transform = "translate(-50%,-50%) rotate(" + (Math.random() * 360 | 0) + "deg)";
-        starElement.dataset.number = values[i];
-        starElement.dataset.order = code.length;
-        allStarsElement.appendChild(starElement);
+        starElement.dataset.const = sign;
+        allStarsElement.insertBefore(starElement, allStarsElement.lastChild);
         starElements.push(starElement);
-        values.splice(i, 1);
     }
     
     var blur = {
@@ -82,6 +87,11 @@ function TelescopeGame(element) {
         }
     }   
     
+
+    
+    this.getCode = function() {
+        return code;   
+    }
  
     element.addEventListener("touchmove", function(e) {
         e.preventDefault();
@@ -90,12 +100,19 @@ function TelescopeGame(element) {
         }
     });
     
+    element.querySelector(".btnBack").addEventListener("click", function() {
+        that.stop(); 
+    });
+    
     this.start = function() {
         element.classList.add("show");
     }
     
     this.stop = function() {
         element.classList.remove("show");   
+        if (this.game) {
+            this.game.endgame("telescope");   
+        }
     }
     
     this.update = function(now) {

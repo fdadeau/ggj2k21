@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Test LockF</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="lockF.css">    
+    <script src="lockF.js"></script>
+    <script>
+        
+    document.addEventListener("DOMContentLoaded", function() {
+        
+    var current = new LockFGame(document.getElementById("bcLockF"));    
+        
+    document.getElementById("showBcLockF").addEventListener("click", function() {
+         current.start({ "spades": 2, "hearts": 1, "diams": 3, "clubs": 4 }, ["spades", "hearts", "diams", "clubs"]);
+    });
+        
+    function mainloop() {
+        requestAnimationFrame(mainloop);
+        var now = Date.now();
+        if (current) {
+            current.update(now);   
+        }
+    }
+    mainloop();
+    
+    });
+    </script>
+</head>
+    
+    
+<body>
+    <button id="showBcLockF">Play</button>
+    <section id="bcLockF" class="minigame">
+        <table>
+            <tr>
+                <td colspan="3"></td>
+            </tr>
+            <tr>
+                <td data-key="1"></td>
+                <td data-key="2"></td>
+                <td data-key="3"></td>
+            </tr>
+            <tr>
+                <td data-key="4"></td>
+                <td data-key="5"></td>
+                <td data-key="6"></td>
+            </tr>
+            <tr>
+                <td data-key="7"></td>
+                <td data-key="8"></td>
+                <td data-key="9"></td>
+            </tr>
+            <tr>
+                <td data-key="C"></td>
+                <td data-key="0"></td>
+                <td data-key="V"></td>
+            </tr>
+        </table>
+        <button class="btnBack"></button>
+    </section>     
+</body>
+
+</html>

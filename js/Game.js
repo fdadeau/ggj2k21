@@ -24,6 +24,8 @@ function Game(scenes, actions) {
     // debug
     if (DEBUG) {
         displayZones(scenes, actions);
+        document.querySelector("#bcBackground").classList.remove("masked-1");
+        document.querySelector("#bcBackground").classList.remove("masked-2");
     }
 
     // starts the game 
@@ -31,8 +33,15 @@ function Game(scenes, actions) {
         hero.setPosition(scenes.sdb.start.x, scenes.sdb.start.y);
         this.dialogs.push(...scenes.sdb.text);
         render();
+        ended = false;
         mainloop();
         this.dialogs.say();    
+    }
+    
+    var ended = false;
+    
+    this.end = function() {
+        ended = true;
     }
     
     this.render = function() {
@@ -46,12 +55,21 @@ function Game(scenes, actions) {
     /** Should be called when the game is ended **/
     this.endgame = function(which) {
         console.log("end game: ", which);
+        current = null;   
         if (actions[which] && actions[which].end) {
             actions[which].end();
         }
-        current = null;   
     }
 
+    /** Called to start a game **/
+    this.startgame = function(act) {
+        if (actions[act]) {
+            console.log("starting: " + act);
+            current = actions[act].puzzle;
+            actions[act].start();
+        }
+    }
+    
 
     /** Check if the hero is on the POI */
     function isOnPOI(hero) {
@@ -141,10 +159,7 @@ function Game(scenes, actions) {
         if (current != null)
             return;
         var act = this.dataset.poi;
-        if (actions[act]) {
-            current = actions[act].puzzle;
-            actions[act].start();
-        }
+        that.startgame(act);
     });
 
     // déplacements au clavier 
@@ -177,10 +192,7 @@ function Game(scenes, actions) {
             case 32: // spacebar
                 var act;
                 if (act = btnAction.dataset.poi) {
-                    if (actions[act]) {
-                        current = actions[act].puzzle;
-                        actions[act].start();
-                    }
+                    that.startgame(act);
                 }
         }
     });
@@ -215,7 +227,10 @@ function Game(scenes, actions) {
     ****************************************/
 
     function mainloop() {
-        requestAnimationFrame(mainloop);
+        if (!ended) {
+            requestAnimationFrame(mainloop);
+        }
+        
         var now = Date.now();
 
         if (!that.dialogs.ended()) {

@@ -54,40 +54,46 @@
 #bcTelescopeStars .star {
     position: absolute;
     transform-origin: center;
+    width: 60vh;
+    height: 71vh;
+    background-image: url("../assets/zodiac-spritesheet.png");
+    background-size: 240vh 213vh;
 }
-#bcTelescopeStars .star:before, #bcTelescopeStars .star:after {
-    display: block;
-    position: absolute;
-    text-align: center;
-    color: white;
-    font-size: 400%;
-    width: 5vw;
-    height: 5vw;
+#bcTelescopeStars .star[data-const="aries"] {
+    background-position: 0 0;
 }
-#bcTelescopeStars .star[data-order="1"]:before {
-     content: '\2726';   
+#bcTelescopeStars .star[data-const="taurus"] {
+    background-position: -60vh 0;
 }
-#bcTelescopeStars .star[data-order="2"]:before {
-     content: '\2605';   
+#bcTelescopeStars .star[data-const="gemini"] {
+    background-position: -120vh 0;
 }
-#bcTelescopeStars .star[data-order="3"]:before {
-     content: '\2736';   
+#bcTelescopeStars .star[data-const="cancer"] {
+    background-position: -180vh 0;
 }
-#bcTelescopeStars .star[data-order="4"]:before {
-     content: '\2737';   
+#bcTelescopeStars .star[data-const="leo"] {
+    background-position: 0 -71vh;
 }
-#bcTelescopeStars .star:after {
-    content: attr(data-number);   
-    color: black;
-    font-size: 150%;
-    text-align: center;
-    padding-top: 2vw;
-    line-height: 3vw;
-    vertical-align: middle;
+#bcTelescopeStars .star[data-const="libra"] {
+    background-position: -60vh -71vh;
 }
-#bcTelescopeStars .star[data-number="6"]:after, #bcTelescopeStars .star[data-number="9"]:after {
-    padding-bottom: 0.3vw;
-    text-decoration: underline;   
+#bcTelescopeStars .star[data-const="virgo"] {
+    background-position: -120vh -71vh;
+}
+#bcTelescopeStars .star[data-const="scorpio"] {
+    background-position: -180vh -71vh;
+}
+#bcTelescopeStars .star[data-const="sagittarius"] {
+    background-position: 0 -142vh;
+}
+#bcTelescopeStars .star[data-const="capricorn"] {
+    background-position: -60vh -142vh;
+}
+#bcTelescopeStars .star[data-const="aquarius"] {
+    background-position: -120vh -142vh;
+}
+#bcTelescopeStars .star[data-const="pisces"] {
+    background-position: -180vh -142vh;
 }
 
 

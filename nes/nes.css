@@ -1,0 +1,94 @@
+.minigame {
+    width: 100vw;
+    height: 100vh;
+    position: absolute; 
+    top: 0;
+    left: 0;
+}
+
+#bcNes {
+    box-sizing: border-box;
+    display: none;
+    margin: 0;
+    width: 100vw;
+    overflow: hidden;
+    height: 100vh;
+    background-color: black;
+    color: black;
+}
+#bcNes.show {
+    display: block;
+}
+
+#bcNesCvs {
+    position: absolute; 
+    left: 0; 
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+#bcNesGO, #bcNesCongrats {
+    position: absolute; 
+    bottom: 2vh;
+    font-size: 12vh;
+    width: 90%;
+    text-align: center;
+    color: white;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-variant: small-caps;
+}
+#bcNesGO:before {
+    font-size: 9vh;
+    content: 'Game Over';   
+}
+#bcNesCongrats {
+    bottom: 15vh;   
+}
+#bcNesCongrats:before {
+    content: 'Congratulations, you escaped.'
+}
+
+#bcNesPerso {
+    display: block;
+    left: 50vw;
+    top: 40vh;
+    width: 20vw;
+    height: 15vw;
+    position: absolute;
+    filter: drop-shadow(0 0 0.75rem white);
+    transform-origin: center;
+    animation: animFloat 20s linear 0s infinite;
+}
+
+@keyframes animFloat {
+    0% {
+        left: 101vw;
+        top: 40vh;
+        transform: scale(1, 1) rotate(20deg);
+    }
+    36% {
+        left: -30vw;   
+        top: 30vh;
+        transform: scale(1, 1) rotate(-400deg);
+    }
+    40% {
+        left: -30vw;   
+        top: 30vh;
+        transform: scale(0.4, 0.4) rotate(0deg);
+    }
+    95% {
+        left: 130vw;   
+        top: 4vh;
+        transform: scale(0.4, 0.4) rotate(500deg);
+    }
+    100% {
+        left: 101vw;
+        top: 40vh;
+        transform: scale(1, 1) rotate(20deg);
+    }    
+}
+
+
+
