@@ -17,6 +17,8 @@ function TelescopeGame(element) {
     var coords = []; 
     var starElements = [];
     
+    var focusElt = element.querySelector("#bcTelescopeFocus");
+    
     while (code.length < 4) {
         // select sign
         var i = Math.random() * all_signs.length | 0;
@@ -84,6 +86,7 @@ function TelescopeGame(element) {
                 }
             }
             this.lastU = now;
+            focusElt.style.top = (5 + this.playerBlur * 85 / 20) + "vh";
         }
     }   
     
@@ -99,6 +102,21 @@ function TelescopeGame(element) {
             blur.playerTarget = e.changedTouches[0].clientY * 20 / window.innerHeight | 0
         }
     });
+    var pressed = false;
+    element.addEventListener("mousedown", function() { pressed = true; });
+    element.addEventListener("mouseout", function() { pressed = false; });
+    element.addEventListener("mouseup", function() { pressed = false; });
+    element.addEventListener("mousemove", function(e) {
+        if (pressed) 
+            blur.playerTarget = e.clientY * 20 / window.innerHeight | 0;
+    });
+    element.addEventListener("touchmove", function(e) {
+        e.preventDefault();
+        if (e.changedTouches[0]) {
+            blur.playerTarget = e.changedTouches[0].clientY * 20 / window.innerHeight | 0
+        }
+    });
+
     
     element.querySelector(".btnBack").addEventListener("click", function() {
         that.stop(); 

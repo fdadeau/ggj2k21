@@ -28,6 +28,11 @@ function NesGame(element) {
     
     this.start = function() {
         element.classList.add("show");   
+        if (this.game) {
+            var time = Date.now() - this.game.startTime;
+            time = time / 1000 | 0;
+            document.getElementById("bcNesGO").innerHTML = "Your time: " + (time/60 | 0) + " min " + (time % 60) + " sec";
+        }
     }
     
     this.stop = function() {

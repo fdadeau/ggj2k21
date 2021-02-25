@@ -53,10 +53,12 @@
     padding-right: 1vw;
     font-family: monospace;
     font-size: 5vh;
+    height: 7.5vh;
+    box-sizing:border-box;
     right: -10rem;
     text-align: right;
     position: relative;
-    border: solid 2px #000;
+    border: solid 0.2vh #000;
     border-radius: 0 1vh 1vh 0;
     margin-top: 0.5vh;
     border-left: none;
@@ -64,6 +66,9 @@
 }
 #bcLockZContent > div:before {
     content: ' 4  3  2  1 ';    
+}
+#bcLockZContent > div:after {
+    font-size: 80%;
 }
 #bcLockZContent > div[data-sign="aries"]:after {
     content: '\2648';

@@ -151,15 +151,16 @@
     transform: translate(-50%, -50%);
 }
 #bcDetailContent.constellations > div:before {
-    content: 'Aries';
-    font-size: 4vh;
+    content: 'Aries \2648';
+    font-size: 3.5vh;
+    display: block;
     position: absolute; 
     bottom: -2vh;
 }
 /** First line */
 #bcDetailContent.constellations > div.aries:before {
-    bottom: 0vh;
-    left: 6vh;
+    bottom: 15vh;
+    left: 1vh;
 }
 #bcDetailContent.constellations > div.aries {
     top: 20vh;
@@ -167,9 +168,9 @@
     height: 20vh;
 }
 #bcDetailContent.constellations > div.taurus:before {
-    content: 'Taurus';
+    content: 'Taurus \2649';
     bottom: 20vh;
-    right: 0vh;
+    right: -6vh;
 }
 #bcDetailContent.constellations > div.taurus {
     background-position: -23vh 0;
@@ -178,18 +179,18 @@
 }
 #bcDetailContent.constellations > div.gemini:before {
     left: -2vh;
-    bottom: 4vh;
-    content: 'Gemini';
+    bottom: 0vh;
+    content: 'Gemini \264A';
 }
 #bcDetailContent.constellations > div.gemini {
-    top: 20vh;
+    top: 15vh;
     left: 66vw;
     background-position: -46vh 0;
 }
 #bcDetailContent.constellations > div.cancer:before {
     top: 2vh;
-    right: 1vh;
-    content: 'Cancer';
+    right: -4vh;
+    content: 'Cancer \264B';
 }
 #bcDetailContent.constellations > div.cancer {
     top: 20vh;
@@ -198,9 +199,9 @@
 }
 /** Middle line */
 #bcDetailContent.constellations > div.leo:before {
-    content: 'Leo';
-    left: 16vh;
-    bottom: 2vh;
+    content: 'Leo \264C';
+    left: 2vh;
+    bottom: 21vh;
 }
 #bcDetailContent.constellations > div.leo {
     top: 50vh;
@@ -208,9 +209,9 @@
     background-position: 0vh -26vh;
 }
 #bcDetailContent.constellations > div.virgo:before {
-    content: 'Virgo';
+    content: 'Virgo \264D';
     top: 5vh;
-    right: -6vh;
+    right: -10vh;
 }
 #bcDetailContent.constellations > div.virgo {
     top: 50vh;
@@ -218,9 +219,9 @@
     background-position: -23vh -26vh;
 }
 #bcDetailContent.constellations > div.libra:before {
-    content: 'Libra';
+    content: 'Libra \264E';
     bottom: 5vh;
-    left: -3vh;
+    left: -8vh;
 }
 #bcDetailContent.constellations > div.libra {
     top: 50vh;
@@ -228,9 +229,9 @@
     background-position: -46vh -26vh;
 }
 #bcDetailContent.constellations > div.scorpio:before {
-    content: 'Scorpio';
+    content: 'Scorpio \264F';
     top: 0;
-    left: -3vh;
+    left: -7vh;
 }
 #bcDetailContent.constellations > div.scorpio {
     top: 50vh;
@@ -239,9 +240,9 @@
 }
 /** Last line **/
 #bcDetailContent.constellations > div.sagittarius:before {
-    content: 'Sagittarius';
-    left: 3vh;
-    bottom: 0;
+    content: 'Sagittarius \2650';
+    left: -3vh;
+    bottom: -2vh;
 }
 #bcDetailContent.constellations > div.sagittarius {
     top: 80vh;
@@ -249,18 +250,18 @@
     background-position: 0vh -54vh;
 }
 #bcDetailContent.constellations > div.capricorn:before {
-    content: 'Capricorn';
-    top: 2vh;
-    left: -4vh;
+    content: 'Capricorn \2651';
+    top: -8vh;
+    left: -4h;
 }
 #bcDetailContent.constellations > div.capricorn {
-    top: 85vh;
+    top: 89vh;
     left: 40vw;
     background-position: -23vh -52vh;
 }
 #bcDetailContent.constellations > div.aquarius:before {
-    content: 'Aquarius';
-    left: 5vh;
+    content: 'Aquarius \2652';
+    left: 2vh;
     bottom: 0;
 }
 #bcDetailContent.constellations > div.aquarius {
@@ -269,9 +270,9 @@
     background-position: -46vh -54vh;
 }
 #bcDetailContent.constellations > div.pisces:before {
-    content: 'Pisces';
-    left: 2vh;
-    top: -2vh;
+    content: 'Pisces \2653';
+    left: -2vh;
+    top: -6vh;
 }
 #bcDetailContent.constellations > div.pisces {
     top: 86vh;

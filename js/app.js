@@ -19,8 +19,8 @@ document.addEventListener("DOMContentLoaded", function(e) {
                 "I need to find a way to get out of here...",
                 "and find out what I'm doing there." 
             ],
-            //start: { x: 65, y: 80 },
-            start: { x: 25, y: 25 },
+            start: { x: 65, y: 80 },
+            //start: { x: 25, y: 25 },
             // maybe other things later...?
         }, 
         "chambre": { 
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
                 { x: 7, y: 66, w: 35, h: 9 }         // bed-top + door to spaceship
             ],
             text: [
-                "OK it looks like a room.", 
+                "OK it looks like a bedroom.", 
                 "Quite familiar...",
                 "...but I'm definitely not in my home."
             ]
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
             },
             done: false,
             start: function() {
-                if (!actions.cistercian.puzzle.isSolved()) {
+                if (!actions.dirtykey.done) {
                     game.dialogs.push("I have nothing to wash.");
                     game.dialogs.say();
                     game.endgame("water");
@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
             end: function() {
                 if (this.done == false && this.puzzle.isSolved()) {
                     this.done = true;
-                    game.dialogs.push("Yes! It worked!", "And I now get the key of the bathroom!", "I can exit the room.");
+                    game.dialogs.push("Yes! It worked!", "And I can use the key to exit the room.");
                     game.dialogs.say();
                 }
             }
@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
             poi: { x: 57, y: 73, w: 4, h: 2 },
             puzzle: new CistercianGame(document.getElementById("bcCistercian")),
             isActive: function() {
-                return true;
+                return !this.done;
             },
             start: function() {
                 this.puzzle.game = game;
@@ -147,9 +147,23 @@ document.addEventListener("DOMContentLoaded", function(e) {
             end: function() {
                 if (this.puzzle.isSolved() && !this.done) {
                     this.done = true;
-                    game.dialogs.push("There is something in the toilet bowl.", "It's a key!", "But it is...quite dirty...", "I should wash it if I want to use it.");
+                    game.dialogs.push("There is something in the toilet bowl.");
                     game.dialogs.say();
+                    game.render();
                 }
+            }
+        },
+        "dirtykey": {
+            type: "pickup",
+            poi: { x: 57, y: 73, w: 4, h: 2 },
+            isActive: function() {
+                return actions.cistercian.done && !this.done;
+            },
+            done: false,
+            start: function() {
+                this.done = true;  
+                game.dialogs.push("It's a key!", "But it is...quite dirty...", "I should wash it if I want to use it."); 
+                game.dialogs.say();
             }
         },
         // Room
@@ -454,7 +468,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
             start: function () {
                 if (DEBUG || actions.water.puzzle.isSolved()) {
                     document.querySelector('#bcBackground').classList.remove('masked-1')
-                    document.querySelector('#bcBackground').classList.add('masked-2')
                     game.hero.setPosition(46, 84);
                     game.render();
                     if (this.firstTime) {
@@ -517,7 +530,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
     };
 
     var game = new Game(scenes, actions);
-        
-    game.start();
+    game.start();     
     
 });

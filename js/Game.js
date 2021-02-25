@@ -1,6 +1,6 @@
 "use strict";
 
-const DEBUG = true;
+const DEBUG = false;
 
 
 function Game(scenes, actions) {
@@ -16,6 +16,9 @@ function Game(scenes, actions) {
 
     // background and bounding box (dynamically set by CSS) 
     var background = document.getElementById("bcBackground");
+    background.classList.add("masked-1");
+    background.classList.add("masked-2");
+
     var rect = background.getBoundingClientRect();
 
     // action button
@@ -24,20 +27,25 @@ function Game(scenes, actions) {
     // debug
     if (DEBUG) {
         displayZones(scenes, actions);
-        document.querySelector("#bcBackground").classList.remove("masked-1");
-        document.querySelector("#bcBackground").classList.remove("masked-2");
+        background.classList.remove("masked-1");
+        background.classList.remove("masked-2");
     }
+    
+    this.startTime = 0;
 
     // starts the game 
     this.start = function () {
         hero.setPosition(scenes.sdb.start.x, scenes.sdb.start.y);
         this.dialogs.push(...scenes.sdb.text);
+        this.startTime = Date.now();
+        rect = background.getBoundingClientRect();
         render();
         ended = false;
         mainloop();
         this.dialogs.say();    
     }
     
+    // has game ended?
     var ended = false;
     
     this.end = function() {
@@ -48,8 +56,7 @@ function Game(scenes, actions) {
         render();
     }
     
-    
-
+    // current puzzle
     var current = null;
     
     /** Should be called when the game is ended **/
@@ -111,6 +118,23 @@ function Game(scenes, actions) {
     /**** EVENT LISTENERS *****/
 
     var that = this;
+    
+    
+    // Starting of the game
+    document.getElementById("btnStart").addEventListener("click", function() {
+        document.body.style.opacity = 0;
+        setTimeout(() => { 
+            document.body.style.opacity = 1; 
+            document.body.classList.remove("title");
+            that.start();
+        }, 2000);
+    });
+
+    // Credits button
+    document.getElementById("btnCredits").addEventListener("click", function() {
+        document.getElementById("titleScreen").classList.toggle("credits"); 
+    });
+    
 
     // Virtual joystick management 
 

@@ -12,7 +12,7 @@ function LockZGame(element) {
         
         var bb = e.target.getBoundingClientRect();
         var value = 1 * e.target.dataset.value;
-        if (e.clientX > bb.left + (bb.width * 6 / 7)) {
+        if (e.clientX > bb.left + bb.width - window.innerHeight * 0.05) {
             if (value < 4) {
                 value++;
             }

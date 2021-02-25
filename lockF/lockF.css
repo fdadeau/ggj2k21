@@ -41,20 +41,22 @@
 }
 
 #bcLockF td {
-    font-size: 3vw;
+    font-size: 4vh;
     font-weight: bold;
     text-align: center;
     font-family: monospace;
     width: 10vh;
     height: 10vh;
+    vertical-align: middle;
 }
 #bcLockF td[colspan] {
     background-color: black;
     color: lightgreen;
 }
 #bcLockF td[data-key]:before {
+    display: inline;
     content: attr(data-key);   
-    border: solid 2px #000;
+    border: solid 0.2vh #000;
     padding: 1vh 3vh;
     background-color: lightgray;
 }

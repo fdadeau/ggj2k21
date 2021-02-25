@@ -93,6 +93,7 @@ table {
 body {
     font-family: arial, sans-serif;
     background-color: black;   
+    transition: opacity 1s linear 0s;
 }
 
 main {
@@ -113,7 +114,7 @@ main {
     --map-width: 150vw;
     width: var(--map-width);
     height: calc(var(--map-width) / 0.83);
-    background-image: url(assets/the-map.webp);
+    background-image: url(assets/the-mapV5.webp);
     background-size: cover;
 }
 
@@ -398,17 +399,35 @@ main #btnAction {
     font-size: 10vh;
     bottom: 2vw;       
     z-index: 1000;
+    background-image: none;
+    background-position: center;
+    background-size: cover;
 }
 main #btnAction:not([data-poi=""]) {
     display: block;
 }
-
+/*
 #btnAction:before {
     display: block;
     width: 100%;
     text-align: center;
     margin-top: 25%;
 }
+*/
+#btnAction:not([data-poi=""])[data-type="door"] {
+    background-image: url(assets/icon-door.png);
+}
+#btnAction:not([data-poi=""])[data-type="game"] {
+    background-image: url(assets/icon-play.png);
+}
+#btnAction:not([data-poi=""])[data-type="thought"] {
+    background-image: url(assets/icon-thought.png);
+}
+#btnAction:not([data-poi=""])[data-type="pickup"] {
+    background-image: url(assets/icon-pick.png);
+}
+
+/*
 #btnAction:not([data-poi=""])[data-type="game"]:before {
     content: '\01F914';
 }
@@ -421,6 +440,7 @@ main #btnAction:not([data-poi=""]) {
 #btnAction[data-type="door"]:before {
     content: '\01F6AA';
 }
+*/
 
 #point {
     position: absolute; 
@@ -485,4 +505,103 @@ section .btnBack {
 section .btnBack:before {
     content: '\2716';
     color: red;
+}
+
+
+/************************************* 
+            TITLE BLOCK 
+*************************************/
+
+body.title > * {
+    display: none;
+}
+
+body.title > #titleScreen {
+    display: block;   
+}
+
+#titleScreen {
+    display: none;
+    z-index: 100000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    height: 100vh;
+    overflow: hidden;
+}
+#titleScreen > img {
+    width: auto;
+    height: 70%;
+    position: absolute;
+}
+#titleScreen > img:nth-child(1) {
+    left: 1vw;
+    bottom: 2vw;
+    max-width: 50%;
+}
+#titleScreen > img:nth-child(2) {
+    right: 4vw;
+    top: 6vw;
+    max-width: 60%;
+}
+#titleScreen > div.buttons {
+    position: absolute;
+    right: 10vw;
+    bottom: 1vw;
+}
+#titleScreen button {
+    margin: 1vw 1vw;
+    border: none;
+    width: 14vw;
+    border-radius: 0.8vw;
+    font-weight: bold;
+    padding: 1vw;
+    font-size: 4vh;
+    background-color: grey;
+}
+#titleScreen #btnCredits:before {
+    content: 'Credits';   
+}
+
+/** Credits **/
+#titleScreen.credits #btnCredits:before {
+    content: 'Back';
+}   
+#titleScreen.credits img:nth-child(1) {
+    display: none;   
+}
+#titleScreen.credits #btnStart {
+    display: none;   
+}
+#titleScreen.credits div.nous {
+    display: block;   
+}
+#titleScreen div.nous {
+    display: none;
+    position: absolute; 
+    width: 40vw;
+    left: 1vw;
+    top: 5vh;
+    height: 90vh;
+    font-size: 6vh;
+}
+#titleScreen div.nous > * {
+    text-align: center;
+    margin: 2vh 0;
+}
+#titleScreen div.nous > img {
+    width: 25vh;
+    height: 25vh;
+    display: block;
+    margin: 5vh auto;
+}
+
+#titleScreen div.nous > h2 {
+    font-size: 120%;
+    font-weight: bold;
+    margin-top: 6vh;
 }

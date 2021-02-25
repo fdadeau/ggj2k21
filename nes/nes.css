@@ -39,9 +39,9 @@
     transform: translate(-50%, -50%);
     font-variant: small-caps;
 }
-#bcNesGO:before {
+#bcNesGO {
     font-size: 9vh;
-    content: 'Game Over';   
+/*content: 'Game Over';   */
 }
 #bcNesCongrats {
     bottom: 15vh;   

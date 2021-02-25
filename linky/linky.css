@@ -80,7 +80,7 @@
 }
 #bcLinkyBox:after {
     content: 'Power:';
-    bottom: 55vh;
+    bottom: 60vh;
 }
 .light ~ #bcLinky #bcLinkyBox:before,
 .nolight ~ #bcLinky #bcLinkyBox:before {
