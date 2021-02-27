@@ -49,7 +49,7 @@ function GobeletGame(element) {
         })(),
         // reset
         reset: function() {
-            console.log(this.sequence);
+            if (DEBUG) console.log(this.sequence);
             this.lastU = Date.now();
             this.current = -2;
             this.code = [...cards];
@@ -96,7 +96,7 @@ function GobeletGame(element) {
     
     this.start = function() {
         swaps.reset();   
-        console.log(code);
+        if (DEBUG) console.log(code);
         element.classList.add("show");
     }
     

@@ -61,7 +61,7 @@ function Game(scenes, actions) {
     
     /** Should be called when the game is ended **/
     this.endgame = function(which) {
-        console.log("end game: ", which);
+        if (DEBUG) console.log("end game: ", which);
         current = null;   
         if (actions[which] && actions[which].end) {
             actions[which].end();
@@ -71,7 +71,7 @@ function Game(scenes, actions) {
     /** Called to start a game **/
     this.startgame = function(act) {
         if (actions[act]) {
-            console.log("starting: " + act);
+            if (DEBUG) console.log("starting: " + act);
             current = actions[act].puzzle;
             actions[act].start();
         }
@@ -169,7 +169,7 @@ function Game(scenes, actions) {
             stick.style.left = (50 + x - centerX) + "%";
             stick.style.top = (50 + y - centerY) + "%"; 
         }
-    });
+    }, { passive: true });
     // release on the joystick
     document.getElementById("joystick").addEventListener("touchend", function (e) {
         e.preventDefault();

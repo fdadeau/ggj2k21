@@ -67,13 +67,13 @@ function DetailGame(element) {
                 changePhoto(0);
                 bcContent.querySelector(".btnPrevious").addEventListener("click", function() { changePhoto(-1); });
                 bcContent.querySelector(".btnNext").addEventListener("click", function() { changePhoto(1); });
-                console.log(this.getCode());
+                if (DEBUG) console.log(this.getCode());
                 break;
             default: 
                 bcContent.innerHTML = "";
         }
         element.classList.add("show");   
-        console.log(this.which);
+        if (DEBUG) console.log(this.which);
     }
     
     this.stop = function() {

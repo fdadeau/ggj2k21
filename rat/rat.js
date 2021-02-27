@@ -30,7 +30,7 @@ function RatGame(element) {
                 r.push(values[i]);
                 values.splice(i, 1);
             }   
-            console.log(r);
+            if (DEBUG) console.log(r);
             return r;
         })(),
         
@@ -122,7 +122,7 @@ function RatGame(element) {
     element.addEventListener("touchmove", function(e) {
         e.preventDefault();
         move(e.touches[0]);   
-    });        
+    }, { passive: true });        
     
     var that = this;
     element.querySelector(".btnBack").addEventListener("click", function() {

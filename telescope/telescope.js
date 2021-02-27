@@ -96,12 +96,6 @@ function TelescopeGame(element) {
         return code;   
     }
  
-    element.addEventListener("touchmove", function(e) {
-        e.preventDefault();
-        if (e.changedTouches[0]) {
-            blur.playerTarget = e.changedTouches[0].clientY * 20 / window.innerHeight | 0
-        }
-    });
     var pressed = false;
     element.addEventListener("mousedown", function() { pressed = true; });
     element.addEventListener("mouseout", function() { pressed = false; });
@@ -115,7 +109,7 @@ function TelescopeGame(element) {
         if (e.changedTouches[0]) {
             blur.playerTarget = e.changedTouches[0].clientY * 20 / window.innerHeight | 0
         }
-    });
+    }, { passive: true });
 
     
     element.querySelector(".btnBack").addEventListener("click", function() {

@@ -71,7 +71,7 @@ function GuitarGame(element) {
         if (!this.ready) {
             this.setup()
             this.code = this.generateCode()
-            console.log(this.code)
+            if (DEBUG) console.log(this.code)
             this.ready = true
         }
         element.classList.add("show");

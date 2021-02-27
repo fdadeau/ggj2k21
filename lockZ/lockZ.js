@@ -24,7 +24,7 @@ function LockZGame(element) {
         }
         e.target.dataset.value = value;    
         
-        console.log(that.isSolved());
+        if (DEBUG) console.log(that.isSolved());
         if (that.isSolved()) {
             that.stop();   
         }
@@ -39,7 +39,7 @@ function LockZGame(element) {
     this.isSolved = function() {
         var elems = element.querySelectorAll("#bcLockZContent > div");
         for (var i=0; i < elems.length; i++) {
-            console.log(elems.item(i).dataset.value, elems.item(i).dataset.sign);
+            if (DEBUG) console.log(elems.item(i).dataset.value, elems.item(i).dataset.sign);
             if (code[elems.item(i).dataset.sign]) {
                 if (elems.item(i).dataset.value != code[elems.item(i).dataset.sign]) {
                     return false;   
@@ -54,13 +54,13 @@ function LockZGame(element) {
      
     this.start = function(c) {
         code = c;
-        console.log(c);
+        if (DEBUG) console.log(c);
         element.classList.add("show");   
     }
     
     this.stop = function() {
         element.classList.remove("show");   
-        console.log("solved = ", this.isSolved());
+        if (DEBUG) console.log("solved = ", this.isSolved());
         if (this.game){
             this.game.endgame("lockZ");   
         }

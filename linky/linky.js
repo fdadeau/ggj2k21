@@ -56,8 +56,10 @@ function LinkyGame(element) {
         zeCode = code;
         alarmIsDisabled = alarmOff;
         element.classList.add("show");   
-        console.log("zeCode = ", zeCode);
-        console.log("current = ", this.getCode());
+        if (DEBUG) {
+            console.log("zeCode = ", zeCode);
+            console.log("current = ", this.getCode());
+        }
     }
     
     this.stop = function() {

@@ -5,11 +5,41 @@
     <title>The Hangover of the Century</title>
     <meta charset="utf-8">
 
+    <meta name="author" content="FredDD, Kao98">
+    <!-- https://developers.google.com/web/fundamentals/design-and-ux/browser-customization/ -->
+    <meta name="theme-color" content="#7B68EE">
+    <meta property="og:image" content="icons/icon-512.png">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimal-ui,shrink-to-fit=no" />
 
+    <!-- iOS: 
+        https://medium.com/appscope/designing-native-like-progressive-web-apps-for-ios-1b3cdda1d0e8 https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html
+    -->
+    <meta name="apple-mobile-web-app-capable" content="yes">    
+    <link rel="apple-touch-icon" href="./icons/icon-120.png">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+    <!-- Web app manifest -->
+    <link rel="manifest" href="./manifest.json">
+
+     <script>   
+        /**** Register service worker ****/
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('./ServiceWorker.js')
+                    .then(function(reg) {
+                    console.log('[Service Worker] Registration successful.');
+                }, function (err) { console.log("[Service Worker] Error in registration", err); })
+            });
+        }
+    </script>
+    
+    
+    <!-- App-specific libs --> 
     <link rel="stylesheet" href="style.css">
 
-    <script src="https://code.createjs.com/1.0.0/soundjs.min.js"></script>
+    <script src="./js/soundjs.min.js"></script>
 
     <script src="js/Character.js"></script>
     <script src="js/Game.js"></script>

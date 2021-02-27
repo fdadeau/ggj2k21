@@ -2,7 +2,6 @@
 
 function LockGame(element) {
     
-    
     element.querySelector("#bcLockColorInputs").addEventListener("click", function(e) {
         
         if (e.target.tagName != "BUTTON") {
@@ -118,13 +117,15 @@ function LockGame(element) {
         expectedCode = colorCode;   // { red: 1..4, green: 1..4, yellow: 1..4, blue: 1..4 }
         expectedOrder = order;      // { R: 1..4, G: 1..4, B: 1..4, 
         element.classList.add("show");   
-        console.log("expected code", colorCode);
-        console.log("expected order", order);
+        if (DEBUG) {
+            console.log("expected code", colorCode);
+            console.log("expected order", order);
+        }
     }
     
     this.stop = function() {
         element.classList.remove("show");   
-        console.log("solved = ", this.isSolved());
+        if (DEBUG) console.log("solved = ", this.isSolved());
         if (this.game){
             this.game.endgame();   
         }

@@ -44,7 +44,7 @@ function LockFGame(element) {
     }
      
     this.start = function(expCode, expOrder) {
-        console.log(expCode, expOrder);
+        if (DEBUG) console.log(expCode, expOrder);
         code = expOrder.map(e => expCode[e]);
         element.classList.add("show");   
     }
