@@ -149,7 +149,7 @@ function Game(scenes, actions) {
         if (current != null)
             return;
         
-        e.preventDefault();
+        // e.preventDefault();
 
         var x = e.changedTouches[0].clientX;
         var y = e.changedTouches[0].clientY;

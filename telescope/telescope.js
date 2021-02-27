@@ -105,7 +105,7 @@ function TelescopeGame(element) {
             blur.playerTarget = e.clientY * 20 / window.innerHeight | 0;
     });
     element.addEventListener("touchmove", function(e) {
-        e.preventDefault();
+        // e.preventDefault();
         if (e.changedTouches[0]) {
             blur.playerTarget = e.changedTouches[0].clientY * 20 / window.innerHeight | 0
         }

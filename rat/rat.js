@@ -120,7 +120,7 @@ function RatGame(element) {
         move(e);
     });
     element.addEventListener("touchmove", function(e) {
-        e.preventDefault();
+        //e.preventDefault();
         move(e.touches[0]);   
     }, { passive: true });        
     

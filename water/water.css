@@ -68,7 +68,7 @@
     justify-content: space-evenly;
     align-content: center;
     width: 70%;
-    margin: 10vw auto 5vh auto;
+    margin: 20vh auto 5vh auto;
     background-color: white;
     border: solid 1vw #000;
     border-radius: 5vw;
@@ -96,23 +96,23 @@
 
 #bcWaterLevels button {
     position: absolute;
-    left: 0;
+    left: -1vw;
     width: 3vw;
     height: 4vh;
-    font-size: 4vw;
+    font-size: 10vh;
     text-align: center;
     font-weight: bold; 
     border: none;
     background: transparent;
 }
 #bcWater .bcWaterBtnPlus {
-    top: -7vw;   
+    top: -15vh;   
 }
 #bcWater .bcWaterBtnPlus:before {
     content: '+';
 }
 #bcWater .bcWaterBtnMinus {
-    bottom: -6vw;   
+    bottom: -10vh;   
 }
 #bcWater .bcWaterBtnMinus:before {
     content: '\2212';
