@@ -157,8 +157,9 @@ function Game(scenes, actions) {
     document.getElementById("joystick").addEventListener("touchmove", function (e) {
     */
 
-//    background.addEventListener("touchstart", moveCharacter, { passive: true });
+    background.addEventListener("touchstart", moveCharacter, { passive: true });
     background.addEventListener("touchmove", moveCharacter, { passive: true });
+    document.getElementById("bcCharacter").addEventListener("touchstart", moveCharacter, { passive: true });
     document.getElementById("bcCharacter").addEventListener("touchmove", moveCharacter, { passive: true });
     
     
