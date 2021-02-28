@@ -101,8 +101,10 @@ function Game(scenes, actions) {
         // view centering on the character
         var deltaX = (window.innerWidth / 2) - xPxHero;
         var deltaY = window.innerHeight * 0.8 - yPxHero;
-        background.style.left = deltaX + "px";
-        background.style.top = deltaY + "px";
+        
+        //background.style.left = deltaX + "px";
+        //background.style.top = deltaY + "px";
+        background.style.transform = "translate(" + deltaX + "px, " + deltaY + "px)";
 
         // check if player is on a POI and update the "action" button
         var poi = isOnPOI(hero);
