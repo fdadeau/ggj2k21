@@ -107,6 +107,7 @@ main {
     z-index: 0;
     overflow: hidden;
     background-color: black;
+    transform: translateZ(0);
 }
 
 #bcBackground {
@@ -458,6 +459,7 @@ main #btnAction:not([data-poi=""]) {
 
 
 #joystick {
+    display: none;
     position: absolute; 
     width: 16vh;
     height: 16vh;
