@@ -8,6 +8,8 @@
     <script src="rat.js"></script>
     <script>
         
+        var DEBUG = false;
+        
         document.addEventListener("DOMContentLoaded", function() {
 
             var current = new RatGame(document.getElementById("bcRat"));
@@ -36,6 +38,7 @@
     <section id="bcRat" class="minigame">
         <div id="bcRatBeast"></div>
         <div id="bcRatFlashlight"></div>
+        <button class="btnBack"></button>
     </section>
 </body>
 
