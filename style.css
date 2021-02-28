@@ -97,7 +97,7 @@ body {
 }
 
 main {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100vw;
@@ -114,7 +114,7 @@ main {
     --map-width: 150vw;
     width: var(--map-width);
     height: calc(var(--map-width) / 0.83);
-    background-image: url(assets/the-mapV5.webp);
+    background-image: url(assets/the-mapV5.jpg);
     background-size: cover;
 }
 

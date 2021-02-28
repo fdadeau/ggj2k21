@@ -262,6 +262,7 @@ function Game(scenes, actions) {
                     MAIN LOOP 
     ****************************************/
 
+    var tempo = 0;
     function mainloop() {
         if (!ended) {
             requestAnimationFrame(mainloop);
@@ -274,6 +275,7 @@ function Game(scenes, actions) {
         }
 
         // update character
+        tempo = (tempo + 1) % 4;
         if (hero.update(now)) {
             render();
         }
