@@ -125,9 +125,9 @@ function RadioGame(element) {
     });
     
 
-    createjs.Sound.registerSound("./assets/noise.mp3", 'noise');
+    createjs.Sound.registerSound("./radio/assets/noise.mp3", 'noise');
     ["1", "2", "3", "4", "repeating", "yellow", "green", "blue", "red"].forEach(function(s) {
-        createjs.Sound.registerSound("./assets/"+s+".mp3", s);
+        createjs.Sound.registerSound("./radio/assets/"+s+".mp3", s);
     });
 
 
