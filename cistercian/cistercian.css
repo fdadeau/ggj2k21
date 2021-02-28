@@ -110,8 +110,8 @@
     border-left: solid 8vh gray;
 }
 #bcCistercianLock:after {
-    height: 15vh;
-    top: -15.5vh;
+    height: 11vh;
+    top: -11.5vh;
 }
 .opened #bcCistercianLock:before {
     top: -42vh;
