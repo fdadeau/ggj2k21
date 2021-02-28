@@ -124,11 +124,16 @@ function RadioGame(element) {
         that.stop();
     });
     
-    
+
+    createjs.Sound.registerSound("./assets/noise.mp3", 'noise');
+    ["1", "2", "3", "4", "repeating", "yellow", "green", "blue", "red"].forEach(function(s) {
+        createjs.Sound.registerSound("./assets/"+s+".mp3", s);
+    });
+
 
     var code = {
-        noise: new Audio('./radio/assets/noise.mp3'),
-        code: new Audio('./radio/assets/repeating.mp3'),
+        noise: null,
+        code: null,
         step: 0,
         generate: function() {
             this.target = {};
@@ -146,28 +151,39 @@ function RadioGame(element) {
         },
         playSounds: function() {
             // background noise
+            if (! this.noise) {
+                this.noise = createjs.Sound.play("noise");   
+            }
+            else {
+                this.noise.paused = false;
+            }
             this.noise.volume = 0.6;
-            this.noise.loop = true;
-            this.noise.play();
+            this.noise.loop = -1;
             // repeating code 
             this.step = 0;
-            this.code.src = "./radio/assets/" + this.zeCode[this.step] + ".mp3";            
+            this.code = createjs.Sound.play(this.zeCode[this.step]);
+//            this.code.src = "./radio/assets/" + this.zeCode[this.step] + ".mp3";            
             this.code.volume = 0;
-            this.code.play();
+//            this.code.play();
         },
         stopSounds: function() {
-            this.noise.pause();   
-            this.code.pause();   
+            this.noise.paused = true;   
+            this.code.stop();   
         },
         update: function(dist) {
+            if (!this.code) {
+                return;   
+            }
             // update code playing
-            if (this.code.ended) {
+            //if (this.code.ended) {
+            if (this.code.playState == createjs.Sound.PLAY_FINISHED) {
                 this.step++;
                 if (this.step >= this.zeCode.length) {
                     this.step = 0;   
                 }
-                this.code.src = "./radio/assets/" + this.zeCode[this.step] + ".mp3";
-                this.code.play();
+//                this.code.src = "./radio/assets/" + this.zeCode[this.step] + ".mp3";
+//                this.code.play();
+                this.code = createjs.Sound.play(this.zeCode[this.step]);
             }
             // update volume
             if (dist < 2) {

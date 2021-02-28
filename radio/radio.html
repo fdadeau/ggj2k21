@@ -5,8 +5,11 @@
     <title>Test Radio</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="radio.css">    
+    <script src="../js/soundjs.min.js"></script>
     <script src="radio.js"></script>
     <script>
+        
+    var DEBUG = false;    
         
     document.addEventListener("DOMContentLoaded", function() {
         
@@ -30,12 +33,13 @@
 </head>
 
     
-<body>
+<body style="background-color: #232323;">
     <button id="showBcRadio">Play</button>
     <section id="bcRadio">
         <div id="bcRadioFrequency">
             <button id="bcRadioBtnPlus"></button>
             <button id="bcRadioBtnMinus"></button>
+            <button class="btnBack"></button>
         </div>
         <div id="bcRadioDebug"></div>
     </section>     
