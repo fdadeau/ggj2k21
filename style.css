@@ -111,6 +111,7 @@ main {
 #bcBackground {
     position: absolute;
     background-repeat: no-repeat;
+    will-change: transform;        
     --map-width: 150vw;
     width: var(--map-width);
     height: calc(var(--map-width) / 0.83);
