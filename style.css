@@ -92,7 +92,7 @@ table {
 /*** DEBUT DE LA FEUILLE DE STYLE ***/
 
 html {
-  touch-action: manipulation;
+  touch-action: none;
 }
 
 

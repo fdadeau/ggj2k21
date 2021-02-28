@@ -123,14 +123,17 @@ function Game(scenes, actions) {
     
     
     // Starting of the game
-    document.getElementById("btnStart").addEventListener("click", function() {
+    document.getElementById("btnStart").addEventListener("click", GUIStart);
+    document.querySelector("#titleScreen img").addEventListener("click", GUIStart);
+                                                         
+    function GUIStart() {
         document.body.style.opacity = 0;
         setTimeout(() => { 
             document.body.style.opacity = 1; 
             document.body.classList.remove("title");
             that.start();
         }, 2000);
-    });
+    };
 
     // Credits button
     document.getElementById("btnCredits").addEventListener("click", function() {
