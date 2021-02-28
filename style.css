@@ -104,6 +104,7 @@ main {
     height: 100vh;
     box-sizing: border-box;
     border: none;
+    z-index: 0;
     overflow: hidden;
     background-color: black;
 }
@@ -491,6 +492,7 @@ main #btnAction:not([data-poi=""]) {
     top: 0;
     overflow: hidden;
     left: 0;
+    z-index: 10;
 }
 
 section .btnBack {
