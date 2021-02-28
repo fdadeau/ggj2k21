@@ -148,8 +148,8 @@ function Game(scenes, actions) {
     document.getElementById("joystick").addEventListener("touchmove", function (e) {
     */
 
-    background.addEventListener("touchstart", moveCharacter);
-    background.addEventListener("touchmove", moveCharacter);
+    background.addEventListener("touchstart", moveCharacter, { passive: true });
+    background.addEventListener("touchmove", moveCharacter, { passive: true });
                                  
     function moveCharacter(e) {
         
@@ -159,7 +159,7 @@ function Game(scenes, actions) {
         if (current != null)
             return;
         
-        e.preventDefault();
+        //e.preventDefault();
 
         var x = e.changedTouches[0].clientX;
         var y = e.changedTouches[0].clientY;
