@@ -90,6 +90,12 @@ table {
 
 
 /*** DEBUT DE LA FEUILLE DE STYLE ***/
+
+html {
+  touch-action: none;
+}
+
+
 body {
     font-family: arial, sans-serif;
     background-color: black;   
