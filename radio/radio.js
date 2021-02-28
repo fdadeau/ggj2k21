@@ -125,16 +125,12 @@ function RadioGame(element) {
     });
     
 
-    createjs.Sound.registerSound("./radio/assets/noise.mp3", 'noise');
-    ["1", "2", "3", "4", "repeating", "yellow", "green", "blue", "red"].forEach(function(s) {
-        createjs.Sound.registerSound("./radio/assets/"+s+".mp3", s);
-    });
-
-
     var code = {
         noise: null,
         code: null,
         step: 0,
+        setup: function() {
+        },
         generate: function() {
             this.target = {};
             var ret = ["repeating"];
@@ -152,13 +148,11 @@ function RadioGame(element) {
         playSounds: function() {
             // background noise
             if (! this.noise) {
-                this.noise = createjs.Sound.play("noise");   
+                this.noise = createjs.Sound.play("noise", { loop: -1, volume: 0.6 });   
             }
             else {
                 this.noise.paused = false;
             }
-            this.noise.volume = 0.6;
-            this.noise.loop = -1;
             // repeating code 
             this.step = 0;
             this.code = createjs.Sound.play(this.zeCode[this.step]);
@@ -201,9 +195,15 @@ function RadioGame(element) {
     freq.target = freq.current + 3;
     document.getElementById("bcRadioDebug").innerHTML = (freq.target/10).toFixed(1);
     code.generate();
-
+    
+    var runOnce = false;
+    
     /** API **/
     this.start = function() {
+        if (! runOnce) {
+            code.setup();
+            runOnce = true;
+        }
         element.classList.add("show");
         if (DEBUG) console.log(this.getCode());
         code.playSounds();   

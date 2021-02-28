@@ -127,6 +127,12 @@ function Game(scenes, actions) {
     document.querySelector("#titleScreen img").addEventListener("click", GUIStart);
                                                          
     function GUIStart() {
+        // registering sounds:
+        createjs.Sound.registerSound("./radio/assets/noise.mp3", 'noise');
+        ["1", "2", "3", "4", "repeating", "yellow", "green", "blue", "red"].forEach(function(s) {
+            createjs.Sound.registerSound("./radio/assets/"+s+".mp3", s);
+        });
+
         document.body.style.opacity = 0;
         setTimeout(() => { 
             document.body.style.opacity = 1; 
@@ -151,9 +157,11 @@ function Game(scenes, actions) {
     document.getElementById("joystick").addEventListener("touchmove", function (e) {
     */
 
-    background.addEventListener("touchstart", moveCharacter, { passive: true });
+//    background.addEventListener("touchstart", moveCharacter, { passive: true });
     background.addEventListener("touchmove", moveCharacter, { passive: true });
-                                 
+    document.getElementById("bcCharacter").addEventListener("touchmove", moveCharacter, { passive: true });
+    
+    
     function moveCharacter(e) {
         
         if (! that.dialogs.ended())
@@ -188,6 +196,12 @@ function Game(scenes, actions) {
     // release on the joystick
     // document.getElementById("joystick").addEventListener("touchend", function (e) {
     background.addEventListener("touchend", function (e) {
+        e.preventDefault();
+        hero.setDirection(0, 0);
+        // stick.style.left = "50%";
+        // stick.style.top = "50%";
+    });
+    document.getElementById("bcCharacter").addEventListener("touchend", function (e) {
         e.preventDefault();
         hero.setDirection(0, 0);
         // stick.style.left = "50%";
