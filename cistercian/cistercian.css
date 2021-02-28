@@ -79,14 +79,14 @@
 
 #bcCistercianLock {
     position: absolute;
-    width: 45vh;
-    height: 30vh;
+    width: 60vh;
+    height: 42vh;
     top: 70%;
     left: 50%;
     text-align: center;
     background-color: goldenrod;
     border: solid 1vh gray;
-    padding-top: 10vh;
+    padding-top: 13vh;
     box-sizing: border-box;
     border-radius: 2vh;
     transform-origin: center;
@@ -96,25 +96,25 @@
 #bcCistercianLock:after {
     content: '';
     position: absolute; 
-    top: -26.2vh;
+    top: -30.2vh;
     left: -2vh;
     margin: 0 5vh;
-    width: 38vh;
+    width: 50vh;
     box-sizing: border-box;
-    border-right: solid 6vh gray;
+    border-right: solid 8vh gray;
 }
 #bcCistercianLock:before {
-    height: 26vh;
-    border-radius: 15vh 15vh 0 0;
-    border-top: solid 6vh gray;
-    border-left: solid 6vh gray;
+    height: 30vh;
+    border-radius: 20vh 20vh 0 0;
+    border-top: solid 8vh gray;
+    border-left: solid 8vh gray;
 }
 #bcCistercianLock:after {
-    height: 10vh;
-    top: -11vh;
+    height: 15vh;
+    top: -15.5vh;
 }
 .opened #bcCistercianLock:before {
-    top: -36vh;
+    top: -42vh;
 }
 
 
@@ -122,12 +122,12 @@
     display: inline-block;
     font-family: sans-serif;
     border: solid 0.1vh #000;
-    width: 5vh;
+    width: 8vh;
     position: relative;
-    height: 7vh;
-    margin: 0.2vh;
-    line-height: 7vh;
-    font-size: 6vh;
+    height: 14vh;
+    margin: 0.6vh;
+    line-height: 14vh;
+    font-size: 10vh;
     cursor: pointer;    
     color: black;
     text-shadow: 0.1vh 0.1vh 0 white, -0.1vh -0.1vh 0 grey; 
@@ -145,13 +145,13 @@
 }
 #bcCistercianInput .bcCistercianNumber:before {
     content: attr(data-previous);
-    top: -7vh; 
+    top: -14vh; 
     transform-origin: center bottom;
     transform: rotateX(-45deg);
 }
 #bcCistercianInput .bcCistercianNumber:after {
     content: attr(data-next);
-    bottom: -7vh;
+    bottom: -14vh;
     transform-origin: center top;
     transform: rotateX(45deg);
 }

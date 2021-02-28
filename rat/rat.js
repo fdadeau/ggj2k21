@@ -35,7 +35,7 @@ function RatGame(element) {
         })(),
         
         lastU: Date.now(),
-        
+                
         update: function(now) {
             var dt = now - this.lastU;
             this.lastU = now;
