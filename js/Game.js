@@ -138,10 +138,18 @@ function Game(scenes, actions) {
 
     // Virtual joystick management 
 
+    /*
+    
     var stick = document.querySelector("#joystick > div");
 
     // movement on the joystick
     document.getElementById("joystick").addEventListener("touchmove", function (e) {
+    */
+
+    background.addEventListener("touchstart", moveCharacter);
+    background.addEventListener("touchmove", moveCharacter);
+                                 
+    function moveCharacter(e) {
         
         if (! that.dialogs.ended())
             return;
@@ -149,18 +157,19 @@ function Game(scenes, actions) {
         if (current != null)
             return;
         
-        // e.preventDefault();
+        e.preventDefault();
 
         var x = e.changedTouches[0].clientX;
         var y = e.changedTouches[0].clientY;
 
-        var centerX = 10 * window.innerHeight / 100;
-        var centerY = 90 * window.innerHeight / 100;
+        var centerX = window.innerWidth / 2; //10 * window.innerHeight / 100;
+        var centerY = window.innerHeight * 0.8; //90 * window.innerHeight / 100;
 
         var dist = Math.sqrt((x - centerX) * (x - centerX) + (y - centerY) * (y - centerY));
 
         hero.setDirection((x - centerX) / dist, (y - centerY) / dist);
 
+        /*
         if (dist > window.innerHeight / 20) {
             stick.style.left = (hero.vec.x * 50 + 50) + "%";
             stick.style.top = (hero.vec.y * 50 + 50) + "%";
@@ -169,14 +178,17 @@ function Game(scenes, actions) {
             stick.style.left = (50 + x - centerX) + "%";
             stick.style.top = (50 + y - centerY) + "%"; 
         }
-    }, { passive: true });
+        */
+    };
     // release on the joystick
-    document.getElementById("joystick").addEventListener("touchend", function (e) {
+    // document.getElementById("joystick").addEventListener("touchend", function (e) {
+    background.addEventListener("touchend", function (e) {
         e.preventDefault();
         hero.setDirection(0, 0);
-        stick.style.left = "50%";
-        stick.style.top = "50%";
+        // stick.style.left = "50%";
+        // stick.style.top = "50%";
     });
+    
 
     // click/touch on actions
     document.getElementById("btnAction").addEventListener("click", function (e) {

@@ -92,7 +92,7 @@ function RadioGame(element) {
     document.getElementById("bcRadioBtnPlus").addEventListener("touchstart", function(e) {
         e.preventDefault();
         freq.delta = 1;
-    }, { passive: true });
+    });
     document.getElementById("bcRadioBtnPlus").addEventListener("touchend", function(e) {
         e.preventDefault();
         freq.delta = 0;
@@ -113,7 +113,7 @@ function RadioGame(element) {
     document.getElementById("bcRadioBtnMinus").addEventListener("touchstart", function(e) {
         e.preventDefault();
         freq.delta = -1;        
-    }, { passive: true });
+    });
     document.getElementById("bcRadioBtnMinus").addEventListener("touchend", function(e) {
         e.preventDefault();
         freq.delta = 0;
