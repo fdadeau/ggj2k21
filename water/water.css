@@ -99,6 +99,7 @@
     position: absolute;
     left: -1vmax;
     margin: 0;
+    padding: 0;
     width: 5vmax;
     height: 10vmin;
     font-size: 10vmin;
