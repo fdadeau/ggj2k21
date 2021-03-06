@@ -295,7 +295,7 @@
     height: auto;
 }
 #bcDetailContent .photo:nth-of-type(1) {
-    transform: translate(-46%, -51%) rotate(3deg);
+    transform: translate(-46%, -51%) rotate(-3deg);
 }
 #bcDetailContent .photo:nth-of-type(2) {
     transform: translate(-53%, -52%) rotate(-2deg);
@@ -322,13 +322,13 @@
     left: 5vw;   
 }
 #bcDetailContent .btnPrevious:before {
-    content: '\21BB';
+    content: '\25C0';
 }
 #bcDetailContent .btnNext {
     right: 5vw;   
 }
 #bcDetailContent .btnNext:before {
-    content: '\21BA';
+    content: '\25BA';
 }
 
 #bcDetailContent .photo:after {
@@ -336,25 +336,33 @@
     font-size: 3vw;
 }
 #bcDetailContent .photo[data-card="hearts"]:after {
-    top: 3vw;
-    left: 4vw;
     content: '\2665';   
 }
 #bcDetailContent .photo[data-card="spades"]:after {
-    top: 4vw;
-    right: 4vw;
     content: '\2660';
 }
 #bcDetailContent .photo[data-card="clubs"]:after {
-    top: 3vw;
-    left: 4vw;
     content: '\2663';   
 }
 #bcDetailContent .photo[data-card="diams"]:after {
-    top: 4vw;
-    right: 4vw;
     content: '\2666';
-}   
-
+}  
+/** Position of clubs/hearts/etc. */
+#bcDetailContent .photo:nth-of-type(1):after {
+    top: 3.2vw;
+    left: 3.6vw;
+}
+#bcDetailContent .photo:nth-of-type(2):after {
+    bottom: 3vw;
+    right: 3.8vw;
+}
+#bcDetailContent .photo:nth-of-type(3):after {
+    bottom: 3.2vw;
+    left: 3.4vw;
+}
+#bcDetailContent .photo:nth-of-type(4):after {
+    bottom: 3.2vw;
+    right: 3.4vw;
+}
 
 
