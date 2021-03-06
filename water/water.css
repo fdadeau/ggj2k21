@@ -97,8 +97,8 @@
 #bcWaterLevels button {
     position: absolute;
     left: -1vw;
-    width: 3vw;
-    height: 4vh;
+    width: 5vw;
+    height: 10vh;
     font-size: 10vh;
     text-align: center;
     font-weight: bold; 
@@ -112,7 +112,7 @@
     content: '+';
 }
 #bcWater .bcWaterBtnMinus {
-    bottom: -10vh;   
+    bottom: -15vh;   
 }
 #bcWater .bcWaterBtnMinus:before {
     content: '\2212';

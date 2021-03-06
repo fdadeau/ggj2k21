@@ -41,7 +41,7 @@ function WaterGame(element) {
             return ret;
         },
         init: function() {
-            this.current = this.generate([0, 1, 2, 3, 4]);
+            this.current = this.generate([1, 1, 1, 1]);
             this.target = this.generate([1, 2, 3, 4]);
             element.querySelector("#bcWaterDebug").style.backgroundColor = this.getRGBA(this.target);
         },
