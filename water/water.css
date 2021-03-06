@@ -65,7 +65,7 @@
 #bcWaterLevels {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-content: center;
     width: 70%;
     margin: 20vh auto 5vh auto;
@@ -75,7 +75,7 @@
     box-shadow: 1vw 1vw 1vw #000;
 }
 #bcWaterLevels > div {
-    margin: 0vw 3vw;
+    margin: 0;
     height: 22vw;
     width: 3vw;
     position: relative;
@@ -98,6 +98,7 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    margin: 0;
     width: 5vmax;
     height: 10vmin;
     font-size: 10vmin;
