@@ -96,10 +96,11 @@
 
 #bcWaterLevels button {
     position: absolute;
-    left: -1vw;
-    width: 5vw;
-    height: 10vh;
-    font-size: 10vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5vmax;
+    height: 10vmin;
+    font-size: 10vmin;
     text-align: center;
     font-weight: bold; 
     border: none;
