@@ -13,6 +13,13 @@
 #bcGuitar.show {
     display: block;
 }
+#bcGuitar:before {
+    content: '\01F50A';
+    position: absolute;
+    top: 1vh;
+    left: 1vw;
+    font-size: 8vh;
+}
 
 #bcGuitarContent {
     box-sizing: border-box;

@@ -20,6 +20,13 @@
 #bcRadio.show {
     display: block;   
 }
+#bcRadio:before {
+    content: '\01F50A';
+    position: absolute;
+    top: 1vh;
+    left: 1vw;
+    font-size: 8vh;
+}
 
 #bcRadioFrequency {
     position: absolute; 
