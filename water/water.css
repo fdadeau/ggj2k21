@@ -95,6 +95,7 @@
 }
 
 #bcWaterLevels button {
+    display: block;
     position: absolute;
     left: -1vmax;
     margin: 0;
