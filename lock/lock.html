@@ -5,10 +5,16 @@
     <title>Test Lock</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="lock.css">    
+    <script src="../js/soundjs.min.js"></script>
+
     <script src="lock.js"></script>
     <script>
         
+    DEBUG = true;    
+        
     document.addEventListener("DOMContentLoaded", function() {
+        
+    createjs.Sound.registerSound("./assets/alarm.mp3", 'alarm');
         
     var current = new LockGame(document.getElementById("bcLockColor"));    
         

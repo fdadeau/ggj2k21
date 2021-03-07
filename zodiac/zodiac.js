@@ -18,7 +18,7 @@ function ZodiacGame(element, code) {
     // signs
     var signs = [...all_signs];
     var posX = ["- 25vw", "- 32vw", "- 36vw", "- 36vw", "- 32vw", "- 25vw", "+ 25vw", "+ 32vw", "+ 36vw", "+ 36vw", "+ 32vw", "+ 25vw" ];
-    var posY = ["- 30vh", "- 20vh", "- 8vh", "+ 8vh", "+ 20vh", "+ 30vh", "- 30vh", "- 20vh", "- 8vh", "+ 8vh", "+ 20vh", "+ 30vh" ];
+    var posY = ["- 30vh", "- 20vh", "- 7vh", "+ 7vh", "+ 20vh", "+ 30vh", "- 30vh", "- 20vh", "- 7vh", "+ 7vh", "+ 20vh", "+ 30vh" ];
     var i=0;
     var signPos = {};
     while (signs.length > 0) {

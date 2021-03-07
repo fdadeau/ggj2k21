@@ -48,11 +48,10 @@ function LockGame(element) {
         
 
     var that = this;
-    var alarm = new Audio("./lock/assets/alarm.mp3");
     
     element.querySelector("#bcLockColorHandle").addEventListener("click", function(e) {
         if (!alarmIsDisabled) {
-            alarm.play();
+            createjs.Sound.play('alarm');
         }
         that.stop();
         if (that.game) {

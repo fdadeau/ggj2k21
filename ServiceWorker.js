@@ -5,12 +5,12 @@
 */
 
 // variable definitions 
-var CACHE_NAME = 'appCache-v1';
+var CACHE_NAME = 'appCache-v2';
 
 var contentToCache = [
   './index.html',    
   './manifest.json',    
-  './style.css', 
+//  './style.css', 
   './assets/logoGGJ.png', 
   './assets/title.png', 
   './assets/titreV2.png', 

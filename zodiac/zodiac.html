@@ -10,7 +10,7 @@
         
     document.addEventListener("DOMContentLoaded", function() {
         
-        var current = new ZodiacGame(document.getElementById("bcZodiac"));    
+        var current = new ZodiacGame(document.getElementById("bcZodiac"), {aries: 1, cancer: 2, capricorn: 3, sagittarius: 4});    
 
         document.getElementById("showBcZodiac").addEventListener("click", function() {
             current.start();
