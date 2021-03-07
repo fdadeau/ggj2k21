@@ -106,7 +106,7 @@ function TelescopeGame(element, code) {
     }, { passive: true });
 
     
-    element.querySelector(".btnBack").addEventListener("click", function() {
+    element.querySelector(".btnBack")?.addEventListener("click", function() {
         that.stop(); 
     });
     

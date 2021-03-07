@@ -413,9 +413,15 @@ document.addEventListener("DOMContentLoaded", function(e) {
                 game.dialogs.say(() => this.puzzle.start(actions["zodiac_game"].puzzle.getCode()));
             },
             end: function() {
-                if (!this.done && this.puzzle.isSolved()) {
-                    this.done = true;
-                    game.startgame("photos");   
+                if (!this.done) {
+                    if (this.puzzle.isSolved()) {
+                        this.done = true;
+                        game.startgame("photos");   
+                    }
+                    else {
+                        game.dialogs.push("It looks like only some of the tabs are useful...");
+                        game.dialogs.say();
+                    }
                 }
             }
         },
