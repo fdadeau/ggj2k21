@@ -76,21 +76,22 @@
     top: 20vh;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-content: center;
     width: 50vw;
-    height: 34vh;
+    font-family: monospace;
+    height: 36vh;
     background-color: lightgray;
     border: solid 2vw #000;
     border-radius: 3vw;
     margin: 5vh auto;
 }
 #bcLockColorInputs > div {
-    top: 9vh;
+    top: 9vmin;
     height: 45%;
-    width: 3vw;
+    width: 5vmax;
     position: relative;
-    font-size: 5vw;
+    font-size: 12vmin;
     font-weight: bold;
 }
 
@@ -98,7 +99,7 @@
     display: block;
     position: absolute;
     left: 0;
-    width: 3vmax;
+    width: 5vmax;
     height: 6vmin;
     text-align: center;
     font-weight: bold; 
@@ -109,19 +110,19 @@
     padding: 0;    
 }
 #bcLockColorInputs .bcDigitBtnPlus {
-    top: -6vmin;   
+    top: -7vmin;   
 }
 #bcLockColorInputs .bcDigitBtnPlus:before {
     content: '+';
 }
 #bcLockColorInputs .bcDigitBtnMinus {
-    bottom: -2vmin;   
+    bottom: -3vmin;   
 }
 #bcLockColorInputs .bcDigitBtnMinus:before {
     content: '\2212';
 }
 #bcLockColorInputs .bcDigitBtnColor {
-    bottom: -8vmin;
+    bottom: -9vmin;
 }
 #bcLockColorInputs .bcDigitBtnColor:before {
     content: '\01F3A8';
