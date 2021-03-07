@@ -95,31 +95,32 @@
 }
 
 #bcLockColorInputs button {
+    display: block;
     position: absolute;
     left: 0;
-    width: 3vw;
-    height: 5vh;
+    width: 3vmax;
+    height: 6vmin;
     text-align: center;
     font-weight: bold; 
     border: none;
     background: transparent;
-    font-size: 5vh;
+    font-size: 5vmin;
     
 }
 #bcLockColorInputs .bcDigitBtnPlus {
-    top: -6vh;   
+    top: -6vmin;   
 }
 #bcLockColorInputs .bcDigitBtnPlus:before {
     content: '+';
 }
 #bcLockColorInputs .bcDigitBtnMinus {
-    bottom: -2vh;   
+    bottom: -2vmin;   
 }
 #bcLockColorInputs .bcDigitBtnMinus:before {
     content: '\2212';
 }
 #bcLockColorInputs .bcDigitBtnColor {
-    bottom: -6vh;
+    bottom: -6vmin;
 }
 #bcLockColorInputs .bcDigitBtnColor:before {
     content: '\01F3A8';
