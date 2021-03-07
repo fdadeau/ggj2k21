@@ -1,11 +1,10 @@
 "use strict";
 
 
-function TelescopeGame(element) {
+function TelescopeGame(element, code) {
     
-    var all_signs = ["aries", "cancer", "taurus", "sagittarius", "leo", "scorpio", "aquarius", "virgo", "capricorn", "pisces", "gemini", "libra"];
-    var code = [];
-    
+    // code is only the list of 4 constellations used
+    code = Object.keys(code);
     
     var that = this;
     
@@ -19,18 +18,14 @@ function TelescopeGame(element) {
     
     var focusElt = element.querySelector("#bcTelescopeFocus");
     
-    while (code.length < 4) {
-        // select sign
-        var i = Math.random() * all_signs.length | 0;
-        var sign = all_signs[i];
-        all_signs.splice(i, 1);
-        // add to code
-        code.push(sign);
+    for (var i=0; i < code.length; i++) {
+        
+        var sign = code[i];
         
         var starElement = document.createElement("div");
         starElement.className = "star";
         
-        switch (code.length) {
+        switch (i) {
             case 1: 
                 starElement.style.top = "75%";
                 starElement.style.left = "50%";
@@ -90,7 +85,6 @@ function TelescopeGame(element) {
         }
     }   
     
-
     
     this.getCode = function() {
         return code;   

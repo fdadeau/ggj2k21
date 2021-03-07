@@ -1,6 +1,6 @@
 "use strict";
 
-const DEBUG = false;
+const DEBUG = true;
 
 
 function Game(scenes, actions) {
@@ -121,6 +121,15 @@ function Game(scenes, actions) {
 
     var that = this;
     
+    
+    window.addEventListener("resize", function() {
+        rect = background.getBoundingClientRect();
+        render();
+    });
+    
+    document.addEventListener("dblclick", function(e) {
+        e.preventDefault();    
+    }, { passive: true });
     
     // Starting of the game
     document.getElementById("btnStart").addEventListener("click", GUIStart);

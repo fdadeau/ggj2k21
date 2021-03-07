@@ -92,7 +92,9 @@ table {
 /*** DEBUT DE LA FEUILLE DE STYLE ***/
 
 html {
-  touch-action: none;
+    touch-action: none;
+    -moz-user-select: none;             
+    -webkit-user-select: none;  
 }
 
 

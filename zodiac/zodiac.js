@@ -1,8 +1,11 @@
 "use strict";
 
-function ZodiacGame(element) {
+function ZodiacGame(element, code) {
     
     var that = this;
+    
+    this.code = code;
+    
     element.querySelector(".btnBack").addEventListener("click", function() {
         that.stop(); 
     });
@@ -98,20 +101,17 @@ function ZodiacGame(element) {
     
     var seq = (function() {
         var signes = [...all_signs];
-        var code = {};
         var entrees = {};
         var sorties = {};
-        for (var i=1; i <= 4; i++) {
-            var k = Math.random() * signes.length | 0;
-            var s = signes[k]; 
-            code[s] = i;
-            signes.splice(k, 1);
+        for (var s in code) {
             sorties[s] = Math.random() * 3 | 0;
             entrees[s] = code[s] + sorties[s];
         }
         for (var k of signes) {
-            entrees[k] = Math.random() * 5 | 0;
-            sorties[k] = Math.random() * entrees[k] | 0
+            if (!code[k]) {
+                entrees[k] = Math.random() * 5 | 0;
+                sorties[k] = Math.random() * entrees[k] | 0
+            }
         }
         var sequence = [];
         
@@ -127,9 +127,7 @@ function ZodiacGame(element) {
                 insertExitAtRandom(k)   
             }
         }
-        
-        that.code = code;
-        
+                
         return sequence; 
         
         function shuffle() {

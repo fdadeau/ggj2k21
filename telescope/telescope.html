@@ -10,7 +10,7 @@
         
         document.addEventListener("DOMContentLoaded", function() {
 
-            var current = new TelescopeGame(document.getElementById("bcTelescope"));
+            var current = new TelescopeGame(document.getElementById("bcTelescope"), { cancer: 1, capricorn: 2, aries: 3, sagittarius: 4 });
 
             document.getElementById("showBcTelescope").addEventListener("click", function() {
                 current.start();

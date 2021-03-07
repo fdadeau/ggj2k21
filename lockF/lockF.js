@@ -37,6 +37,9 @@ function LockFGame(element) {
         if (this.isSolved()) {
             this.stop();
         }
+        else {
+            element.querySelector("table tr td[colspan]").innerHTML = "-ERROR-";    
+        }
     }
     
     this.isSolved = function() {

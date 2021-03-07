@@ -56,9 +56,30 @@ document.addEventListener("DOMContentLoaded", function(e) {
     };
     
     
-    var icons = {
-       
+    var codes = {
+        cistercian: Math.random() * 10000 | 0, 
+        water: null,
+        guitar: null,
+        linky: null,
+        radio: null,
+        zodiac: {},
+        aliens: null,
+        init: function() {
+            // Water: 
+            
+            
+            // Zodiac: 
+            var signes = ["aries", "cancer", "taurus", "sagittarius", "leo", "scorpio", "aquarius", "virgo", "capricorn", "pisces", "gemini", "libra"];
+            for (var i=1; i <= 4; i++) {
+                var k = Math.random() * signes.length | 0;
+                var s = signes[k]; 
+                this.zodiac[s] = i;
+                signes.splice(k, 1);
+            }
+        }
     }
+    codes.init();
+    console.log(codes.zodiac);
 
     // Possible actions / POI
     var actions = {
@@ -371,7 +392,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
             isActive: function() {
                 return true;
             },
-            puzzle: new TelescopeGame(document.getElementById("bcTelescope")),
+            puzzle: new TelescopeGame(document.getElementById("bcTelescope"), codes.zodiac),
             start: function() {
                 this.puzzle.game = game;
                 game.dialogs.push("This telescope points to the stars.", "I can adjust the focus by swiping up and down.");
@@ -385,7 +406,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
             isActive: function() {
                 return !this.done;
             },
-            puzzle: new LockZGame(document.getElementById("bcLockZ")),
+            puzzle: new LockZGame(document.getElementById("bcLockZ"), codes.zodiac),
             start: function() {
                 this.puzzle.game = game;
                 game.dialogs.push("It looks like there is combination to open this file.");
@@ -404,7 +425,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
             isActive: function() {
                 return true;
             },
-            puzzle: new ZodiacGame(document.getElementById("bcZodiac")),
+            puzzle: new ZodiacGame(document.getElementById("bcZodiac"), codes.zodiac),
             start: function() {
                 this.puzzle.game = game;
                 this.puzzle.start();

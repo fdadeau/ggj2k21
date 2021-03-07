@@ -19,7 +19,7 @@ function Character(element) {
         for (var i in scenes) {
             this.zonesOK = this.zonesOK.concat(scenes[i].zonesOK);
         }
-        if (DEBUG) console.log(this.zonesOK);
+        // if (DEBUG) console.log(this.zonesOK);
     }
         
     // movement vector
