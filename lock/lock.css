@@ -76,17 +76,17 @@
     top: 20vh;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-content: center;
     width: 50vw;
-    height: 30vh;
+    height: 34vh;
     background-color: lightgray;
     border: solid 2vw #000;
     border-radius: 3vw;
     margin: 5vh auto;
 }
 #bcLockColorInputs > div {
-    top: 7vh;
+    top: 9vh;
     height: 45%;
     width: 3vw;
     position: relative;
@@ -120,7 +120,7 @@
     content: '\2212';
 }
 #bcLockColorInputs .bcDigitBtnColor {
-    bottom: -6vmin;
+    bottom: -8vmin;
 }
 #bcLockColorInputs .bcDigitBtnColor:before {
     content: '\01F3A8';
