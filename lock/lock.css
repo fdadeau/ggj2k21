@@ -100,12 +100,13 @@
     left: 0;
     width: 3vmax;
     height: 6vmin;
-    text-align: left;
+    text-align: center;
     font-weight: bold; 
     border: none;
     background: transparent;
     font-size: 5vmin;
-    
+    margin: 0;
+    padding: 0;    
 }
 #bcLockColorInputs .bcDigitBtnPlus {
     top: -6vmin;   
