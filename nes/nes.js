@@ -38,7 +38,7 @@ function NesGame(element) {
     this.stop = function() {
         element.classList.remove("show");   
         if (this.game) {
-            this.game.endgame("nes");
+            document.location.reload();
         }
     }
     
