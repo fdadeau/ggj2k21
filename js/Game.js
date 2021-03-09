@@ -1,6 +1,6 @@
 "use strict";
 
-const DEBUG = false;
+const DEBUG = true;
 
 
 function Game(scenes, actions) {
@@ -141,6 +141,7 @@ function Game(scenes, actions) {
         ["1", "2", "3", "4", "repeating", "yellow", "green", "blue", "red"].forEach(function(s) {
             createjs.Sound.registerSound("./radio/assets/"+s+".mp3", s);
         });
+        createjs.Sound.registerSound("./lock/assets/alarm.mp3", 'alarm');
 
         document.body.style.opacity = 0;
         setTimeout(() => { 
