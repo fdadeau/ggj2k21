@@ -260,7 +260,8 @@ document.addEventListener("DOMContentLoaded", function(e) {
             },
             start: function() {
                 this.puzzle.game = game;
-                this.puzzle.start();   
+                game.dialogs.push("What the hell is this... thing?"); 
+                game.dialogs.say(() => this.puzzle.start());   
             }
         },
         "constellations_map": {

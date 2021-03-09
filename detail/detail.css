@@ -322,7 +322,7 @@
     left: 5vw;   
 }
 #bcDetailContent .btnPrevious:before {
-    content: '\25C0';
+    content: '\25C4';
 }
 #bcDetailContent .btnNext {
     right: 5vw;   
