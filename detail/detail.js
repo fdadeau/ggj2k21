@@ -62,7 +62,7 @@ function DetailGame(element) {
                                     '</div>').repeat(5);
                 break;
             case "photos":                
-                bcContent.innerHTML = [1,2,3,4].map(e => "<div class='photo' data-card='" + tab[e-1] + "'><img src='../assets/photo" + e + ".png'></div>").join("") + 
+                bcContent.innerHTML = [1,2,3,4].map(e => "<div class='photo' data-card='" + tab[e-1] + "'><img src='./assets/photo" + e + ".png'></div>").join("") + 
                         "<button class='btnPrevious'></button><button class='btnNext'></button>";
                 changePhoto(0);
                 bcContent.querySelector(".btnPrevious").addEventListener("click", function() { changePhoto(-1); });
