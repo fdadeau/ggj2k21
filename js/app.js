@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
         }, 
         "chambre": { 
             zonesOK: [
-                { x: 16, y: 95, w: 35, h: 3 },       // bed-bottom
+                { x: 16, y: 95, w: 31, h: 3 },       // bed-bottom
                 { x: 35, y: 73, w: 12, h: 22 },      // bed-right + door to bathroom
                 { x: 7, y: 66, w: 35, h: 9 }         // bed-top + door to spaceship
             ],
