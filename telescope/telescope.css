@@ -23,6 +23,15 @@
     display: block;
 }
 
+#bcTelescope #bcTelescopeCanvas {
+    width: 150vmax;   
+    height: 150vmax;
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 
 #bcTelescopeStars {
     display: block;
@@ -38,7 +47,7 @@
     animation-delay: 0s;
     animation-timing-function: linear;
     animation-direction: normal;
-    background: black url(./assets/star-space-tile.jpg) repeat; 
+    background: transparent;
 }
 
 @keyframes animStars {
@@ -55,7 +64,7 @@
     position: absolute;
     transform-origin: center;
     width: 60vh;
-    height: 71vh;
+    height: 58vh;
     background-image: url("../assets/zodiac-spritesheet.png");
     background-size: 240vh 213vh;
 }
@@ -75,7 +84,7 @@
     background-position: 0 -71vh;
 }
 #bcTelescopeStars .star[data-const="libra"] {
-    background-position: -60vh -74vh;
+    background-position: -60vh -66vh;
 }
 #bcTelescopeStars .star[data-const="virgo"] {
     background-position: -120vh -71vh;
@@ -87,10 +96,10 @@
     background-position: 0 -142vh;
 }
 #bcTelescopeStars .star[data-const="capricorn"] {
-    background-position: -60vh -150vh;
+    background-position: -60vh -134vh;
 }
 #bcTelescopeStars .star[data-const="aquarius"] {
-    background-position: -120vh -142vh;
+    background-position: -120vh -138vh;
 }
 #bcTelescopeStars .star[data-const="pisces"] {
     background-position: -180vh -142vh;

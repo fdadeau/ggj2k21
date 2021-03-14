@@ -16,6 +16,20 @@ function TelescopeGame(element, code) {
     var coords = []; 
     var starElements = [];
     
+    var max = Math.max(window.innerHeight, window.innerWidth) * 1.5;
+    var canvas = document.createElement("canvas");
+    canvas.id = "bcTelescopeCanvas";
+    allStarsElement.appendChild(canvas);
+    canvas.width = max;
+    canvas.height = max;
+    var ctx = canvas.getContext("2d");
+    ctx.fillStyle = "white";
+    for (var i=0; i < 300; i++) {
+        ctx.beginPath();
+        ctx.arc(Math.random() * max | 0, Math.random() * max | 0, Math.random()*2+1, 0, 2*Math.PI);
+        ctx.fill();
+    }
+    
     var focusElt = element.querySelector("#bcTelescopeFocus");
     
     for (var i=0; i < code.length; i++) {
@@ -125,6 +139,7 @@ function TelescopeGame(element, code) {
         blur.update(now);   
         for (var i in starElements) {
             starElements[i].style.filter = "blur(" + (blur.distance(i) * 0.1) + "vw)";
+           // starElements[i].style.filter = "blur(0vw)";
         }
 
     }
