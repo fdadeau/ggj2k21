@@ -5,7 +5,7 @@
 */
 
 // variable definitions 
-var CACHE_NAME = 'appCache-v2';
+var CACHE_NAME = 'appCache-v3';
 
 var contentToCache = [
   './index.html',    

@@ -36,10 +36,9 @@ function NesGame(element) {
     }
     
     this.stop = function() {
-        element.classList.remove("show");   
         if (this.game) {
             document.body.style.opacity = "0";
-            document.location.reload();
+            setTimeout(function() { document.location.reload(); }, 2000);
         }
     }
     
