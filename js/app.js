@@ -417,6 +417,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
                 if (!this.done) {
                     if (this.puzzle.isSolved()) {
                         this.done = true;
+                        game.render();
                         game.startgame("photos");   
                     }
                     else {

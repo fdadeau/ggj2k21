@@ -20,16 +20,17 @@ function DetailGame(element) {
     }
     shuffle(tab);
 
+    var tab2 = [...tab];
     function changePhoto(d) {
         if (d > 0) {
-            var premier = tab.splice(0, 1)[0];
-            tab.push(premier);
+            var premier = tab2.splice(0, 1)[0];
+            tab2.push(premier);
         }
         else if (d < 0) {
-            var dernier = tab.pop();
-            tab.unshift(dernier);
+            var dernier = tab2.pop();
+            tab2.unshift(dernier);
         }
-        tab.forEach(function(e, i) {
+        tab2.forEach(function(e, i) {
             element.querySelector(".photo[data-card='" + e + "']").style.zIndex = (4 - i);
         });
     }
