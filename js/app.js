@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
         }
     }
     codes.init();
-    console.log(codes.zodiac);
+   // console.log(codes.zodiac);
 
     // Possible actions / POI
     var actions = {
